@@ -1,0 +1,180 @@
+# はじめてメモ ~First Steps~
+
+「初めての瞬間」だけをシンプルに記録・共有する育児マイルストーン記録アプリ
+
+## 概要
+
+はじめてメモは、お子様の成長の節目となる「初めての瞬間」を記録するためのミニマルなアプリです。初めての笑顔、首すわり、ハイハイなど、特別な瞬間を写真とメモで記録し、家族と共有できます。
+
+## 主な機能
+
+### MVP (v1.0) の機能
+
+- **子供のプロフィール登録**: 名前、生年月日、プロフィール写真を登録
+- **マイルストーン一覧**: 月齢ごとに標準的なマイルストーンをテンプレートとして表示
+- **マイルストーン記録**: 達成日、写真、メモを記録
+- **タイムライン表示**: 記録したマイルストーンを時系列で一覧表示
+- **共有機能**: 記録をテキストで共有
+
+## 技術スタック
+
+- **フレームワーク**: Flutter 3.10+
+- **状態管理**: Provider
+- **ローカルDB**: Hive
+- **主要パッケージ**:
+  - google_fonts: Noto Sans JP フォント
+  - image_picker: 画像選択
+  - share_plus: 共有機能
+  - intl: 日付フォーマット
+
+## プロジェクト構造
+
+```
+lib/
+├── main.dart                    # アプリエントリーポイント
+├── theme/
+│   └── app_theme.dart          # デザインシステム、カラーパレット
+├── models/
+│   ├── child_profile.dart      # 子供のプロフィールモデル
+│   └── milestone_record.dart   # マイルストーン記録モデル
+├── services/
+│   ├── database_service.dart   # Hive データベースサービス
+│   └── milestone_service.dart  # マイルストーンテンプレート管理
+├── providers/
+│   ├── child_provider.dart     # 子供プロフィール状態管理
+│   └── milestone_provider.dart # マイルストーン記録状態管理
+├── screens/
+│   ├── main_screen.dart                    # メイン画面（ボトムナビゲーション）
+│   ├── profile_registration_screen.dart    # プロフィール登録画面
+│   ├── home_screen.dart                    # ホーム画面
+│   ├── milestones_screen.dart              # マイルストーン一覧画面
+│   ├── record_screen.dart                  # 記録画面
+│   ├── timeline_screen.dart                # タイムライン画面
+│   └── settings_screen.dart                # 設定画面
+└── widgets/
+    └── milestone_card.dart     # マイルストーンカードウィジェット
+```
+
+## セットアップ手順
+
+### 前提条件
+
+- Flutter SDK 3.10.4 以上
+- Dart 3.10.0 以上
+- iOS: Xcode 14 以上 (iOS 11.0+)
+- Android: Android Studio (Android 5.0+)
+
+### インストール
+
+1. **リポジトリのクローンまたはプロジェクトのダウンロード**
+
+2. **依存関係のインストール**
+
+```bash
+cd first_steps
+flutter pub get
+```
+
+3. **Hive アダプターの生成**
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+### ビルドと実行
+
+#### iOS シミュレーター / デバイスで実行
+
+```bash
+# シミュレーターで実行
+flutter run
+
+# 特定のデバイスを指定
+flutter devices
+flutter run -d <device_id>
+```
+
+#### Android エミュレーター / デバイスで実行
+
+```bash
+# エミュレーターで実行
+flutter run
+
+# 特定のデバイスを指定
+flutter devices
+flutter run -d <device_id>
+```
+
+#### リリースビルド
+
+```bash
+# iOS
+flutter build ios --release
+
+# Android
+flutter build apk --release
+# または
+flutter build appbundle --release
+```
+
+## デザインコンセプト
+
+### カラーパレット
+
+- **メインテキスト**: ダークネイビー (#2C3E50)
+- **アクセント**: ベビーブルー (#87CEEB)
+- **背景**: ホワイト (#FFFFFF)
+- **カード背景**: ライトグレー (#F5F5F5)
+- **成功/完了**: グリーン (#4CAF50)
+
+### タイポグラフィ
+
+- **フォント**: Noto Sans JP
+- モダンなサンセリフ体で統一
+- 情報の優先度をフォントサイズと太さで表現
+
+### UIコンポーネント
+
+- 角丸のコンポーネントで柔らかい印象
+- シンプルなラインアイコンで統一
+- 十分な余白でミニマルなデザイン
+
+## 開発のポイント
+
+### 状態管理
+
+- Providerパターンを採用
+- `ChildProvider`: 子供のプロフィール管理
+- `MilestoneProvider`: マイルストーン記録管理
+
+### データ永続化
+
+- Hiveを使用したローカルストレージ
+- TypeAdapterによる型安全なデータ管理
+- 2つのBox:
+  - `child_profile`: 子供のプロフィール
+  - `milestone_records`: マイルストーン記録
+
+### アーキテクチャ
+
+- レイヤーの明確な分離:
+  - **Presentation**: Screens & Widgets
+  - **Business Logic**: Providers
+  - **Data**: Services & Models
+- 保守性と拡張性を重視した設計
+
+## 今後の機能拡張 (Pro版)
+
+- 広告の非表示
+- 複数の子供登録
+- PDF/画像一括出力
+- クラウドバックアップ
+- カスタムマイルストーン
+
+## ライセンス
+
+このプロジェクトは個人開発のMVPです。
+
+## 問い合わせ
+
+アプリに関するお問い合わせは、設定画面の「お問い合わせ」からご連絡ください。
