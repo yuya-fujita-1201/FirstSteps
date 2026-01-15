@@ -135,7 +135,7 @@ class SettingsScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primaryColor.withOpacity(0.7),
+                    color: AppColors.primaryColor.withValues(alpha: 0.7),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -143,7 +143,7 @@ class SettingsScreen extends StatelessWidget {
                   '~First Steps~',
                   style: TextStyle(
                     fontSize: 14,
-                    color: AppColors.textSecondary.withOpacity(0.7),
+                    color: AppColors.textSecondary.withValues(alpha: 0.7),
                   ),
                 ),
               ],

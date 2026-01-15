@@ -6,7 +6,8 @@ import '../services/milestone_service.dart';
 import '../theme/app_theme.dart';
 import 'record_screen.dart';
 
-/// Milestones list screen showing all milestone templates
+/// Milestones list screen showing all milestone templates grouped by age
+/// Displays predefined milestone templates with completion status indicators
 class MilestonesScreen extends StatefulWidget {
   const MilestonesScreen({super.key});
 
@@ -21,12 +22,14 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
     _loadRecords();
   }
 
+  /// Load milestone records from database
   Future<void> _loadRecords() async {
     await context.read<MilestoneProvider>().loadRecords();
   }
 
   @override
   Widget build(BuildContext context) {
+    // Get milestone templates grouped by age range
     final groupedTemplates = MilestoneService.getTemplatesGroupedByAge();
 
     return Scaffold(
@@ -60,8 +63,9 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                       ),
                     ),
 
-                    // Milestone templates
+                    // Milestone template cards
                     ...templates.map((template) {
+                      // Check if this milestone has been recorded
                       final isRecorded = milestoneProvider
                           .isMilestoneRecorded(template.name);
                       final record = isRecorded
@@ -75,6 +79,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                         ),
                         child: InkWell(
                           onTap: () {
+                            // Navigate to record screen with prefilled milestone info
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (_) => RecordScreen(
@@ -89,13 +94,13 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                             padding: const EdgeInsets.all(16),
                             child: Row(
                               children: [
-                                // Emoji icon
+                                // Emoji icon with completion indicator
                                 Container(
                                   width: 48,
                                   height: 48,
                                   decoration: BoxDecoration(
                                     color: isRecorded
-                                        ? AppColors.success.withOpacity(0.1)
+                                        ? AppColors.success.withValues(alpha: 0.1)
                                         : AppColors.cardBackground,
                                     borderRadius: BorderRadius.circular(24),
                                   ),
@@ -108,7 +113,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                 ),
                                 const SizedBox(width: 16),
 
-                                // Milestone name and status
+                                // Milestone name and completion date
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment:
@@ -124,6 +129,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                               : AppColors.textSecondary,
                                         ),
                                       ),
+                                      // Show achievement date if recorded
                                       if (isRecorded && record != null) ...[
                                         const SizedBox(height: 4),
                                         Text(
@@ -139,7 +145,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                   ),
                                 ),
 
-                                // Status icon
+                                // Completion status icon
                                 Icon(
                                   isRecorded
                                       ? Icons.check_circle

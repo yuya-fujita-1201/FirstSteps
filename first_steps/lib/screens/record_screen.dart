@@ -237,7 +237,7 @@ class _RecordScreenState extends State<RecordScreen> {
                       color: AppColors.cardBackground,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: AppColors.accentColor.withOpacity(0.3),
+                        color: AppColors.accentColor.withValues(alpha: 0.3),
                         width: 2,
                         style: BorderStyle.solid,
                       ),

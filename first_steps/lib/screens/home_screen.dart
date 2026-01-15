@@ -4,11 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../providers/child_provider.dart';
 import '../providers/milestone_provider.dart';
+import '../services/milestone_service.dart';
+import '../models/milestone_record.dart';
 import '../theme/app_theme.dart';
-import '../widgets/milestone_card.dart';
 import 'record_screen.dart';
 
 /// Home screen displaying child profile and recent milestones
+/// Shows the child's profile information and the 3 most recent milestone achievements
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -23,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadData();
   }
 
+  /// Load child profile and milestone records from database
   Future<void> _loadData() async {
     final childProvider = context.read<ChildProvider>();
     final milestoneProvider = context.read<MilestoneProvider>();
@@ -31,6 +34,21 @@ class _HomeScreenState extends State<HomeScreen> {
       childProvider.loadProfile(),
       milestoneProvider.loadRecords(),
     ]);
+  }
+
+  /// Get emoji for milestone based on its name
+  String _getMilestoneEmoji(String milestoneName) {
+    final template = MilestoneService.getAllTemplates().firstWhere(
+      (t) => t.name == milestoneName,
+      orElse: () => const MilestoneTemplate(
+        name: '',
+        category: '',
+        minAgeMonths: 0,
+        maxAgeMonths: 0,
+        emoji: '⭐',
+      ),
+    );
+    return template.emoji;
   }
 
   @override
@@ -89,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                         ),
                         const SizedBox(width: 16),
-                        // Name and age
+                        // Name and age information
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,6 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+
+                        // Show empty state or recent milestones
                         if (recentRecords.isEmpty)
                           Center(
                             child: Padding(
@@ -142,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Icons.stars_outlined,
                                     size: 64,
                                     color: AppColors.textSecondary
-                                        .withOpacity(0.5),
+                                        .withValues(alpha: 0.5),
                                   ),
                                   const SizedBox(height: 16),
                                   const Text(
@@ -158,13 +178,67 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )
                         else
-                          ...recentRecords.map(
-                            (record) => MilestoneCard(
-                              record: record,
-                              onTap: () {
-                                // Navigate to record detail (can be implemented later)
-                              },
-                            ),
+                          // Recent milestones in horizontal row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: recentRecords.map((record) {
+                              return Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  child: Column(
+                                    children: [
+                                      // Milestone icon with photo or emoji
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: AppColors.cardBackground,
+                                        ),
+                                        child: record.photoPath != null
+                                            ? ClipOval(
+                                                child: Image.file(
+                                                  File(record.photoPath!),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              )
+                                            : Center(
+                                                child: Text(
+                                                  _getMilestoneEmoji(
+                                                      record.milestoneName),
+                                                  style: const TextStyle(
+                                                    fontSize: 32,
+                                                  ),
+                                                ),
+                                              ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      // Milestone name
+                                      Text(
+                                        record.milestoneName,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      const SizedBox(height: 4),
+                                      // Achievement date
+                                      Text(
+                                        DateFormat('yyyy/MM/dd')
+                                            .format(record.achievedDate),
+                                        style: const TextStyle(
+                                          fontSize: 10,
+                                          color: AppColors.textSecondary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }).toList(),
                           ),
                       ],
                     ),

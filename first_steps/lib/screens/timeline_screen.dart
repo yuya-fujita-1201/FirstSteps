@@ -1,12 +1,18 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:path_provider/path_provider.dart';
 import '../providers/milestone_provider.dart';
+import '../providers/child_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/milestone_card.dart';
+import '../widgets/shareable_milestone_card.dart';
 import 'record_screen.dart';
 
-/// Timeline screen displaying all milestone records
+/// Timeline screen displaying all milestone records chronologically
+/// Allows users to view, edit, and share their recorded milestones
 class TimelineScreen extends StatefulWidget {
   const TimelineScreen({super.key});
 
@@ -15,35 +21,73 @@ class TimelineScreen extends StatefulWidget {
 }
 
 class _TimelineScreenState extends State<TimelineScreen> {
+  final ScreenshotController _screenshotController = ScreenshotController();
+
   @override
   void initState() {
     super.initState();
     _loadRecords();
   }
 
+  /// Load all milestone records from database
   Future<void> _loadRecords() async {
     await context.read<MilestoneProvider>().loadRecords();
   }
 
+  /// Share milestone record as an image
+  /// Captures the shareable card widget as an image and shares it via OS share sheet
   Future<void> _shareRecord(String recordId) async {
     try {
       final milestoneProvider = context.read<MilestoneProvider>();
+      final childProvider = context.read<ChildProvider>();
       final record = milestoneProvider.getRecordById(recordId);
+      final childName = childProvider.profile?.name ?? 'お子様';
 
       if (record == null) return;
 
-      // For MVP, share text. Image sharing can be enhanced later.
-      final text = '''
-${record.milestoneName}
-達成日: ${record.achievedDate.year}/${record.achievedDate.month}/${record.achievedDate.day}
-${record.memo != null && record.memo!.isNotEmpty ? '\n${record.memo}' : ''}
+      // Show loading dialog
+      if (!mounted) return;
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
 
-#はじめてメモ #FirstSteps
-''';
+      // Capture the shareable card as an image
+      final image = await _screenshotController.captureFromWidget(
+        MediaQuery(
+          data: const MediaQueryData(),
+          child: ShareableMilestoneCard(
+            record: record,
+            childName: childName,
+          ),
+        ),
+        delay: const Duration(milliseconds: 100),
+      );
 
-      await Share.share(text);
-    } catch (e) {
+      // Save image to temporary file
+      final tempDir = await getTemporaryDirectory();
+      final file = await File(
+        '${tempDir.path}/milestone_${record.id}.png',
+      ).create();
+      await file.writeAsBytes(image);
+
+      // Close loading dialog
       if (mounted) {
+        Navigator.of(context).pop();
+      }
+
+      // Share the image
+      await Share.shareXFiles(
+        [XFile(file.path)],
+        text: '${record.milestoneName}\n${record.achievedDate.year}/${record.achievedDate.month}/${record.achievedDate.day}\n\n#はじめてメモ #FirstSteps',
+      );
+    } catch (e) {
+      // Close loading dialog if still open
+      if (mounted) {
+        Navigator.of(context, rootNavigator: true).pop();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('共有に失敗しました')),
         );
@@ -51,6 +95,7 @@ ${record.memo != null && record.memo!.isNotEmpty ? '\n${record.memo}' : ''}
     }
   }
 
+  /// Navigate to record detail/edit screen
   void _navigateToRecordDetail(String recordId) {
     final milestoneProvider = context.read<MilestoneProvider>();
     final record = milestoneProvider.getRecordById(recordId);
@@ -80,6 +125,7 @@ ${record.memo != null && record.memo!.isNotEmpty ? '\n${record.memo}' : ''}
         builder: (context, milestoneProvider, _) {
           final records = milestoneProvider.records;
 
+          // Show empty state if no records
           if (records.isEmpty) {
             return RefreshIndicator(
               onRefresh: _loadRecords,
@@ -94,7 +140,7 @@ ${record.memo != null && record.memo!.isNotEmpty ? '\n${record.memo}' : ''}
                         Icon(
                           Icons.timeline_outlined,
                           size: 64,
-                          color: AppColors.textSecondary.withOpacity(0.5),
+                          color: AppColors.textSecondary.withValues(alpha: 0.5),
                         ),
                         const SizedBox(height: 16),
                         const Text(
@@ -113,6 +159,7 @@ ${record.memo != null && record.memo!.isNotEmpty ? '\n${record.memo}' : ''}
             );
           }
 
+          // Display records in a scrollable list
           return RefreshIndicator(
             onRefresh: _loadRecords,
             child: ListView.builder(
