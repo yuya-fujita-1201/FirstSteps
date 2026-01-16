@@ -16,22 +16,39 @@
 - **タイムライン表示**: 記録したマイルストーンを時系列で一覧表示
 - **共有機能**: 記録をテキストで共有
 
+### v1.1 追加機能
+
+- **広告表示 (AdMob)**: ホーム/タイムライン/マイルストーンにアダプティブバナー広告を表示
+- **インタースティシャル広告**: 記録保存後に3回に1回の頻度で表示
+- **Pro版 (RevenueCat)**: 広告非表示、複数人の子供登録、クラウドバックアップ
+- **クラウドバックアップ (Firebase)**: 匿名認証でバックアップ/復元
+- **画像最適化**: 保存前に長辺1024px制限・JPEG品質85%で圧縮
+- **エラーハンドリング強化**: 主要処理でユーザーフレンドリーな通知
+
 ## 技術スタック
 
 - **フレームワーク**: Flutter 3.10+
 - **状態管理**: Provider
 - **ローカルDB**: Hive
+- **広告**: Google AdMob
+- **アプリ内課金**: RevenueCat
+- **クラウドバックアップ**: Firebase (Auth/Firestore/Storage)
 - **主要パッケージ**:
   - google_fonts: Noto Sans JP フォント
   - image_picker: 画像選択
+  - image: 画像最適化
   - share_plus: 共有機能
   - intl: 日付フォーマット
+  - google_mobile_ads: 広告
+  - purchases_flutter: RevenueCat
+  - firebase_core/firebase_auth/cloud_firestore/firebase_storage: バックアップ
 
 ## プロジェクト構造
 
 ```
 lib/
 ├── main.dart                    # アプリエントリーポイント
+├── firebase_options.dart        # Firebase設定
 ├── theme/
 │   └── app_theme.dart          # デザインシステム、カラーパレット
 ├── models/
@@ -39,10 +56,14 @@ lib/
 │   └── milestone_record.dart   # マイルストーン記録モデル
 ├── services/
 │   ├── database_service.dart   # Hive データベースサービス
-│   └── milestone_service.dart  # マイルストーンテンプレート管理
+│   ├── milestone_service.dart  # マイルストーンテンプレート管理
+│   ├── ad_service.dart         # AdMob広告管理
+│   ├── backup_service.dart     # Firebaseバックアップ/復元
+│   └── image_optimizer.dart    # 画像最適化ヘルパー
 ├── providers/
 │   ├── child_provider.dart     # 子供プロフィール状態管理
 │   └── milestone_provider.dart # マイルストーン記録状態管理
+│   └── purchase_provider.dart  # Pro版購入状態管理
 ├── screens/
 │   ├── main_screen.dart                    # メイン画面（ボトムナビゲーション）
 │   ├── profile_registration_screen.dart    # プロフィール登録画面
@@ -52,7 +73,8 @@ lib/
 │   ├── timeline_screen.dart                # タイムライン画面
 │   └── settings_screen.dart                # 設定画面
 └── widgets/
-    └── milestone_card.dart     # マイルストーンカードウィジェット
+    ├── milestone_card.dart     # マイルストーンカードウィジェット
+    └── banner_ad_widget.dart   # バナー広告ウィジェット
 ```
 
 ## セットアップ手順
@@ -75,7 +97,17 @@ cd first_steps
 flutter pub get
 ```
 
-3. **Hive アダプターの生成**
+3. **Firebase セットアップ**
+
+- FlutterFire CLI で `firebase_options.dart` を生成してください。
+- Firebase Authentication / Firestore / Storage を有効化してください。
+
+4. **RevenueCat/AdMob の設定**
+
+- `lib/providers/purchase_provider.dart` の `REVENUECAT_PUBLIC_API_KEY` を設定
+- `lib/services/ad_service.dart` / `lib/widgets/banner_ad_widget.dart` の広告ユニットIDを設定
+
+5. **Hive アダプターの生成**
 
 ```bash
 flutter pub run build_runner build --delete-conflicting-outputs

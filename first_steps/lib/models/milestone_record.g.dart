@@ -26,13 +26,14 @@ class MilestoneRecordAdapter extends TypeAdapter<MilestoneRecord> {
       createdAt: fields[6] as DateTime,
       updatedAt: fields[7] as DateTime,
       ageInMonthsWhenAchieved: fields[8] as int,
+      childKey: (fields[9] as int?) ?? 0,
     );
   }
 
   @override
   void write(BinaryWriter writer, MilestoneRecord obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class MilestoneRecordAdapter extends TypeAdapter<MilestoneRecord> {
       ..writeByte(7)
       ..write(obj.updatedAt)
       ..writeByte(8)
-      ..write(obj.ageInMonthsWhenAchieved);
+      ..write(obj.ageInMonthsWhenAchieved)
+      ..writeByte(9)
+      ..write(obj.childKey);
   }
 
   @override

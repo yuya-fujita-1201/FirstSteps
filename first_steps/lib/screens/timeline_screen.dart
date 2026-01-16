@@ -6,9 +6,11 @@ import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import '../providers/milestone_provider.dart';
 import '../providers/child_provider.dart';
+import '../providers/purchase_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/milestone_card.dart';
 import '../widgets/shareable_milestone_card.dart';
+import '../widgets/banner_ad_widget.dart';
 import 'record_screen.dart';
 
 /// Timeline screen displaying all milestone records chronologically
@@ -44,7 +46,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
       final milestoneProvider = context.read<MilestoneProvider>();
       final childProvider = context.read<ChildProvider>();
       final record = milestoneProvider.getRecordById(recordId);
-      final childName = childProvider.profile?.name ?? 'お子様';
+      final childName = childProvider.currentChild?.name ?? 'お子様';
 
       if (record == null) return;
 
@@ -124,40 +126,48 @@ class _TimelineScreenState extends State<TimelineScreen> {
       appBar: AppBar(
         title: const Text('タイムライン'),
       ),
-      body: Consumer<MilestoneProvider>(
-        builder: (context, milestoneProvider, _) {
+      body: Consumer2<MilestoneProvider, PurchaseProvider>(
+        builder: (context, milestoneProvider, purchaseProvider, _) {
           final records = milestoneProvider.records;
 
           // Show empty state if no records
           if (records.isEmpty) {
             return RefreshIndicator(
               onRefresh: _loadRecords,
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height - 200,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.timeline_outlined,
-                          size: 64,
-                          color: AppColors.textSecondary.withValues(alpha: 0.5),
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          'まだ記録がありません\n「記録する」から追加してみましょう',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: AppColors.textSecondary,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height - 200,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.timeline_outlined,
+                                size: 64,
+                                color:
+                                    AppColors.textSecondary.withValues(alpha: 0.5),
+                              ),
+                              const SizedBox(height: 16),
+                              const Text(
+                                'まだ記録がありません\n「記録する」から追加してみましょう',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: AppColors.textSecondary,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                  if (!purchaseProvider.isPro) const BannerAdWidget(),
+                ],
               ),
             );
           }
@@ -165,17 +175,24 @@ class _TimelineScreenState extends State<TimelineScreen> {
           // Display records in a scrollable list
           return RefreshIndicator(
             onRefresh: _loadRecords,
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              itemCount: records.length,
-              itemBuilder: (context, index) {
-                final record = records[index];
-                return MilestoneCard(
-                  record: record,
-                  onTap: () => _navigateToRecordDetail(record.id),
-                  onShare: () => _shareRecord(record.id),
-                );
-              },
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    itemCount: records.length,
+                    itemBuilder: (context, index) {
+                      final record = records[index];
+                      return MilestoneCard(
+                        record: record,
+                        onTap: () => _navigateToRecordDetail(record.id),
+                        onShare: () => _shareRecord(record.id),
+                      );
+                    },
+                  ),
+                ),
+                if (!purchaseProvider.isPro) const BannerAdWidget(),
+              ],
             ),
           );
         },

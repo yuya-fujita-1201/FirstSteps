@@ -5,12 +5,15 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../models/child_profile.dart';
 import '../providers/child_provider.dart';
+import '../services/image_optimizer.dart';
 import '../theme/app_theme.dart';
 import 'main_screen.dart';
 
 /// Profile registration screen (shown on first launch)
 class ProfileRegistrationScreen extends StatefulWidget {
-  const ProfileRegistrationScreen({super.key});
+  final bool isAdding;
+
+  const ProfileRegistrationScreen({super.key, this.isAdding = false});
 
   @override
   State<ProfileRegistrationScreen> createState() =>
@@ -35,20 +38,18 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
     try {
       final XFile? image = await _imagePicker.pickImage(
         source: ImageSource.gallery,
-        maxWidth: 512,
-        maxHeight: 512,
-        imageQuality: 85,
       );
 
       if (image != null) {
+        final optimizedPath = await ImageOptimizer.optimizeAndSave(image.path);
         setState(() {
-          _photoPath = image.path;
+          _photoPath = optimizedPath;
         });
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('画像の読み込みに失敗しました')),
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
         );
       }
     }
@@ -109,17 +110,21 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
       );
 
       final childProvider = context.read<ChildProvider>();
-      await childProvider.saveProfile(profile);
+      await childProvider.addProfile(profile);
 
       if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const MainScreen()),
-        );
+        if (widget.isAdding) {
+          Navigator.of(context).pop(true);
+        } else {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (_) => const MainScreen()),
+          );
+        }
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('保存に失敗しました')),
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
         );
       }
     } finally {
@@ -135,7 +140,7 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('プロフィール登録'),
+        title: Text(widget.isAdding ? '子供を追加' : 'プロフィール登録'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -249,7 +254,7 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                           ),
                         )
-                      : const Text('登録する'),
+                      : Text(widget.isAdding ? '追加する' : '登録する'),
                 ),
               ],
             ),

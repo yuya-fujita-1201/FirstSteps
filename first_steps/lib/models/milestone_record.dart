@@ -41,6 +41,10 @@ class MilestoneRecord extends HiveObject {
   @HiveField(8)
   int ageInMonthsWhenAchieved;
 
+  /// Child profile key (Hive key) for multi-child support
+  @HiveField(9)
+  int childKey;
+
   MilestoneRecord({
     required this.id,
     required this.milestoneName,
@@ -51,6 +55,7 @@ class MilestoneRecord extends HiveObject {
     required this.createdAt,
     required this.updatedAt,
     required this.ageInMonthsWhenAchieved,
+    required this.childKey,
   });
 
   /// Copy with method for updating fields
@@ -64,6 +69,7 @@ class MilestoneRecord extends HiveObject {
     DateTime? createdAt,
     DateTime? updatedAt,
     int? ageInMonthsWhenAchieved,
+    int? childKey,
   }) {
     return MilestoneRecord(
       id: id ?? this.id,
@@ -76,6 +82,7 @@ class MilestoneRecord extends HiveObject {
       updatedAt: updatedAt ?? this.updatedAt,
       ageInMonthsWhenAchieved:
           ageInMonthsWhenAchieved ?? this.ageInMonthsWhenAchieved,
+      childKey: childKey ?? this.childKey,
     );
   }
 }

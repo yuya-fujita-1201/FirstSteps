@@ -6,6 +6,9 @@ import 'package:intl/intl.dart';
 import '../models/milestone_record.dart';
 import '../providers/milestone_provider.dart';
 import '../providers/child_provider.dart';
+import '../providers/purchase_provider.dart';
+import '../services/ad_service.dart';
+import '../services/image_optimizer.dart';
 import '../theme/app_theme.dart';
 
 /// Record screen for creating/editing milestone records
@@ -65,20 +68,18 @@ class _RecordScreenState extends State<RecordScreen> {
     try {
       final XFile? image = await _imagePicker.pickImage(
         source: ImageSource.gallery,
-        maxWidth: 1024,
-        maxHeight: 1024,
-        imageQuality: 85,
       );
 
       if (image != null) {
+        final optimizedPath = await ImageOptimizer.optimizeAndSave(image.path);
         setState(() {
-          _photoPath = image.path;
+          _photoPath = optimizedPath;
         });
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('画像の読み込みに失敗しました')),
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
         );
       }
     }
@@ -125,9 +126,10 @@ class _RecordScreenState extends State<RecordScreen> {
     try {
       final childProvider = context.read<ChildProvider>();
       final milestoneProvider = context.read<MilestoneProvider>();
-      final profile = childProvider.profile;
+      final profile = childProvider.currentChild;
+      final childKey = childProvider.currentChildKey;
 
-      if (profile == null) {
+      if (profile == null || childKey == null) {
         throw Exception('Child profile not found');
       }
 
@@ -150,6 +152,7 @@ class _RecordScreenState extends State<RecordScreen> {
         createdAt: widget.existingRecord?.createdAt ?? DateTime.now(),
         updatedAt: DateTime.now(),
         ageInMonthsWhenAchieved: ageInMonths,
+        childKey: childKey,
       );
 
       if (widget.existingRecord != null) {
@@ -162,12 +165,16 @@ class _RecordScreenState extends State<RecordScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('記録を保存しました')),
         );
+        final purchaseProvider = context.read<PurchaseProvider>();
+        if (!purchaseProvider.isPro) {
+          AdService().showInterstitialAd();
+        }
         Navigator.of(context).pop(true);
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('保存に失敗しました: $e')),
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
         );
       }
     } finally {
