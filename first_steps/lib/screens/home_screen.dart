@@ -87,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Row(
                       children: [
                         // Profile photo
+                        // Profile photo
                         Container(
                           width: 80,
                           height: 80,
@@ -138,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
+                  ),
 
                   const Divider(height: 1),
 
@@ -184,52 +186,53 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         else
                           // Recent milestones in horizontal row
-                    Row(
-                          children: recentRecords.map((record) {
-                            return Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (_) => RecordScreen(existingRecord: record),
-                                  ));
-                                },
-                                child: Card(
-                                  elevation: 0,
-                                  color: const Color(0xFFF5F5F5),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        _getMilestoneEmoji(record.milestoneName),
-                                        style: const TextStyle(fontSize: 28),
+                          Row(
+                            children: recentRecords.map((record) {
+                              return Expanded(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (_) => RecordScreen(existingRecord: record),
+                                    ));
+                                  },
+                                  child: Card(
+                                    elevation: 0,
+                                    color: const Color(0xFFF5F5F5),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            _getMilestoneEmoji(record.milestoneName),
+                                            style: const TextStyle(fontSize: 28),
+                                          ),
+                                          const SizedBox(height: 8),
+                                          Text(
+                                            record.milestoneName,
+                                            style: const TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            DateFormat('yyyy/MM/dd').format(record.achievedDate),
+                                            style: const TextStyle(
+                                              fontSize: 11,
+                                              color: AppColors.textSecondary,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      const SizedBox(height: 8),
-                                      Text(
-                                        record.milestoneName,
-                                        style: const TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        DateFormat('yyyy/MM/dd').format(record.achievedDate),
-                                        style: const TextStyle(
-                                          fontSize: 11,
-                                          color: AppColors.textSecondary,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
+                              );
+                            }).toList(),
+                          ),
                       ],
                     ),
                   ),
@@ -251,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                ),
+
                   const SizedBox(height: 24),
                 ],
               ),

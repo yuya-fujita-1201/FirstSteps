@@ -103,7 +103,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                   height: 48,
                                   decoration: BoxDecoration(
                                     color: isRecorded
-                                        ? AppColors.accentColor.withOpacity(0.1)
+                                        ? AppColors.accentColor.withValues(alpha: 0.1)
                                         : const Color(0xFFF5F5F5),
                                     borderRadius: BorderRadius.circular(24),
                                   ),
