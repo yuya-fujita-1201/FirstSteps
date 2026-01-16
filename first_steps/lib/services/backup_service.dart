@@ -57,7 +57,7 @@ class BackupService {
     final childrenBatch = _firestore.batch();
     for (final entry in childBox.toMap().entries) {
       final childKey = entry.key as int;
-      final profile = entry.value as ChildProfile;
+      final profile = entry.value;
       final photoUrl = await _uploadPhoto(
         profile.photoPath,
         'users/${user.uid}/children/$childKey.jpg',
@@ -134,7 +134,7 @@ class BackupService {
             DateTime.now(),
       );
 
-      final newKey = await childBox.add(profile) as int;
+      final newKey = await childBox.add(profile);
       childKeyMap[originalKey] = newKey;
     }
 

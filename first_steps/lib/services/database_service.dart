@@ -64,7 +64,7 @@ class DatabaseService {
     try {
       final box = getChildProfileBox();
       final key = await box.add(profile);
-      return key as int;
+      return key;
     } catch (e) {
       rethrow;
     }
