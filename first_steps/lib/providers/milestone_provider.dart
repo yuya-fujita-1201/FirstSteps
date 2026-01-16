@@ -5,8 +5,24 @@ import '../services/database_service.dart';
 /// Provider for managing milestone records state
 class MilestoneProvider extends ChangeNotifier {
   List<MilestoneRecord> _records = [];
+  int? _currentChildKey;
 
-  List<MilestoneRecord> get records => _records;
+  List<MilestoneRecord> get records {
+    if (_currentChildKey == null) {
+      return _records;
+    }
+    return _records
+        .where((record) => record.childKey == _currentChildKey)
+        .toList();
+  }
+
+  int? get currentChildKey => _currentChildKey;
+
+  void updateCurrentChildKey(int? key) {
+    if (_currentChildKey == key) return;
+    _currentChildKey = key;
+    notifyListeners();
+  }
 
   /// Load all milestone records from database
   Future<void> loadRecords() async {
@@ -16,7 +32,7 @@ class MilestoneProvider extends ChangeNotifier {
 
   /// Get recent records (limited)
   List<MilestoneRecord> getRecentRecords({int limit = 3}) {
-    return _records.take(limit).toList();
+    return records.take(limit).toList();
   }
 
   /// Save new milestone record
@@ -40,7 +56,7 @@ class MilestoneProvider extends ChangeNotifier {
   /// Get milestone record by ID
   MilestoneRecord? getRecordById(String id) {
     try {
-      return _records.firstWhere((record) => record.id == id);
+      return records.firstWhere((record) => record.id == id);
     } catch (e) {
       return null;
     }
@@ -48,13 +64,13 @@ class MilestoneProvider extends ChangeNotifier {
 
   /// Check if milestone is already recorded
   bool isMilestoneRecorded(String milestoneName) {
-    return _records.any((record) => record.milestoneName == milestoneName);
+    return records.any((record) => record.milestoneName == milestoneName);
   }
 
   /// Get milestone record by name
   MilestoneRecord? getRecordByName(String milestoneName) {
     try {
-      return _records
+      return records
           .firstWhere((record) => record.milestoneName == milestoneName);
     } catch (e) {
       return null;
@@ -65,7 +81,7 @@ class MilestoneProvider extends ChangeNotifier {
   Map<String, List<MilestoneRecord>> getRecordsGroupedByMonth() {
     final Map<String, List<MilestoneRecord>> grouped = {};
 
-    for (var record in _records) {
+    for (var record in records) {
       final monthKey =
           '${record.achievedDate.year}年${record.achievedDate.month}月';
       if (!grouped.containsKey(monthKey)) {

@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'theme/app_theme.dart';
 import 'models/child_profile.dart';
 import 'models/milestone_record.dart';
 import 'providers/child_provider.dart';
 import 'providers/milestone_provider.dart';
+import 'providers/purchase_provider.dart';
 import 'screens/main_screen.dart';
 import 'screens/profile_registration_screen.dart';
 import 'services/database_service.dart';
+import 'services/ad_service.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Initialize AdMob
+  await MobileAds.instance.initialize();
+  AdService().loadInterstitialAd();
 
   // Initialize Hive
   await Hive.initFlutter();
@@ -35,7 +49,17 @@ class FirstStepsApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ChildProvider()),
-        ChangeNotifierProvider(create: (_) => MilestoneProvider()),
+        ChangeNotifierProxyProvider<ChildProvider, MilestoneProvider>(
+          create: (_) => MilestoneProvider(),
+          update: (_, childProvider, milestoneProvider) {
+            milestoneProvider ??= MilestoneProvider();
+            milestoneProvider.updateCurrentChildKey(
+              childProvider.currentChildKey,
+            );
+            return milestoneProvider;
+          },
+        ),
+        ChangeNotifierProvider(create: (_) => PurchaseProvider()),
       ],
       child: MaterialApp(
         title: 'はじめてメモ ~First Steps~',
