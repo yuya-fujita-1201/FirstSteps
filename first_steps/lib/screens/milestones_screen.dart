@@ -19,7 +19,10 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
   @override
   void initState() {
     super.initState();
-    _loadRecords();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _loadRecords();
+    });
   }
 
   /// Load milestone records from database

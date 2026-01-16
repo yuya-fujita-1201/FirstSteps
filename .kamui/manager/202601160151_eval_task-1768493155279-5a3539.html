@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>評価レポート</title>
+    <style>
+      body {
+        font-family: "Hiragino Sans", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #eef3f4;
+        color: #1f2a30;
+        margin: 24px;
+        line-height: 1.6;
+      }
+      .report-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid #c4d3d7;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 26px;
+        margin: 0 0 8px 0;
+      }
+      .report-meta {
+        font-size: 13px;
+        color: #3a4b53;
+        margin-bottom: 24px;
+      }
+      .summary {
+        background: #e8f1f3;
+        border: 1px solid #c9dbe0;
+        padding: 16px;
+        margin-bottom: 24px;
+      }
+      .summary h2 {
+        font-size: 16px;
+        margin: 0 0 8px 0;
+      }
+      .scoreboard {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .score-card {
+        background: #f2f7f8;
+        border: 1px solid #c9dbe0;
+        padding: 12px;
+      }
+      .score-card .score-title {
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #3a4b53;
+      }
+      .score-card .score-value {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      table.compare {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        margin-top: 16px;
+        margin-bottom: 32px;
+      }
+      table.compare th,
+      table.compare td {
+        border: 1px solid #c9dbe0;
+        padding: 16px;
+        vertical-align: top;
+      }
+      table.compare th {
+        background: #d8e6e9;
+        font-size: 13px;
+        text-align: left;
+      }
+      .agent-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .agent-title {
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .agent-total {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .agent-total span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #3a4b53;
+      }
+      .hex-wrap {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .metrics {
+        font-size: 12px;
+        color: #2c3a40;
+      }
+      .metrics p {
+        margin: 4px 0;
+      }
+      .section-title {
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 8px;
+      }
+      .details {
+        background: #f4f8f9;
+        border: 1px solid #c9dbe0;
+        padding: 12px;
+        font-size: 12px;
+        white-space: pre-wrap;
+      }
+      .links a {
+        color: #1f2a30;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="report-wrapper">
+      <h1>評価レポート</h1>
+      <div class="report-meta">生成日時: 2026-01-16 01:51</div>
+      <div class="summary">
+        <h2>タスク概要</h2>
+        <p>Flutter + Firebase の育児マイルストーン記録アプリ「はじめてメモ ~First Steps~」のMVP実装。仕様書に従い、デザインシステム・Hive・画面構成・共有機能などを段階的に開発する。</p>
+        <p>今回の監査では、6つの作業ブランチ（worktree）を比較し、実装進捗・コミット状況・成果物の整合性を確認した。</p>
+      </div>
+      <div class="scoreboard">
+        <div class="score-card">
+          <div class="score-title">task-1768493155279-5a3539</div>
+          <div class="score-value">🥉 140/600</div>
+        </div>
+        <div class="score-card">
+          <div class="score-title">task-1768493155481-5ff372</div>
+          <div class="score-value">🥉 120/600</div>
+        </div>
+        <div class="score-card">
+          <div class="score-title">task-1768493155680-b823df</div>
+          <div class="score-value">🥉 150/600</div>
+        </div>
+        <div class="score-card">
+          <div class="score-title">task-1768493156080-3220e6</div>
+          <div class="score-value">🥈 220/600</div>
+        </div>
+        <div class="score-card">
+          <div class="score-title">task-1768493155880-e5a9fc</div>
+          <div class="score-value">🥉 130/600</div>
+        </div>
+        <div class="score-card">
+          <div class="score-title">task-1768493156281-be1ce0</div>
+          <div class="score-value">🥈 240/600</div>
+        </div>
+      </div>
+
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Agent task-1768493155279-5a3539</th>
+            <th>Agent task-1768493155481-5ff372</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493155279-5a3539</div>
+                <div class="agent-total">🥉 140/600 <span>(完了度: 低)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,24 98,40 98,80 70,96 42,80 42,40" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 30点</p>
+                    <p>完成度 15点</p>
+                    <p>設計 20点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 40点</p>
+                    <p>プロセス 35点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">README変更はあるが、主要コードは未コミット。first_steps配下の作業は未トラッキングで、仕様実装の進捗が限定的。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: README.md 21行追加。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493155279-5a3539/first_steps">worktree成果物</a></div>
+              </div>
+            </td>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493155481-5ff372</div>
+                <div class="agent-total">🥉 120/600 <span>(完了度: 低)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,28 94,42 94,78 70,92 46,78 46,42" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 25点</p>
+                    <p>完成度 10点</p>
+                    <p>設計 20点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 35点</p>
+                    <p>プロセス 30点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">依存追加の形跡があるものの、成果物は未追跡。コミットがないため評価対象が限定的。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: なし。未追跡の first_steps 配下。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493155481-5ff372/first_steps">worktree成果物</a></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Agent task-1768493155680-b823df</th>
+            <th>Agent task-1768493156080-3220e6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493155680-b823df</div>
+                <div class="agent-total">🥉 150/600 <span>(完了度: 低)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,22 100,40 100,80 70,98 40,80 40,40" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 30点</p>
+                    <p>完成度 20点</p>
+                    <p>設計 25点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 45点</p>
+                    <p>プロセス 30点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">README改善と初期構成の作業が進行中だが、成果物が未追跡で統合されていない。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: README.md 23行追加。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493155680-b823df/first_steps">worktree成果物</a></div>
+              </div>
+            </td>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493156080-3220e6</div>
+                <div class="agent-total">🥈 220/600 <span>(完了度: 中)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,18 104,38 104,82 70,102 36,82 36,38" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 45点</p>
+                    <p>完成度 35点</p>
+                    <p>設計 45点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 60点</p>
+                    <p>プロセス 35点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">Flutterプロジェクト一式がルートに生成されており、Hiveやサービスの実装が進んでいる兆候。ただし未コミット・未トラッキングで統合不足。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: README.md 183行追加。Flutter生成物が未追跡。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493156080-3220e6">worktree成果物</a></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Agent task-1768493155880-e5a9fc</th>
+            <th>Agent task-1768493156281-be1ce0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493155880-e5a9fc</div>
+                <div class="agent-total">🥉 130/600 <span>(完了度: 低)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,26 96,40 96,80 70,94 44,80 44,40" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 25点</p>
+                    <p>完成度 15点</p>
+                    <p>設計 20点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 40点</p>
+                    <p>プロセス 30点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">作業ディレクトリ生成済みだが、主要成果物は未追跡。統合とコミットが必要。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: なし。未追跡の first_steps 配下。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493155880-e5a9fc/first_steps">worktree成果物</a></div>
+              </div>
+            </td>
+            <td>
+              <div class="agent-block">
+                <div class="agent-title">task-1768493156281-be1ce0</div>
+                <div class="agent-total">🥈 240/600 <span>(完了度: 中)</span></div>
+                <div class="hex-wrap">
+                  <svg width="140" height="120" viewBox="0 0 140 120" aria-label="hex chart">
+                    <polygon points="70,8 120,34 120,86 70,112 20,86 20,34" fill="#e6eff1" stroke="#9fb7bd" stroke-width="2" />
+                    <polygon points="70,16 106,36 106,84 70,104 34,84 34,36" fill="#c9dbe0" stroke="#8fb0b7" stroke-width="1" />
+                  </svg>
+                  <div class="metrics">
+                    <p>コード品質 50点</p>
+                    <p>完成度 40点</p>
+                    <p>設計 50点</p>
+                    <p>テスト 0点</p>
+                    <p>ドキュメント 60点</p>
+                    <p>プロセス 40点</p>
+                  </div>
+                </div>
+                <div class="section-title">根拠</div>
+                <div class="details">Hiveアダプタ生成やサービス実装などの進行が見られるが、未コミット・未追跡で評価は限定的。</div>
+                <div class="section-title">差分/コミット</div>
+                <div class="details">git log: 既存2コミットのみ。git diff: なし。未追跡の first_steps 配下。</div>
+                <div class="section-title">成果物リンク</div>
+                <div class="details links"><a href="file:///Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768493156281-be1ce0/first_steps">worktree成果物</a></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

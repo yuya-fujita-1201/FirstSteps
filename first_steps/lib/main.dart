@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'theme/app_theme.dart';
@@ -39,6 +40,16 @@ class FirstStepsApp extends StatelessWidget {
       child: MaterialApp(
         title: 'はじめてメモ ~First Steps~',
         theme: AppTheme.lightTheme,
+        locale: const Locale('ja'),
+        supportedLocales: const [
+          Locale('ja'),
+          Locale('en'),
+        ],
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         home: FutureBuilder<bool>(
           future: _checkIfProfileExists(),
           builder: (context, snapshot) {
