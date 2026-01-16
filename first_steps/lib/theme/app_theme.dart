@@ -16,7 +16,7 @@ class AppColors {
   static const Color textSecondary = Color(0xFF757575); // Medium Grey
 
   // Status colors
-  static const Color success = Color(0xFF4CAF50); // Green
+  static const Color success = Color(0xFF87CEEB); // Baby Blue (replaces Green for consistency)
   static const Color error = Color(0xFFB00020); // Red
 }
 
@@ -30,7 +30,7 @@ class AppTheme {
       // Color scheme
       primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: AppColors.scaffoldBackground,
-      cardColor: AppColors.cardBackground,
+      cardColor: AppColors.scaffoldBackground, // Use white for cards
 
       colorScheme: const ColorScheme.light(
         primary: AppColors.primaryColor,
@@ -125,7 +125,7 @@ class AppTheme {
 
       // Card theme
       cardTheme: const CardThemeData(
-        color: AppColors.cardBackground,
+        color: AppColors.scaffoldBackground, // Use white for cards
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),

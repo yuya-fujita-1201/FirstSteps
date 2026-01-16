@@ -80,9 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // Child profile section
-                  Container(
-                    padding: const EdgeInsets.all(24),
-                    child: Row(
+                  Card(
+                    margin: const EdgeInsets.all(16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
                       children: [
                         // Profile photo
                         Container(
@@ -182,67 +184,52 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         else
                           // Recent milestones in horizontal row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: recentRecords.map((record) {
-                              return Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                    Row(
+                          children: recentRecords.map((record) {
+                            return Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (_) => RecordScreen(existingRecord: record),
+                                  ));
+                                },
+                                child: Card(
+                                  elevation: 0,
+                                  color: const Color(0xFFF5F5F5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
                                   child: Column(
                                     children: [
-                                      // Milestone icon with photo or emoji
-                                      Container(
-                                        width: 80,
-                                        height: 80,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColors.cardBackground,
-                                        ),
-                                        child: record.photoPath != null
-                                            ? ClipOval(
-                                                child: Image.file(
-                                                  File(record.photoPath!),
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              )
-                                            : Center(
-                                                child: Text(
-                                                  _getMilestoneEmoji(
-                                                      record.milestoneName),
-                                                  style: const TextStyle(
-                                                    fontSize: 32,
-                                                  ),
-                                                ),
-                                              ),
+                                      Text(
+                                        _getMilestoneEmoji(record.milestoneName),
+                                        style: const TextStyle(fontSize: 28),
                                       ),
                                       const SizedBox(height: 8),
-                                      // Milestone name
                                       Text(
                                         record.milestoneName,
                                         style: const TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                         textAlign: TextAlign.center,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       const SizedBox(height: 4),
-                                      // Achievement date
                                       Text(
-                                        DateFormat('yyyy/MM/dd')
-                                            .format(record.achievedDate),
+                                        DateFormat('yyyy/MM/dd').format(record.achievedDate),
                                         style: const TextStyle(
-                                          fontSize: 10,
+                                          fontSize: 11,
                                           color: AppColors.textSecondary,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              );
-                            }).toList(),
-                          ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
                       ],
                     ),
                   ),
@@ -264,6 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
+                ),
                   const SizedBox(height: 24),
                 ],
               ),
