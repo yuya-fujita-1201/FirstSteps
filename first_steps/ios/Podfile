@@ -1,5 +1,5 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '13.0'
+platform :ios, '15.0'
+require 'fileutils'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -28,8 +28,7 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 flutter_ios_podfile_setup
 
 target 'Runner' do
-  use_frameworks!
-
+  use_frameworks! :linkage => :static
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do
     inherit! :search_paths
@@ -39,5 +38,47 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
+
+end
+
+post_integrate do |installer|
+  # Ensure gRPC modulemap is where xcconfig expects it (Pods/Headers/Private/grpc).
+  grpc_modulemap_src = File.join(installer.sandbox.root, 'Target Support Files', 'gRPC-Core', 'gRPC-Core.modulemap')
+  grpc_modulemap_dst_dir = File.join(installer.sandbox.root, 'Headers', 'Private', 'grpc')
+  if File.exist?(grpc_modulemap_src)
+    FileUtils.mkdir_p(grpc_modulemap_dst_dir)
+    grpc_modulemap_dst = File.join(grpc_modulemap_dst_dir, 'gRPC-Core.modulemap')
+    unless File.exist?(grpc_modulemap_dst) && File.identical?(grpc_modulemap_src, grpc_modulemap_dst)
+      FileUtils.cp(grpc_modulemap_src, grpc_modulemap_dst_dir)
+    end
+  end
+
+  # Fix RevenueCat ambiguous SubscriptionPeriod type under newer SDKs.
+  purchases_file = File.join(
+    installer.sandbox.root,
+    'PurchasesHybridCommon',
+    'ios',
+    'PurchasesHybridCommon',
+    'PurchasesHybridCommon',
+    'StoreProduct+HybridAdditions.swift'
+  )
+  if File.exist?(purchases_file)
+    begin
+      FileUtils.chmod('u+w', purchases_file)
+    rescue StandardError
+    end
+    content = File.read(purchases_file)
+    updated = content.gsub(
+      'static func rc_normalized(subscriptionPeriod: SubscriptionPeriod)',
+      'static func rc_normalized(subscriptionPeriod: RevenueCat.SubscriptionPeriod)'
+    ).gsub(
+      'static func rc_normalized(subscriptionPeriodUnit: SubscriptionPeriod.Unit)',
+      'static func rc_normalized(subscriptionPeriodUnit: RevenueCat.SubscriptionPeriod.Unit)'
+    )
+    File.write(purchases_file, updated) if updated != content
   end
 end
