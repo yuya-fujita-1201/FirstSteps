@@ -100,8 +100,8 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                   height: 48,
                                   decoration: BoxDecoration(
                                     color: isRecorded
-                                        ? AppColors.success.withValues(alpha: 0.1)
-                                        : AppColors.cardBackground,
+                                        ? AppColors.accentColor.withOpacity(0.1)
+                                        : const Color(0xFFF5F5F5),
                                     borderRadius: BorderRadius.circular(24),
                                   ),
                                   child: Center(
@@ -124,9 +124,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
-                                          color: isRecorded
-                                              ? AppColors.textPrimary
-                                              : AppColors.textSecondary,
+                                          color: AppColors.textPrimary,
                                         ),
                                       ),
                                       // Show achievement date if recorded
