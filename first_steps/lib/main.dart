@@ -16,26 +16,37 @@ import 'services/ad_service.dart';
 import 'services/firebase_guard.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    print('[INIT] 1. WidgetsFlutterBinding.ensureInitialized()');
+    WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase (skip when config is placeholder)
-  await FirebaseGuard.initialize();
+    print('[INIT] 2. FirebaseGuard.initialize()');
+    await FirebaseGuard.initialize();
 
-  // Initialize AdMob
-  await MobileAds.instance.initialize();
-  AdService().loadInterstitialAd();
+    print('[INIT] 3. MobileAds.instance.initialize()');
+    await MobileAds.instance.initialize();
 
-  // Initialize Hive
-  await Hive.initFlutter();
+    print('[INIT] 4. AdService().loadInterstitialAd()');
+    AdService().loadInterstitialAd();
 
-  // Register Hive adapters
-  Hive.registerAdapter(ChildProfileAdapter());
-  Hive.registerAdapter(MilestoneRecordAdapter());
+    print('[INIT] 5. Hive.initFlutter()');
+    await Hive.initFlutter();
 
-  // Initialize database service
-  await DatabaseService.initialize();
+    print('[INIT] 6. Hive.registerAdapter(ChildProfileAdapter)');
+    Hive.registerAdapter(ChildProfileAdapter());
 
-  runApp(const FirstStepsApp());
+    print('[INIT] 7. Hive.registerAdapter(MilestoneRecordAdapter)');
+    Hive.registerAdapter(MilestoneRecordAdapter());
+
+    print('[INIT] 8. DatabaseService.initialize()');
+    await DatabaseService.initialize();
+
+    print('[INIT] 9. runApp()');
+    runApp(const FirstStepsApp());
+  } catch (e, stackTrace) {
+    print('[INIT ERROR] $e');
+    print('[INIT STACK] $stackTrace');
+  }
 }
 
 class FirstStepsApp extends StatelessWidget {
