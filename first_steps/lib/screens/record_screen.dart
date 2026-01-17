@@ -249,7 +249,8 @@ class _RecordScreenState extends State<RecordScreen> {
                         style: BorderStyle.solid,
                       ),
                     ),
-                    child: _photoPath != null
+                    child: _photoPath != null &&
+                            File(_photoPath!).existsSync()
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.file(

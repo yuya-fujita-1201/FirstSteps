@@ -137,30 +137,50 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(16),
                           child: Row(
                             children: [
-                              // Profile photo
-                              Container(
-                                width: 80,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.cardBackground,
-                                  border: Border.all(
-                                    color: AppColors.accentColor,
-                                    width: 2,
-                                  ),
-                                ),
-                                child: profile.photoPath != null
-                                    ? ClipOval(
-                                        child: Image.file(
-                                          File(profile.photoPath!),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      )
-                                    : const Icon(
-                                        Icons.person,
-                                        size: 40,
-                                        color: AppColors.textSecondary,
+                              // Profile photo - tappable to edit
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .push(
+                                    MaterialPageRoute(
+                                      builder: (_) => ProfileRegistrationScreen(
+                                        existingProfile: profile,
+                                        existingProfileKey:
+                                            childProvider.currentChildKey,
                                       ),
+                                    ),
+                                  )
+                                      .then((result) {
+                                    if (result == true) {
+                                      _loadData();
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.cardBackground,
+                                    border: Border.all(
+                                      color: AppColors.accentColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: profile.photoPath != null &&
+                                          File(profile.photoPath!).existsSync()
+                                      ? ClipOval(
+                                          child: Image.file(
+                                            File(profile.photoPath!),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        )
+                                      : const Icon(
+                                          Icons.person,
+                                          size: 40,
+                                          color: AppColors.textSecondary,
+                                        ),
+                                ),
                               ),
                               const SizedBox(width: 16),
                               // Name and age information

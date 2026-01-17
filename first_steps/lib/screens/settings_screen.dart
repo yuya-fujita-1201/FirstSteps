@@ -29,6 +29,27 @@ class SettingsScreen extends StatelessWidget {
     }
   }
 
+  Future<void> _handleMockPurchase(
+    BuildContext context,
+    PurchaseProvider provider,
+    String planId,
+  ) async {
+    try {
+      await provider.purchasePro(planId: planId);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Pro版へのアップグレードが完了しました')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
+        );
+      }
+    }
+  }
+
   Future<void> _handleBackup(BuildContext context) async {
     try {
       await BackupService.backupToFirebase();
@@ -100,7 +121,13 @@ class SettingsScreen extends StatelessWidget {
                         : const Icon(Icons.chevron_right),
                     onTap: purchaseProvider.isLoading
                         ? null
-                        : () => _handlePurchase(context, purchaseProvider),
+                        : () {
+                            if (purchaseProvider.isMockMode) {
+                              _showMockPlanSheet(context, purchaseProvider);
+                            } else {
+                              _handlePurchase(context, purchaseProvider);
+                            }
+                          },
                   )
                 else
                   const ListTile(
@@ -265,6 +292,87 @@ class SettingsScreen extends StatelessWidget {
           color: AppColors.textSecondary,
         ),
       ),
+    );
+  }
+
+  void _showMockPlanSheet(
+    BuildContext context,
+    PurchaseProvider provider,
+  ) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 12),
+              Container(
+                width: 36,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: AppColors.textSecondary.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Proプランを選択（テスト）',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'weekly',
+                title: '週額プラン',
+                price: '¥200 / 週',
+              ),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'monthly',
+                title: '月額プラン',
+                price: '¥600 / 月',
+              ),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'annual',
+                title: '年額プラン',
+                price: '¥4,800 / 年',
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildPlanTile(
+    BuildContext context,
+    PurchaseProvider provider, {
+    required String planId,
+    required String title,
+    required String price,
+  }) {
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(price),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: provider.isLoading
+          ? null
+          : () async {
+              Navigator.of(context).pop();
+              await _handleMockPurchase(context, provider, planId);
+            },
     );
   }
 

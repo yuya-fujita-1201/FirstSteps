@@ -134,7 +134,8 @@ class ShareableMilestoneCard extends StatelessWidget {
                 ),
 
                 // Photo (if exists)
-                if (record.photoPath != null) ...[
+                if (record.photoPath != null &&
+                    File(record.photoPath!).existsSync()) ...[
                   const SizedBox(height: 16),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),

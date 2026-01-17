@@ -12,8 +12,15 @@ import 'main_screen.dart';
 /// Profile registration screen (shown on first launch)
 class ProfileRegistrationScreen extends StatefulWidget {
   final bool isAdding;
+  final ChildProfile? existingProfile;
+  final int? existingProfileKey;
 
-  const ProfileRegistrationScreen({super.key, this.isAdding = false});
+  const ProfileRegistrationScreen({
+    super.key,
+    this.isAdding = false,
+    this.existingProfile,
+    this.existingProfileKey,
+  });
 
   @override
   State<ProfileRegistrationScreen> createState() =>
@@ -27,6 +34,17 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
   String? _photoPath;
   final _imagePicker = ImagePicker();
   bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize fields with existing profile data if editing
+    if (widget.existingProfile != null) {
+      _nameController.text = widget.existingProfile!.name;
+      _birthDate = widget.existingProfile!.birthDate;
+      _photoPath = widget.existingProfile!.photoPath;
+    }
+  }
 
   @override
   void dispose() {
@@ -101,19 +119,42 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
     });
 
     try {
-      final profile = ChildProfile(
-        name: _nameController.text.trim(),
-        birthDate: _birthDate!,
-        photoPath: _photoPath,
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
-      );
-
       final childProvider = context.read<ChildProvider>();
-      await childProvider.addProfile(profile);
+
+      // Check if we're editing an existing profile
+      if (widget.existingProfile != null && widget.existingProfileKey != null) {
+        // Update existing profile
+        final currentProfile = childProvider.currentChild;
+        if (currentProfile != null) {
+          // Update name if changed
+          if (currentProfile.name != _nameController.text.trim()) {
+            await childProvider.updateName(_nameController.text.trim());
+          }
+          // Update birth date if changed
+          if (currentProfile.birthDate != _birthDate!) {
+            await childProvider.updateBirthDate(_birthDate!);
+          }
+          // Update photo if changed
+          if (currentProfile.photoPath != _photoPath) {
+            if (_photoPath != null) {
+              await childProvider.updatePhoto(_photoPath!);
+            }
+          }
+        }
+      } else {
+        // Add new profile
+        final profile = ChildProfile(
+          name: _nameController.text.trim(),
+          birthDate: _birthDate!,
+          photoPath: _photoPath,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+        await childProvider.addProfile(profile);
+      }
 
       if (mounted) {
-        if (widget.isAdding) {
+        if (widget.isAdding || widget.existingProfile != null) {
           Navigator.of(context).pop(true);
         } else {
           Navigator.of(context).pushReplacement(
@@ -140,7 +181,11 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isAdding ? '子供を追加' : 'プロフィール登録'),
+        title: Text(
+          widget.existingProfile != null
+              ? 'プロフィール編集'
+              : (widget.isAdding ? '子供を追加' : 'プロフィール登録'),
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -176,7 +221,8 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
                           width: 2,
                         ),
                       ),
-                      child: _photoPath != null
+                      child: _photoPath != null &&
+                              File(_photoPath!).existsSync()
                           ? ClipOval(
                               child: Image.file(
                                 File(_photoPath!),
@@ -254,7 +300,11 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                           ),
                         )
-                      : Text(widget.isAdding ? '追加する' : '登録する'),
+                      : Text(
+                          widget.existingProfile != null
+                              ? '保存する'
+                              : (widget.isAdding ? '追加する' : '登録する'),
+                        ),
                 ),
               ],
             ),

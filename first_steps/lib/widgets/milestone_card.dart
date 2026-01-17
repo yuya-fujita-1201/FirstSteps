@@ -72,7 +72,8 @@ class MilestoneCard extends StatelessWidget {
               ),
 
               // Photo (if exists)
-              if (record.photoPath != null) ...[
+              if (record.photoPath != null &&
+                  File(record.photoPath!).existsSync()) ...[
                 const SizedBox(height: 12),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),

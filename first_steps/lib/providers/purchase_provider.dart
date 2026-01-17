@@ -4,7 +4,13 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 /// Provider for managing RevenueCat purchases
 class PurchaseProvider extends ChangeNotifier {
   static const String _proEntitlementId = 'pro';
-  static const String _revenueCatApiKey = 'REVENUECAT_PUBLIC_API_KEY';
+  static const String _revenueCatApiKey = 'test_azAFcRLtJBNJzDZfLyknYmiryWg';
+  static const bool _useMockPurchases = true;
+  static const List<String> _mockPlanIds = [
+    'weekly',
+    'monthly',
+    'annual',
+  ];
 
   bool _isPro = false;
   bool _isInitialized = false;
@@ -13,6 +19,8 @@ class PurchaseProvider extends ChangeNotifier {
   bool get isPro => _isPro;
   bool get isInitialized => _isInitialized;
   bool get isLoading => _isLoading;
+  bool get isMockMode => _useMockPurchases;
+  List<String> get mockPlanIds => List.unmodifiable(_mockPlanIds);
 
   PurchaseProvider() {
     _initialize();
@@ -21,6 +29,12 @@ class PurchaseProvider extends ChangeNotifier {
   Future<void> _initialize() async {
     if (_isInitialized) return;
     try {
+      if (_useMockPurchases) {
+        _isInitialized = true;
+        notifyListeners();
+        return;
+      }
+      await Purchases.setLogLevel(LogLevel.debug);
       await Purchases.configure(
         PurchasesConfiguration(_revenueCatApiKey),
       );
@@ -36,6 +50,9 @@ class PurchaseProvider extends ChangeNotifier {
 
   Future<void> _refreshCustomerInfo() async {
     try {
+      if (_useMockPurchases) {
+        return;
+      }
       final info = await Purchases.getCustomerInfo();
       _isPro = info.entitlements.all[_proEntitlementId]?.isActive ?? false;
       notifyListeners();
@@ -46,10 +63,15 @@ class PurchaseProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> purchasePro() async {
+  Future<void> purchasePro({String? planId}) async {
     _isLoading = true;
     notifyListeners();
     try {
+      if (_useMockPurchases) {
+        await Future.delayed(const Duration(milliseconds: 300));
+        _isPro = true;
+        return;
+      }
       final offerings = await Purchases.getOfferings();
       final currentOffering = offerings.current;
       if (currentOffering == null || currentOffering.availablePackages.isEmpty) {
@@ -74,6 +96,11 @@ class PurchaseProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
+      if (_useMockPurchases) {
+        await Future.delayed(const Duration(milliseconds: 300));
+        _isPro = true;
+        return;
+      }
       final info = await Purchases.restorePurchases();
       _isPro = info.entitlements.all[_proEntitlementId]?.isActive ?? false;
     } catch (e) {
