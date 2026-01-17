@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/purchase_provider.dart';
 import '../services/backup_service.dart';
+import '../services/firebase_guard.dart';
 import '../theme/app_theme.dart';
 
 /// Settings screen
@@ -66,6 +67,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final purchaseProvider = context.watch<PurchaseProvider>();
     final isPro = purchaseProvider.isPro;
+    final firebaseEnabled = FirebaseGuard.isConfigured;
 
     return Scaffold(
       appBar: AppBar(
@@ -177,9 +179,15 @@ class SettingsScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                   title: const Text('バックアップ'),
-                  subtitle: Text(isPro ? 'Firebaseに保存' : 'Pro版で利用可能'),
+                  subtitle: Text(
+                    isPro
+                        ? (firebaseEnabled ? 'Firebaseに保存' : 'Firebase未設定')
+                        : 'Pro版で利用可能',
+                  ),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro ? () => _handleBackup(context) : null,
+                  onTap: isPro && firebaseEnabled
+                      ? () => _handleBackup(context)
+                      : null,
                 ),
                 const Divider(height: 1, indent: 56),
                 ListTile(
@@ -188,9 +196,15 @@ class SettingsScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                   title: const Text('復元'),
-                  subtitle: Text(isPro ? 'Firebaseから復元' : 'Pro版で利用可能'),
+                  subtitle: Text(
+                    isPro
+                        ? (firebaseEnabled ? 'Firebaseから復元' : 'Firebase未設定')
+                        : 'Pro版で利用可能',
+                  ),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro ? () => _handleRestore(context) : null,
+                  onTap: isPro && firebaseEnabled
+                      ? () => _handleRestore(context)
+                      : null,
                 ),
                 const Divider(height: 1, indent: 56),
                 ListTile(
