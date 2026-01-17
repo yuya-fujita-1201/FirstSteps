@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../providers/milestone_provider.dart';
@@ -102,7 +103,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                   padding: const EdgeInsets.all(16),
                                   child: Row(
                                     children: [
-                                      // Emoji icon with completion indicator
+                                      // Icon with completion indicator
                                       Container(
                                         width: 48,
                                         height: 48,
@@ -114,9 +115,16 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
                                           borderRadius: BorderRadius.circular(24),
                                         ),
                                         child: Center(
-                                          child: Text(
-                                            template.emoji,
-                                            style: const TextStyle(fontSize: 24),
+                                          child: SvgPicture.asset(
+                                            template.iconPath,
+                                            width: 24,
+                                            height: 24,
+                                            colorFilter: ColorFilter.mode(
+                                              isRecorded
+                                                  ? AppColors.primaryColor
+                                                  : AppColors.textSecondary,
+                                              BlendMode.srcIn,
+                                            ),
                                           ),
                                         ),
                                       ),

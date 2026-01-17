@@ -93,13 +93,13 @@ class MilestoneTemplate {
   final String category;
   final int minAgeMonths;
   final int maxAgeMonths;
-  final String emoji;
+  final String iconPath;
 
   const MilestoneTemplate({
     required this.name,
     required this.category,
     required this.minAgeMonths,
     required this.maxAgeMonths,
-    required this.emoji,
+    required this.iconPath,
   });
 }

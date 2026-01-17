@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../providers/child_provider.dart';
 import '../providers/milestone_provider.dart';
 import '../providers/purchase_provider.dart';
 import '../services/milestone_service.dart';
-import '../models/milestone_record.dart';
 import '../theme/app_theme.dart';
 import '../widgets/banner_ad_widget.dart';
 import 'record_screen.dart';
@@ -42,19 +42,19 @@ class _HomeScreenState extends State<HomeScreen> {
     ]);
   }
 
-  /// Get emoji for milestone based on its name
-  String _getMilestoneEmoji(String milestoneName) {
+  /// Get icon path for milestone based on its name
+  String _getMilestoneIconPath(String milestoneName) {
     final template = MilestoneService.getAllTemplates().firstWhere(
       (t) => t.name == milestoneName,
-      orElse: () => const MilestoneTemplate(
+      orElse: () => MilestoneTemplate(
         name: '',
         category: '',
         minAgeMonths: 0,
         maxAgeMonths: 0,
-        emoji: '⭐',
+        iconPath: MilestoneService.defaultIconPath,
       ),
     );
-    return template.emoji;
+    return template.iconPath;
   }
 
   @override
@@ -277,12 +277,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           child: Column(
                                             children: [
-                                              Text(
-                                                _getMilestoneEmoji(
+                                              SvgPicture.asset(
+                                                _getMilestoneIconPath(
                                                   record.milestoneName,
                                                 ),
-                                                style:
-                                                    const TextStyle(fontSize: 28),
+                                                width: 32,
+                                                height: 32,
+                                                colorFilter: const ColorFilter.mode(
+                                                  AppColors.primaryColor,
+                                                  BlendMode.srcIn,
+                                                ),
                                               ),
                                               const SizedBox(height: 8),
                                               Text(
