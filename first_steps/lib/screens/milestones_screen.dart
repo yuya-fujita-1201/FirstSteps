@@ -40,7 +40,7 @@ class _MilestonesScreenState extends State<MilestonesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('マイルストーン'),
+        title: const Text('できたこと'),
       ),
       body: Consumer2<MilestoneProvider, PurchaseProvider>(
         builder: (context, milestoneProvider, purchaseProvider, _) {

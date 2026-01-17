@@ -10,21 +10,21 @@ class MilestoneService {
     // 0-3 months
     MilestoneTemplate(
       name: '初めての笑顔',
-      category: '社会性',
+      category: 'こころ',
       minAgeMonths: 0,
       maxAgeMonths: 3,
       iconPath: '${_iconBasePath}smile.svg',
     ),
     MilestoneTemplate(
       name: '首すわり',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 2,
       maxAgeMonths: 5,
       iconPath: '${_iconBasePath}neck_support.svg',
     ),
     MilestoneTemplate(
       name: '声を出して笑う',
-      category: '社会性',
+      category: 'こころ',
       minAgeMonths: 2,
       maxAgeMonths: 4,
       iconPath: '${_iconBasePath}laugh.svg',
@@ -33,21 +33,21 @@ class MilestoneService {
     // 4-6 months
     MilestoneTemplate(
       name: '寝返り',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 4,
       maxAgeMonths: 7,
       iconPath: '${_iconBasePath}roll_over.svg',
     ),
     MilestoneTemplate(
       name: 'おもちゃを掴む',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 3,
       maxAgeMonths: 6,
       iconPath: '${_iconBasePath}grasp.svg',
     ),
     MilestoneTemplate(
       name: '離乳食スタート',
-      category: '食事',
+      category: 'ごはん',
       minAgeMonths: 5,
       maxAgeMonths: 7,
       iconPath: '${_iconBasePath}solid_food.svg',
@@ -56,21 +56,21 @@ class MilestoneService {
     // 7-9 months
     MilestoneTemplate(
       name: 'お座り',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 6,
       maxAgeMonths: 9,
       iconPath: '${_iconBasePath}sit.svg',
     ),
     MilestoneTemplate(
       name: 'ハイハイ',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 7,
       maxAgeMonths: 10,
       iconPath: '${_iconBasePath}crawl.svg',
     ),
     MilestoneTemplate(
       name: '人見知り',
-      category: '社会性',
+      category: 'こころ',
       minAgeMonths: 6,
       maxAgeMonths: 9,
       iconPath: '${_iconBasePath}stranger_anxiety.svg',
@@ -79,21 +79,21 @@ class MilestoneService {
     // 10-12 months
     MilestoneTemplate(
       name: 'つかまり立ち',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 8,
       maxAgeMonths: 12,
       iconPath: '${_iconBasePath}stand_support.svg',
     ),
     MilestoneTemplate(
       name: '初めての言葉',
-      category: '言語',
+      category: 'おはなし',
       minAgeMonths: 9,
       maxAgeMonths: 14,
       iconPath: '${_iconBasePath}first_word.svg',
     ),
     MilestoneTemplate(
       name: 'バイバイする',
-      category: '社会性',
+      category: 'こころ',
       minAgeMonths: 9,
       maxAgeMonths: 12,
       iconPath: '${_iconBasePath}wave.svg',
@@ -102,21 +102,21 @@ class MilestoneService {
     // 12-18 months
     MilestoneTemplate(
       name: '初めての一歩',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 10,
       maxAgeMonths: 18,
       iconPath: '${_iconBasePath}first_step.svg',
     ),
     MilestoneTemplate(
       name: 'コップで飲む',
-      category: '食事',
+      category: 'ごはん',
       minAgeMonths: 12,
       maxAgeMonths: 18,
       iconPath: '${_iconBasePath}cup.svg',
     ),
     MilestoneTemplate(
       name: 'スプーンを使う',
-      category: '食事',
+      category: 'ごはん',
       minAgeMonths: 12,
       maxAgeMonths: 18,
       iconPath: '${_iconBasePath}spoon.svg',
@@ -125,21 +125,21 @@ class MilestoneService {
     // 18-24 months
     MilestoneTemplate(
       name: '二語文を話す',
-      category: '言語',
+      category: 'おはなし',
       minAgeMonths: 18,
       maxAgeMonths: 30,
       iconPath: '${_iconBasePath}two_words.svg',
     ),
     MilestoneTemplate(
       name: '階段を上る',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 18,
       maxAgeMonths: 24,
       iconPath: '${_iconBasePath}stairs.svg',
     ),
     MilestoneTemplate(
       name: 'お絵描きする',
-      category: '創作',
+      category: 'つくる',
       minAgeMonths: 18,
       maxAgeMonths: 24,
       iconPath: '${_iconBasePath}drawing.svg',
@@ -148,21 +148,21 @@ class MilestoneService {
     // 2+ years
     MilestoneTemplate(
       name: 'トイレトレーニング完了',
-      category: '生活',
+      category: 'せいかつ',
       minAgeMonths: 24,
       maxAgeMonths: 48,
       iconPath: '${_iconBasePath}toilet.svg',
     ),
     MilestoneTemplate(
       name: '三輪車に乗る',
-      category: '運動',
+      category: 'からだ',
       minAgeMonths: 24,
       maxAgeMonths: 36,
       iconPath: '${_iconBasePath}tricycle.svg',
     ),
     MilestoneTemplate(
       name: 'お友達と遊ぶ',
-      category: '社会性',
+      category: 'こころ',
       minAgeMonths: 24,
       maxAgeMonths: 36,
       iconPath: '${_iconBasePath}friends.svg',

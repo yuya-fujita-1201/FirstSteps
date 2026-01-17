@@ -42,12 +42,12 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.timeline_outlined),
             activeIcon: Icon(Icons.timeline),
-            label: 'タイムライン',
+            label: '成長きろく',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.stars_outlined),
             activeIcon: Icon(Icons.stars),
-            label: 'マイルストーン',
+            label: 'できたこと',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),

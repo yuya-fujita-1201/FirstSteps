@@ -7,6 +7,7 @@ import '../providers/child_provider.dart';
 import '../providers/milestone_provider.dart';
 import '../providers/purchase_provider.dart';
 import '../services/milestone_service.dart';
+import '../models/milestone_record.dart';
 import '../theme/app_theme.dart';
 import '../widgets/banner_ad_widget.dart';
 import 'record_screen.dart';
@@ -65,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         final entries = childProvider.profileEntries;
         final showChildSwitcher = entries.length > 1;
         final isPro = purchaseProvider.isPro;
+        final recentRecords = milestoneProvider.getRecentRecords(limit: 3);
 
         return Scaffold(
           appBar: AppBar(
@@ -98,255 +100,360 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     Navigator.of(context)
                         .push(
-                      MaterialPageRoute(
-                        builder: (_) =>
-                            const ProfileRegistrationScreen(isAdding: true),
-                      ),
-                    )
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                const ProfileRegistrationScreen(isAdding: true),
+                          ),
+                        )
                         .then((result) {
-                      if (result == true) {
-                        _loadData();
-                      }
-                    });
+                          if (result == true) {
+                            _loadData();
+                          }
+                        });
                   },
                 ),
             ],
           ),
-          body: RefreshIndicator(
-            onRefresh: _loadData,
-            child: Builder(
-              builder: (context) {
-                if (profile == null) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-
-                final recentRecords =
-                    milestoneProvider.getRecentRecords(limit: 3);
-
-                return SingleChildScrollView(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // Child profile section
-                      Card(
-                        margin: const EdgeInsets.all(16),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Row(
+          body: profile == null
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: RefreshIndicator(
+                        onRefresh: _loadData,
+                        child: SingleChildScrollView(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              // Profile photo - tappable to edit
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context)
-                                      .push(
-                                    MaterialPageRoute(
-                                      builder: (_) => ProfileRegistrationScreen(
-                                        existingProfile: profile,
-                                        existingProfileKey:
-                                            childProvider.currentChildKey,
-                                      ),
-                                    ),
-                                  )
-                                      .then((result) {
-                                    if (result == true) {
-                                      _loadData();
-                                    }
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: AppColors.cardBackground,
-                                    border: Border.all(
-                                      color: AppColors.accentColor,
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: profile.photoPath != null &&
-                                          File(profile.photoPath!).existsSync()
-                                      ? ClipOval(
-                                          child: Image.file(
-                                            File(profile.photoPath!),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )
-                                      : const Icon(
-                                          Icons.person,
-                                          size: 40,
-                                          color: AppColors.textSecondary,
-                                        ),
-                                ),
-                              ),
-                              const SizedBox(width: 16),
-                              // Name and age information
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '${profile.name} くん',
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      '${DateFormat('yyyy年MM月dd日').format(profile.birthDate)} 生まれ (${profile.formattedAge})',
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        color: AppColors.textSecondary,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-
-                      const Divider(height: 1),
-
-                      // Recent records section
-                      Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              '最近の記録',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-
-                            // Show empty state or recent milestones
-                            if (recentRecords.isEmpty)
-                              Center(
+                              // Child profile section
+                              Card(
+                                margin: const EdgeInsets.all(16),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(32),
-                                  child: Column(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Row(
                                     children: [
-                                      Icon(
-                                        Icons.stars_outlined,
-                                        size: 64,
-                                        color: AppColors.textSecondary
-                                            .withValues(alpha: 0.5),
-                                      ),
-                                      const SizedBox(height: 16),
-                                      const Text(
-                                        'まだ記録がありません\n下のボタンから記録してみましょう',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: AppColors.textSecondary,
+                                      // Profile photo - tappable to edit
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context)
+                                              .push(
+                                                MaterialPageRoute(
+                                                  builder: (_) =>
+                                                      ProfileRegistrationScreen(
+                                                        existingProfile:
+                                                            profile,
+                                                        existingProfileKey:
+                                                            childProvider
+                                                                .currentChildKey,
+                                                      ),
+                                                ),
+                                              )
+                                              .then((result) {
+                                                if (result == true) {
+                                                  _loadData();
+                                                }
+                                              });
+                                        },
+                                        child: Container(
+                                          width: 80,
+                                          height: 80,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: AppColors.cardBackground,
+                                            border: Border.all(
+                                              color: AppColors.accentColor,
+                                              width: 2,
+                                            ),
+                                          ),
+                                          child:
+                                              profile.photoPath != null &&
+                                                  File(
+                                                    profile.photoPath!,
+                                                  ).existsSync()
+                                              ? ClipOval(
+                                                  child: Image.file(
+                                                    File(profile.photoPath!),
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                )
+                                              : const Icon(
+                                                  Icons.person,
+                                                  size: 40,
+                                                  color:
+                                                      AppColors.textSecondary,
+                                                ),
                                         ),
-                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(width: 16),
+                                      // Name and age information
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '${profile.name} くん',
+                                              style: const TextStyle(
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              '${DateFormat('yyyy年MM月dd日').format(profile.birthDate)} 生まれ (${profile.formattedAge})',
+                                              style: const TextStyle(
+                                                fontSize: 14,
+                                                color: AppColors.textSecondary,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              )
-                            else
-                              // Recent milestones in horizontal row
-                              Row(
-                                children: recentRecords.map((record) {
-                                  return Expanded(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (_) =>
-                                              RecordScreen(existingRecord: record),
-                                        ));
-                                      },
-                                      child: Card(
-                                        elevation: 0,
-                                        color: const Color(0xFFF5F5F5),
+                              ),
+
+                              const Divider(height: 1),
+
+                              // Recent records section
+                              Padding(
+                                padding: const EdgeInsets.all(24),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      '最近の記録',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 16),
+
+                                    // Show empty state or recent milestones
+                                    if (recentRecords.isEmpty)
+                                      Center(
                                         child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            vertical: 12.0,
-                                            horizontal: 8.0,
-                                          ),
+                                          padding: const EdgeInsets.all(32),
                                           child: Column(
                                             children: [
-                                              SvgPicture.asset(
-                                                _getMilestoneIconPath(
-                                                  record.milestoneName,
-                                                ),
-                                                width: 32,
-                                                height: 32,
-                                                colorFilter: const ColorFilter.mode(
-                                                  AppColors.primaryColor,
-                                                  BlendMode.srcIn,
-                                                ),
+                                              Icon(
+                                                Icons.stars_outlined,
+                                                size: 64,
+                                                color: AppColors.textSecondary
+                                                    .withValues(alpha: 0.5),
                                               ),
-                                              const SizedBox(height: 8),
-                                              Text(
-                                                record.milestoneName,
-                                                style: const TextStyle(
-                                                  fontSize: 13,
-                                                  fontWeight: FontWeight.w600,
+                                              const SizedBox(height: 16),
+                                              const Text(
+                                                'まだ記録がありません\n下のボタンから記録してみましょう',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      AppColors.textSecondary,
                                                 ),
                                                 textAlign: TextAlign.center,
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              const SizedBox(height: 4),
-                                              Text(
-                                                DateFormat('yyyy/MM/dd')
-                                                    .format(record.achievedDate),
-                                                style: const TextStyle(
-                                                  fontSize: 11,
-                                                  color: AppColors.textSecondary,
-                                                ),
                                               ),
                                             ],
                                           ),
                                         ),
+                                      )
+                                    else
+                                      // Recent milestones in vertical list
+                                      Column(
+                                        children: recentRecords.map((record) {
+                                          return Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 12,
+                                            ),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (_) =>
+                                                        RecordScreen(
+                                                          existingRecord:
+                                                              record,
+                                                        ),
+                                                  ),
+                                                );
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                  border: Border.all(
+                                                    color: const Color(
+                                                      0xFFE0E0E0,
+                                                    ),
+                                                    width: 1,
+                                                  ),
+                                                ),
+                                                padding: const EdgeInsets.all(
+                                                  16,
+                                                ),
+                                                child: Row(
+                                                  children: [
+                                                    // Icon on the left
+                                                    Container(
+                                                      width: 48,
+                                                      height: 48,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: AppColors
+                                                              .primaryColor,
+                                                          width: 2,
+                                                        ),
+                                                      ),
+                                                      child: Center(
+                                                        child: SvgPicture.asset(
+                                                          _getMilestoneIconPath(
+                                                            record
+                                                                .milestoneName,
+                                                          ),
+                                                          width: 24,
+                                                          height: 24,
+                                                          colorFilter:
+                                                              const ColorFilter.mode(
+                                                                AppColors
+                                                                    .primaryColor,
+                                                                BlendMode.srcIn,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 16),
+                                                    // Text content in the middle
+                                                    Expanded(
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            record
+                                                                .milestoneName,
+                                                            style: const TextStyle(
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              color: AppColors
+                                                                  .textPrimary,
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 4,
+                                                          ),
+                                                          Text(
+                                                            DateFormat(
+                                                              'yyyy年M月d日',
+                                                            ).format(
+                                                              record
+                                                                  .achievedDate,
+                                                            ),
+                                                            style: const TextStyle(
+                                                              fontSize: 14,
+                                                              color: AppColors
+                                                                  .textSecondary,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    // Photo on the right
+                                                    if (record.photoPath !=
+                                                            null &&
+                                                        File(
+                                                          record.photoPath!,
+                                                        ).existsSync())
+                                                      Container(
+                                                        width: 56,
+                                                        height: 56,
+                                                        decoration: BoxDecoration(
+                                                          color: const Color(
+                                                            0xFFF5F5F5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                8,
+                                                              ),
+                                                          image: DecorationImage(
+                                                            image: FileImage(
+                                                              File(
+                                                                record
+                                                                    .photoPath!,
+                                                              ),
+                                                            ),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      )
+                                                    else
+                                                      Container(
+                                                        width: 56,
+                                                        height: 56,
+                                                        decoration: BoxDecoration(
+                                                          color: const Color(
+                                                            0xFFF5F5F5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                8,
+                                                              ),
+                                                        ),
+                                                        child: const Icon(
+                                                          Icons.image_outlined,
+                                                          color: AppColors
+                                                              .textSecondary,
+                                                          size: 24,
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }).toList(),
                                       ),
-                                    ),
-                                  );
-                                }).toList(),
+                                  ],
+                                ),
                               ),
-                          ],
-                        ),
-                      ),
 
-                      // Record button
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => const RecordScreen(),
+                              // Record button
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24,
+                                ),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (_) => const RecordScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 4),
+                                    child: Text('記録する'),
+                                  ),
+                                ),
                               ),
-                            );
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 4),
-                            child: Text('記録する'),
+                              const SizedBox(height: 24),
+                            ],
                           ),
                         ),
                       ),
-
-                      const SizedBox(height: 24),
-                      if (!isPro) const BannerAdWidget(),
-                      const SizedBox(height: 8),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
+                    ),
+                    // Ad banner at the bottom (above bottom navigation bar)
+                    if (!isPro) const BannerAdWidget(),
+                  ],
+                ),
         );
       },
     );

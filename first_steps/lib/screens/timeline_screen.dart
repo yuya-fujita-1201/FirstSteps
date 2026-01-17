@@ -124,7 +124,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('タイムライン'),
+        title: const Text('成長きろく'),
       ),
       body: Consumer2<MilestoneProvider, PurchaseProvider>(
         builder: (context, milestoneProvider, purchaseProvider, _) {

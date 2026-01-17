@@ -204,13 +204,13 @@ class _RecordScreenState extends State<RecordScreen> {
                 TextFormField(
                   controller: _milestoneNameController,
                   decoration: const InputDecoration(
-                    labelText: 'マイルストーン名',
+                    labelText: 'できたこと',
                     hintText: '例：初めての笑顔',
                     prefixIcon: Icon(Icons.stars_outlined),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'マイルストーン名を入力してください';
+                      return 'できたことを入力してください';
                     }
                     return null;
                   },
