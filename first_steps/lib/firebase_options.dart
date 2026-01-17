@@ -1,10 +1,8 @@
-import 'package:firebase_core/firebase_core.dart'
-    show FirebaseOptions;
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default Firebase options for current platform.
-/// TODO: Replace with actual values from FlutterFire CLI.
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -18,62 +16,46 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        return windows;
+        return android; // Use Android config for Windows
       case TargetPlatform.linux:
-        return linux;
+        return android; // Use Android config for Linux
       default:
         return android;
     }
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
+    apiKey: 'AIzaSyB3qF1pJ8Upb3WtfHE0Ds22qgtwEW_T8h8',
+    appId: '1:776057320321:android:a311775a67c5bcfc1c2e80',
+    messagingSenderId: '776057320321',
+    projectId: 'first-steps-7d383',
+    storageBucket: 'first-steps-7d383.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    iosBundleId: 'YOUR_IOS_BUNDLE_ID',
+    apiKey: 'AIzaSyArjw6kW5uLGzKacx_JYlQEFKrbpHlbrjk',
+    appId: '1:776057320321:ios:817b3b8cd8b3aa471c2e80',
+    messagingSenderId: '776057320321',
+    projectId: 'first-steps-7d383',
+    storageBucket: 'first-steps-7d383.firebasestorage.app',
+    iosBundleId: 'com.example.firstSteps',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    iosBundleId: 'YOUR_MACOS_BUNDLE_ID',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-  );
-
-  static const FirebaseOptions linux = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
+    apiKey: 'AIzaSyArjw6kW5uLGzKacx_JYlQEFKrbpHlbrjk',
+    appId: '1:776057320321:ios:817b3b8cd8b3aa471c2e80',
+    messagingSenderId: '776057320321',
+    projectId: 'first-steps-7d383',
+    storageBucket: 'first-steps-7d383.firebasestorage.app',
+    iosBundleId: 'com.example.firstSteps',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: 'YOUR_APP_ID',
-    messagingSenderId: 'YOUR_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    authDomain: 'YOUR_AUTH_DOMAIN',
+    apiKey: 'AIzaSyB3qF1pJ8Upb3WtfHE0Ds22qgtwEW_T8h8',
+    appId: '1:776057320321:android:a311775a67c5bcfc1c2e80',
+    messagingSenderId: '776057320321',
+    projectId: 'first-steps-7d383',
+    storageBucket: 'first-steps-7d383.firebasestorage.app',
+    authDomain: 'first-steps-7d383.firebaseapp.com',
   );
 }
