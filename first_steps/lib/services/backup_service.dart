@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import '../models/child_profile.dart';
@@ -12,7 +12,7 @@ import 'database_service.dart';
 class BackupService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  static final FirebaseStorage _storage = FirebaseStorage.instance;
+  // static final FirebaseStorage _storage = FirebaseStorage.instance;
 
   static Future<User> _ensureSignedIn() async {
     final user = _auth.currentUser;
@@ -21,27 +21,14 @@ class BackupService {
     return credential.user!;
   }
 
-  static Future<String?> _uploadPhoto(String? filePath, String storagePath) async {
-    if (filePath == null) return null;
-    final file = File(filePath);
-    if (!await file.exists()) return null;
-    final ref = _storage.ref().child(storagePath);
-    await ref.putFile(file);
-    return ref.getDownloadURL();
+    static Future<String?> _uploadPhoto(String? filePath, String storagePath) async {
+    // Firebase Storage is temporarily disabled to resolve iOS crash issues.
+    return null;
   }
 
-  static Future<String?> _downloadPhoto(String? url, String fileName) async {
-    if (url == null) return null;
-    final ref = _storage.refFromURL(url);
-    final directory = await getApplicationDocumentsDirectory();
-    final imagesDir = Directory(path.join(directory.path, 'images'));
-    if (!await imagesDir.exists()) {
-      await imagesDir.create(recursive: true);
-    }
-    final filePath = path.join(imagesDir.path, fileName);
-    final file = File(filePath);
-    await ref.writeToFile(file);
-    return filePath;
+    static Future<String?> _downloadPhoto(String? url, String fileName) async {
+    // Firebase Storage is temporarily disabled to resolve iOS crash issues.
+    return null;
   }
 
   static Future<void> backupToFirebase() async {
