@@ -13,3 +13,11 @@
 - User requested this file to track these specific points.
 - Priority is to fix these issues to make the app production-ready.
 
+## iOS Device Verification
+- [x] Device / iOS: iPhone (98) / iOS 26.2
+- [x] Date: 2026/01/18
+- [x] Build / Branch: main (latest)
+- [x] **Image Restoration Bug**: Upload images, restore data, images restored correctly.
+- [x] **Wording Change**: "複数のお子様登録" 表記を確認。
+- [x] **Legal Text**: 利用規約 / プライバシーポリシーの日本語表示とリンク遷移を確認。
+- [x] **Contact**: `mailto:marumi.works@gmail.com` でメールアプリが起動することを確認。
