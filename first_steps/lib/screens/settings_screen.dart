@@ -1,12 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/purchase_provider.dart';
+import '../services/backup_service.dart';
+import '../services/firebase_guard.dart';
 import '../theme/app_theme.dart';
 
 /// Settings screen
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
+  Future<void> _handlePurchase(
+    BuildContext context,
+    PurchaseProvider provider,
+  ) async {
+    try {
+      await provider.purchasePro();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Pro版へのアップグレードが完了しました')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
+        );
+      }
+    }
+  }
+
+  Future<void> _handleMockPurchase(
+    BuildContext context,
+    PurchaseProvider provider,
+    String planId,
+  ) async {
+    try {
+      await provider.purchasePro(planId: planId);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Pro版へのアップグレードが完了しました')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
+        );
+      }
+    }
+  }
+
+  Future<void> _handleBackup(BuildContext context) async {
+    try {
+      await BackupService.backupToFirebase();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('バックアップが完了しました')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
+        );
+      }
+    }
+  }
+
+  Future<void> _handleRestore(BuildContext context) async {
+    try {
+      await BackupService.restoreFromFirebase();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('復元が完了しました')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('処理に失敗しました。もう一度お試しください。')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final purchaseProvider = context.watch<PurchaseProvider>();
+    final isPro = purchaseProvider.isPro;
+    final firebaseEnabled = FirebaseGuard.isConfigured;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('設定'),
@@ -14,6 +97,52 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 16),
+
+          // Pro version section
+          _buildSectionHeader('Pro版'),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Column(
+              children: [
+                if (!isPro)
+                  ListTile(
+                    leading: const Icon(
+                      Icons.workspace_premium,
+                      color: AppColors.accentColor,
+                    ),
+                    title: const Text('Pro版にアップグレード'),
+                    subtitle: const Text('広告非表示、複数の子供登録など'),
+                    trailing: purchaseProvider.isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Icon(Icons.chevron_right),
+                    onTap: purchaseProvider.isLoading
+                        ? null
+                        : () {
+                            if (purchaseProvider.isMockMode) {
+                              _showMockPlanSheet(context, purchaseProvider);
+                            } else {
+                              _handlePurchase(context, purchaseProvider);
+                            }
+                          },
+                  )
+                else
+                  const ListTile(
+                    leading: Icon(
+                      Icons.workspace_premium,
+                      color: AppColors.accentColor,
+                    ),
+                    title: Text('Pro版をご利用中です'),
+                    subtitle: Text('広告非表示、複数の子供登録など'),
+                  ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
 
           // App info section
           _buildSectionHeader('アプリについて'),
@@ -49,6 +178,51 @@ class SettingsScreen extends StatelessWidget {
                       fontSize: 14,
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // Data management section
+          _buildSectionHeader('データ管理'),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Column(
+              children: [
+                ListTile(
+                  leading: const Icon(
+                    Icons.cloud_upload_outlined,
+                    color: AppColors.textSecondary,
+                  ),
+                  title: const Text('バックアップ'),
+                  subtitle: Text(
+                    isPro
+                        ? (firebaseEnabled ? 'Firebaseに保存' : 'Firebase未設定')
+                        : 'Pro版で利用可能',
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: isPro && firebaseEnabled
+                      ? () => _handleBackup(context)
+                      : null,
+                ),
+                const Divider(height: 1, indent: 56),
+                ListTile(
+                  leading: const Icon(
+                    Icons.cloud_download_outlined,
+                    color: AppColors.textSecondary,
+                  ),
+                  title: const Text('復元'),
+                  subtitle: Text(
+                    isPro
+                        ? (firebaseEnabled ? 'Firebaseから復元' : 'Firebase未設定')
+                        : 'Pro版で利用可能',
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: isPro && firebaseEnabled
+                      ? () => _handleRestore(context)
+                      : null,
                 ),
               ],
             ),
@@ -96,6 +270,87 @@ class SettingsScreen extends StatelessWidget {
           color: AppColors.textSecondary,
         ),
       ),
+    );
+  }
+
+  void _showMockPlanSheet(
+    BuildContext context,
+    PurchaseProvider provider,
+  ) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 12),
+              Container(
+                width: 36,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: AppColors.textSecondary.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Proプランを選択',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'weekly',
+                title: '週額プラン',
+                price: '¥200 / 週',
+              ),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'monthly',
+                title: '月額プラン',
+                price: '¥600 / 月',
+              ),
+              _buildPlanTile(
+                context,
+                provider,
+                planId: 'annual',
+                title: '年額プラン',
+                price: '¥4,800 / 年',
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildPlanTile(
+    BuildContext context,
+    PurchaseProvider provider, {
+    required String planId,
+    required String title,
+    required String price,
+  }) {
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(price),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: provider.isLoading
+          ? null
+          : () async {
+              Navigator.of(context).pop();
+              await _handleMockPurchase(context, provider, planId);
+            },
     );
   }
 
