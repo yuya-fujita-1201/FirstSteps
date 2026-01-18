@@ -104,7 +104,7 @@ class SettingsScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               children: [
-                if (!isPro)
+                  if (!isPro)
                   ListTile(
                     leading: const Icon(
                       Icons.workspace_premium,
@@ -391,4 +391,6 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
+
 }
+
