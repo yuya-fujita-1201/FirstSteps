@@ -18,12 +18,12 @@ class AdService {
   static String get interstitialAdUnitId {
     if (Platform.isAndroid) {
       return kReleaseMode
-          ? 'YOUR_ANDROID_INTERSTITIAL_AD_UNIT_ID'
+          ? 'ca-app-pub-2551004292724620/2043051197'
           : 'ca-app-pub-3940256099942544/1033173712';
     }
     if (Platform.isIOS) {
       return kReleaseMode
-          ? 'YOUR_IOS_INTERSTITIAL_AD_UNIT_ID'
+          ? 'ca-app-pub-2551004292724620/8999357690'
           : 'ca-app-pub-3940256099942544/4411468910';
     }
     return '';
