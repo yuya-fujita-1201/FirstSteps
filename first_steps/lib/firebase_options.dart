@@ -38,7 +38,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '776057320321',
     projectId: 'first-steps-7d383',
     storageBucket: 'first-steps-7d383.firebasestorage.app',
-    iosBundleId: 'com.example.firstSteps',
+    iosBundleId: 'marumi.works.hajimetememo',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -47,7 +47,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '776057320321',
     projectId: 'first-steps-7d383',
     storageBucket: 'first-steps-7d383.firebasestorage.app',
-    iosBundleId: 'com.example.firstSteps',
+    iosBundleId: 'marumi.works.hajimetememo',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
