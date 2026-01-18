@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../providers/purchase_provider.dart';
 import '../services/backup_service.dart';
 import '../services/firebase_guard.dart';
 import '../theme/app_theme.dart';
+import 'terms_of_service_screen.dart';
+import 'privacy_policy_screen.dart';
 
 /// Settings screen
 class SettingsScreen extends StatelessWidget {
@@ -84,6 +87,36 @@ class SettingsScreen extends StatelessWidget {
     }
   }
 
+  Future<void> _handleContactUs(BuildContext context) async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: 'marumi.works@gmail.com',
+      query: 'subject=はじめてメモに関するお問い合わせ',
+    );
+
+    try {
+      if (await canLaunchUrl(emailUri)) {
+        await launchUrl(emailUri);
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('メールアプリを起動できませんでした'),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('エラーが発生しました。もう一度お試しください。'),
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final purchaseProvider = context.watch<PurchaseProvider>();
@@ -111,7 +144,7 @@ class SettingsScreen extends StatelessWidget {
                       color: AppColors.accentColor,
                     ),
                     title: const Text('Pro版にアップグレード'),
-                    subtitle: const Text('広告非表示、複数の子供登録など'),
+                    subtitle: const Text('広告非表示、複数のお子様登録など'),
                     trailing: purchaseProvider.isLoading
                         ? const SizedBox(
                             height: 20,
@@ -136,7 +169,7 @@ class SettingsScreen extends StatelessWidget {
                       color: AppColors.accentColor,
                     ),
                     title: Text('Pro版をご利用中です'),
-                    subtitle: Text('広告非表示、複数の子供登録など'),
+                    subtitle: Text('広告非表示、複数のお子様登録など'),
                   ),
               ],
             ),
@@ -155,7 +188,11 @@ class SettingsScreen extends StatelessWidget {
                   title: const Text('利用規約'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
-                    _showComingSoonDialog(context, '利用規約');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const TermsOfServiceScreen(),
+                      ),
+                    );
                   },
                 ),
                 const Divider(height: 1, indent: 56),
@@ -164,7 +201,11 @@ class SettingsScreen extends StatelessWidget {
                   title: const Text('プライバシーポリシー'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
-                    _showComingSoonDialog(context, 'プライバシーポリシー');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const PrivacyPolicyScreen(),
+                      ),
+                    );
                   },
                 ),
                 const Divider(height: 1, indent: 56),
@@ -172,9 +213,7 @@ class SettingsScreen extends StatelessWidget {
                   leading: const Icon(Icons.mail_outline),
                   title: const Text('お問い合わせ'),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: () {
-                    _showComingSoonDialog(context, 'お問い合わせ');
-                  },
+                  onTap: () => _handleContactUs(context),
                 ),
                 const Divider(height: 1, indent: 56),
                 const ListTile(
