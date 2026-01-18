@@ -9,6 +9,14 @@ import '../theme/app_theme.dart';
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
+  // TODO: RevenueCat本番設定完了後、trueに変更して課金機能を有効化
+  // 1. App Store Connectでアプリ登録・審査通過
+  // 2. p8キーを取得してRevenueCatに設定
+  // 3. RevenueCatでOffering/Entitlementを設定
+  // 4. 本番用APIキー(appl_xxx)をpurchase_provider.dartに設定
+  // 5. このフラグをtrueに変更
+  static const bool _enableProFeatures = false;
+
   Future<void> _handlePurchase(
     BuildContext context,
     PurchaseProvider provider,
@@ -98,51 +106,52 @@ class SettingsScreen extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
 
-          // Pro version section
-          _buildSectionHeader('Pro版'),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Column(
-              children: [
-                if (!isPro)
-                  ListTile(
-                    leading: const Icon(
-                      Icons.workspace_premium,
-                      color: AppColors.accentColor,
+          // Pro version section (課金機能有効時のみ表示)
+          if (_enableProFeatures) ...[
+            _buildSectionHeader('Pro版'),
+            Card(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Column(
+                children: [
+                  if (!isPro)
+                    ListTile(
+                      leading: const Icon(
+                        Icons.workspace_premium,
+                        color: AppColors.accentColor,
+                      ),
+                      title: const Text('Pro版にアップグレード'),
+                      subtitle: const Text('広告非表示、複数の子供登録など'),
+                      trailing: purchaseProvider.isLoading
+                          ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            )
+                          : const Icon(Icons.chevron_right),
+                      onTap: purchaseProvider.isLoading
+                          ? null
+                          : () {
+                              if (purchaseProvider.isMockMode) {
+                                _showMockPlanSheet(context, purchaseProvider);
+                              } else {
+                                _handlePurchase(context, purchaseProvider);
+                              }
+                            },
+                    )
+                  else
+                    const ListTile(
+                      leading: Icon(
+                        Icons.workspace_premium,
+                        color: AppColors.accentColor,
+                      ),
+                      title: Text('Pro版をご利用中です'),
+                      subtitle: Text('広告非表示、複数の子供登録など'),
                     ),
-                    title: const Text('Pro版にアップグレード'),
-                    subtitle: const Text('広告非表示、複数の子供登録など'),
-                    trailing: purchaseProvider.isLoading
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          )
-                        : const Icon(Icons.chevron_right),
-                    onTap: purchaseProvider.isLoading
-                        ? null
-                        : () {
-                            if (purchaseProvider.isMockMode) {
-                              _showMockPlanSheet(context, purchaseProvider);
-                            } else {
-                              _handlePurchase(context, purchaseProvider);
-                            }
-                          },
-                  )
-                else
-                  const ListTile(
-                    leading: Icon(
-                      Icons.workspace_premium,
-                      color: AppColors.accentColor,
-                    ),
-                    title: Text('Pro版をご利用中です'),
-                    subtitle: Text('広告非表示、複数の子供登録など'),
-                  ),
-              ],
+                ],
+              ),
             ),
-          ),
-
-          const SizedBox(height: 24),
+            const SizedBox(height: 24),
+          ],
 
           // App info section
           _buildSectionHeader('アプリについて'),
@@ -183,50 +192,51 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 24),
-
-          // Data management section
-          _buildSectionHeader('データ管理'),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Column(
-              children: [
-                ListTile(
-                  leading: const Icon(
-                    Icons.cloud_upload_outlined,
-                    color: AppColors.textSecondary,
+          // Data management section (課金機能有効時のみ表示)
+          if (_enableProFeatures) ...[
+            const SizedBox(height: 24),
+            _buildSectionHeader('データ管理'),
+            Card(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(
+                      Icons.cloud_upload_outlined,
+                      color: AppColors.textSecondary,
+                    ),
+                    title: const Text('バックアップ'),
+                    subtitle: Text(
+                      isPro
+                          ? (firebaseEnabled ? 'Firebaseに保存' : 'Firebase未設定')
+                          : 'Pro版で利用可能',
+                    ),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: isPro && firebaseEnabled
+                        ? () => _handleBackup(context)
+                        : null,
                   ),
-                  title: const Text('バックアップ'),
-                  subtitle: Text(
-                    isPro
-                        ? (firebaseEnabled ? 'Firebaseに保存' : 'Firebase未設定')
-                        : 'Pro版で利用可能',
+                  const Divider(height: 1, indent: 56),
+                  ListTile(
+                    leading: const Icon(
+                      Icons.cloud_download_outlined,
+                      color: AppColors.textSecondary,
+                    ),
+                    title: const Text('復元'),
+                    subtitle: Text(
+                      isPro
+                          ? (firebaseEnabled ? 'Firebaseから復元' : 'Firebase未設定')
+                          : 'Pro版で利用可能',
+                    ),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: isPro && firebaseEnabled
+                        ? () => _handleRestore(context)
+                        : null,
                   ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro && firebaseEnabled
-                      ? () => _handleBackup(context)
-                      : null,
-                ),
-                const Divider(height: 1, indent: 56),
-                ListTile(
-                  leading: const Icon(
-                    Icons.cloud_download_outlined,
-                    color: AppColors.textSecondary,
-                  ),
-                  title: const Text('復元'),
-                  subtitle: Text(
-                    isPro
-                        ? (firebaseEnabled ? 'Firebaseから復元' : 'Firebase未設定')
-                        : 'Pro版で利用可能',
-                  ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro && firebaseEnabled
-                      ? () => _handleRestore(context)
-                      : null,
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          ],
 
           const SizedBox(height: 48),
 
