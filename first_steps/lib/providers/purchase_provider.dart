@@ -79,8 +79,8 @@ class PurchaseProvider extends ChangeNotifier {
       }
 
       final package = currentOffering.availablePackages.first;
-      final customerInfo = await Purchases.purchasePackage(package);
-      _isPro = customerInfo.entitlements.all[_proEntitlementId]?.isActive ?? false;
+      final result = await Purchases.purchasePackage(package);
+      _isPro = result.customerInfo.entitlements.all[_proEntitlementId]?.isActive ?? false;
     } catch (e) {
       if (kDebugMode) {
         debugPrint('Purchase failed: $e');

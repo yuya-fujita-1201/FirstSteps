@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "projectPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
+  "projectPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
   "projectRootName": "FirstSteps",
   "graphRenderingMode": "normal",
   "linkDisplayMode": "all",
   "graphStats": {
-    "totalNodes": 316,
-    "folders": 90,
-    "files": 226,
+    "totalNodes": 318,
+    "folders": 88,
+    "files": 230,
     "images": 64,
     "videos": 2,
     "audio": 6,
     "code": 5,
-    "text": 21,
+    "text": 22,
     "html": 6,
     "yaml": 3,
     "json": 12,
-    "other": 107,
+    "other": 110,
     "totalLines": 0,
     "maxLines": 0
   },
@@ -255,6 +255,11 @@
                 "name": "ios_crash_handover.md",
                 "type": "file",
                 "lines": 0
+              },
+              {
+                "name": "再発防止チェックリスト.md",
+                "type": "file",
+                "lines": 0
               }
             ]
           },
@@ -268,6 +273,16 @@
                 "lines": 0
               }
             ]
+          },
+          {
+            "name": "revenuecat_subscription_setup.md",
+            "type": "file",
+            "lines": 0
+          },
+          {
+            "name": "storekit_local_test.md",
+            "type": "file",
+            "lines": 0
           },
           {
             "name": "v1.0",
@@ -310,6 +325,11 @@
                 "lines": 0
               }
             ]
+          },
+          {
+            "name": "verification_notes.md",
+            "type": "file",
+            "lines": 0
           }
         ]
       },
@@ -703,33 +723,6 @@
             ]
           },
           {
-            "name": "docs",
-            "type": "directory",
-            "children": [
-              {
-                "name": "Bagfix",
-                "type": "directory",
-                "children": [
-                  {
-                    "name": "ios_crash_handover.md",
-                    "type": "file",
-                    "lines": 0
-                  }
-                ]
-              },
-              {
-                "name": "revenuecat_subscription_setup.md",
-                "type": "file",
-                "lines": 0
-              },
-              {
-                "name": "storekit_local_test.md",
-                "type": "file",
-                "lines": 0
-              }
-            ]
-          },
-          {
             "name": "ios",
             "type": "directory",
             "children": [
@@ -761,6 +754,11 @@
               },
               {
                 "name": "Podfile",
+                "type": "file",
+                "lines": 0
+              },
+              {
+                "name": "Podfile.lock",
                 "type": "file",
                 "lines": 0
               },
@@ -1105,6 +1103,11 @@
                     "lines": 0
                   },
                   {
+                    "name": "privacy_policy_screen.dart",
+                    "type": "file",
+                    "lines": 0
+                  },
+                  {
                     "name": "profile_registration_screen.dart",
                     "type": "file",
                     "lines": 0
@@ -1116,6 +1119,11 @@
                   },
                   {
                     "name": "settings_screen.dart",
+                    "type": "file",
+                    "lines": 0
+                  },
+                  {
+                    "name": "terms_of_service_screen.dart",
                     "type": "file",
                     "lines": 0
                   },
@@ -1928,7 +1936,7 @@
         "originalColor": "#8e44ad",
         "defaultGlow": 0.18,
         "glowIntensity": 0.18,
-        "highlighted": false,
+        "highlighted": true,
         "parentPath": "FirstSteps/.kamui",
         "childFileCount": 0
       },
@@ -2378,7 +2386,7 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps",
-        "childFileCount": 0
+        "childFileCount": 3
       },
       {
         "id": "FirstSteps/docs/Bagfix",
@@ -2394,7 +2402,7 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps/docs",
-        "childFileCount": 2
+        "childFileCount": 3
       },
       {
         "id": "FirstSteps/docs/Bagfix/Runner-2026-01-17-040932.ips",
@@ -2416,6 +2424,22 @@
         "id": "FirstSteps/docs/Bagfix/ios_crash_handover.md",
         "name": "ios_crash_handover.md",
         "path": "FirstSteps/docs/Bagfix/ios_crash_handover.md",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#3498db",
+        "baseColor": "#3498db",
+        "originalColor": "#3498db",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/docs/Bagfix",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/docs/Bagfix/再発防止チェックリスト.md",
+        "name": "再発防止チェックリスト.md",
+        "path": "FirstSteps/docs/Bagfix/再発防止チェックリスト.md",
         "type": "file",
         "lines": 0,
         "val": 6,
@@ -2458,6 +2482,38 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps/docs/Store",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/docs/revenuecat_subscription_setup.md",
+        "name": "revenuecat_subscription_setup.md",
+        "path": "FirstSteps/docs/revenuecat_subscription_setup.md",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#3498db",
+        "baseColor": "#3498db",
+        "originalColor": "#3498db",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/docs",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/docs/storekit_local_test.md",
+        "name": "storekit_local_test.md",
+        "path": "FirstSteps/docs/storekit_local_test.md",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#3498db",
+        "baseColor": "#3498db",
+        "originalColor": "#3498db",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/docs",
         "childFileCount": 0
       },
       {
@@ -2586,6 +2642,22 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps/docs/v1.1",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/docs/verification_notes.md",
+        "name": "verification_notes.md",
+        "path": "FirstSteps/docs/verification_notes.md",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#3498db",
+        "baseColor": "#3498db",
+        "originalColor": "#3498db",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": true,
+        "parentPath": "FirstSteps/docs",
         "childFileCount": 0
       },
       {
@@ -3757,86 +3829,6 @@
         "childFileCount": 0
       },
       {
-        "id": "FirstSteps/first_steps/docs",
-        "name": "docs",
-        "path": "FirstSteps/first_steps/docs",
-        "type": "directory",
-        "lines": 0,
-        "val": 14,
-        "color": "#4d515a",
-        "baseColor": "#4ec9b0",
-        "originalColor": "#4ec9b0",
-        "defaultGlow": 0.18,
-        "glowIntensity": 0.18,
-        "highlighted": false,
-        "parentPath": "FirstSteps/first_steps",
-        "childFileCount": 2
-      },
-      {
-        "id": "FirstSteps/first_steps/docs/Bagfix",
-        "name": "Bagfix",
-        "path": "FirstSteps/first_steps/docs/Bagfix",
-        "type": "directory",
-        "lines": 0,
-        "val": 14,
-        "color": "#4d515a",
-        "baseColor": "#4ec9b0",
-        "originalColor": "#4ec9b0",
-        "defaultGlow": 0.18,
-        "glowIntensity": 0.18,
-        "highlighted": false,
-        "parentPath": "FirstSteps/first_steps/docs",
-        "childFileCount": 1
-      },
-      {
-        "id": "FirstSteps/first_steps/docs/Bagfix/ios_crash_handover.md",
-        "name": "ios_crash_handover.md",
-        "path": "FirstSteps/first_steps/docs/Bagfix/ios_crash_handover.md",
-        "type": "file",
-        "lines": 0,
-        "val": 6,
-        "color": "#3498db",
-        "baseColor": "#3498db",
-        "originalColor": "#3498db",
-        "defaultGlow": 0.18,
-        "glowIntensity": 0.18,
-        "highlighted": false,
-        "parentPath": "FirstSteps/first_steps/docs/Bagfix",
-        "childFileCount": 0
-      },
-      {
-        "id": "FirstSteps/first_steps/docs/revenuecat_subscription_setup.md",
-        "name": "revenuecat_subscription_setup.md",
-        "path": "FirstSteps/first_steps/docs/revenuecat_subscription_setup.md",
-        "type": "file",
-        "lines": 0,
-        "val": 6,
-        "color": "#3498db",
-        "baseColor": "#3498db",
-        "originalColor": "#3498db",
-        "defaultGlow": 0.18,
-        "glowIntensity": 0.18,
-        "highlighted": false,
-        "parentPath": "FirstSteps/first_steps/docs",
-        "childFileCount": 0
-      },
-      {
-        "id": "FirstSteps/first_steps/docs/storekit_local_test.md",
-        "name": "storekit_local_test.md",
-        "path": "FirstSteps/first_steps/docs/storekit_local_test.md",
-        "type": "file",
-        "lines": 0,
-        "val": 6,
-        "color": "#3498db",
-        "baseColor": "#3498db",
-        "originalColor": "#3498db",
-        "defaultGlow": 0.18,
-        "glowIntensity": 0.18,
-        "highlighted": false,
-        "parentPath": "FirstSteps/first_steps/docs",
-        "childFileCount": 0
-      },
-      {
         "id": "FirstSteps/first_steps/ios",
         "name": "ios",
         "path": "FirstSteps/first_steps/ios",
@@ -3850,7 +3842,7 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps/first_steps",
-        "childFileCount": 2
+        "childFileCount": 3
       },
       {
         "id": "FirstSteps/first_steps/ios/.gitignore",
@@ -3936,6 +3928,22 @@
         "id": "FirstSteps/first_steps/ios/Podfile",
         "name": "Podfile",
         "path": "FirstSteps/first_steps/ios/Podfile",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#57606f",
+        "baseColor": "#57606f",
+        "originalColor": "#57606f",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/first_steps/ios",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/first_steps/ios/Podfile.lock",
+        "name": "Podfile.lock",
+        "path": "FirstSteps/first_steps/ios/Podfile.lock",
         "type": "file",
         "lines": 0,
         "val": 6,
@@ -4938,7 +4946,7 @@
         "glowIntensity": 0.18,
         "highlighted": false,
         "parentPath": "FirstSteps/first_steps/lib",
-        "childFileCount": 7
+        "childFileCount": 9
       },
       {
         "id": "FirstSteps/first_steps/lib/screens/home_screen.dart",
@@ -4989,6 +4997,22 @@
         "childFileCount": 0
       },
       {
+        "id": "FirstSteps/first_steps/lib/screens/privacy_policy_screen.dart",
+        "name": "privacy_policy_screen.dart",
+        "path": "FirstSteps/first_steps/lib/screens/privacy_policy_screen.dart",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#57606f",
+        "baseColor": "#57606f",
+        "originalColor": "#57606f",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/first_steps/lib/screens",
+        "childFileCount": 0
+      },
+      {
         "id": "FirstSteps/first_steps/lib/screens/profile_registration_screen.dart",
         "name": "profile_registration_screen.dart",
         "path": "FirstSteps/first_steps/lib/screens/profile_registration_screen.dart",
@@ -5024,6 +5048,22 @@
         "id": "FirstSteps/first_steps/lib/screens/settings_screen.dart",
         "name": "settings_screen.dart",
         "path": "FirstSteps/first_steps/lib/screens/settings_screen.dart",
+        "type": "file",
+        "lines": 0,
+        "val": 6,
+        "color": "#57606f",
+        "baseColor": "#57606f",
+        "originalColor": "#57606f",
+        "defaultGlow": 0.18,
+        "glowIntensity": 0.18,
+        "highlighted": false,
+        "parentPath": "FirstSteps/first_steps/lib/screens",
+        "childFileCount": 0
+      },
+      {
+        "id": "FirstSteps/first_steps/lib/screens/terms_of_service_screen.dart",
+        "name": "terms_of_service_screen.dart",
+        "path": "FirstSteps/first_steps/lib/screens/terms_of_service_screen.dart",
         "type": "file",
         "lines": 0,
         "val": 6,
@@ -5096,7 +5136,7 @@
         "originalColor": "#57606f",
         "defaultGlow": 0.18,
         "glowIntensity": 0.18,
-        "highlighted": true,
+        "highlighted": false,
         "parentPath": "FirstSteps/first_steps/lib/services",
         "childFileCount": 0
       },
@@ -6216,7 +6256,7 @@
         "originalColor": "#f1c40f",
         "defaultGlow": 0.18,
         "glowIntensity": 0.18,
-        "highlighted": true,
+        "highlighted": false,
         "parentPath": "FirstSteps/first_steps",
         "childFileCount": 0
       },
@@ -6976,6 +7016,11 @@
         "type": "tree"
       },
       {
+        "source": "FirstSteps/docs/Bagfix",
+        "target": "FirstSteps/docs/Bagfix/再発防止チェックリスト.md",
+        "type": "tree"
+      },
+      {
         "source": "FirstSteps/docs",
         "target": "FirstSteps/docs/Store",
         "type": "tree"
@@ -6983,6 +7028,16 @@
       {
         "source": "FirstSteps/docs/Store",
         "target": "FirstSteps/docs/Store/プレゼンテーションスクリプト：はじめてメモ ~First Steps~ ストア申請ガイド.md",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/docs",
+        "target": "FirstSteps/docs/revenuecat_subscription_setup.md",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/docs",
+        "target": "FirstSteps/docs/storekit_local_test.md",
         "type": "tree"
       },
       {
@@ -7023,6 +7078,11 @@
       {
         "source": "FirstSteps/docs/v1.1",
         "target": "FirstSteps/docs/v1.1/implementation_checklist_v1.1.md",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/docs",
+        "target": "FirstSteps/docs/verification_notes.md",
         "type": "tree"
       },
       {
@@ -7392,31 +7452,6 @@
       },
       {
         "source": "FirstSteps/first_steps",
-        "target": "FirstSteps/first_steps/docs",
-        "type": "tree"
-      },
-      {
-        "source": "FirstSteps/first_steps/docs",
-        "target": "FirstSteps/first_steps/docs/Bagfix",
-        "type": "tree"
-      },
-      {
-        "source": "FirstSteps/first_steps/docs/Bagfix",
-        "target": "FirstSteps/first_steps/docs/Bagfix/ios_crash_handover.md",
-        "type": "tree"
-      },
-      {
-        "source": "FirstSteps/first_steps/docs",
-        "target": "FirstSteps/first_steps/docs/revenuecat_subscription_setup.md",
-        "type": "tree"
-      },
-      {
-        "source": "FirstSteps/first_steps/docs",
-        "target": "FirstSteps/first_steps/docs/storekit_local_test.md",
-        "type": "tree"
-      },
-      {
-        "source": "FirstSteps/first_steps",
         "target": "FirstSteps/first_steps/ios",
         "type": "tree"
       },
@@ -7448,6 +7483,11 @@
       {
         "source": "FirstSteps/first_steps/ios",
         "target": "FirstSteps/first_steps/ios/Podfile",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/first_steps/ios",
+        "target": "FirstSteps/first_steps/ios/Podfile.lock",
         "type": "tree"
       },
       {
@@ -7777,6 +7817,11 @@
       },
       {
         "source": "FirstSteps/first_steps/lib/screens",
+        "target": "FirstSteps/first_steps/lib/screens/privacy_policy_screen.dart",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/first_steps/lib/screens",
         "target": "FirstSteps/first_steps/lib/screens/profile_registration_screen.dart",
         "type": "tree"
       },
@@ -7788,6 +7833,11 @@
       {
         "source": "FirstSteps/first_steps/lib/screens",
         "target": "FirstSteps/first_steps/lib/screens/settings_screen.dart",
+        "type": "tree"
+      },
+      {
+        "source": "FirstSteps/first_steps/lib/screens",
+        "target": "FirstSteps/first_steps/lib/screens/terms_of_service_screen.dart",
         "type": "tree"
       },
       {
@@ -8362,13 +8412,17 @@
     "command.md",
     "docs/Bagfix/Runner-2026-01-17-040932.ips",
     "docs/Bagfix/ios_crash_handover.md",
+    "docs/Bagfix/再発防止チェックリスト.md",
     "docs/Store/プレゼンテーションスクリプト：はじめてメモ ~First Steps~ ストア申請ガイド.md",
+    "docs/revenuecat_subscription_setup.md",
+    "docs/storekit_local_test.md",
     "docs/v1.0/ai_development_prompt_v1.0.md",
     "docs/v1.0/app_specification_v1.0.md",
     "docs/v1.0/design_c_babyblue_home_v1.0.png",
     "docs/v1.1/ai_development_prompt_v1.1.md",
     "docs/v1.1/app_specification_v1.1.md",
     "docs/v1.1/implementation_checklist_v1.1.md",
+    "docs/verification_notes.md",
     "first_steps/.gitignore",
     "first_steps/.metadata",
     "first_steps/README.md",
@@ -8416,14 +8470,12 @@
     "first_steps/assets/icons/milestones/tricycle.svg",
     "first_steps/assets/icons/milestones/two_words.svg",
     "first_steps/assets/icons/milestones/wave.svg",
-    "first_steps/docs/Bagfix/ios_crash_handover.md",
-    "first_steps/docs/revenuecat_subscription_setup.md",
-    "first_steps/docs/storekit_local_test.md",
     "first_steps/ios/.gitignore",
     "first_steps/ios/Flutter/AppFrameworkInfo.plist",
     "first_steps/ios/Flutter/Debug.xcconfig",
     "first_steps/ios/Flutter/Release.xcconfig",
     "first_steps/ios/Podfile",
+    "first_steps/ios/Podfile.lock",
     "first_steps/ios/Runner.xcodeproj/project.pbxproj",
     "first_steps/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
     "first_steps/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
@@ -8472,9 +8524,11 @@
     "first_steps/lib/screens/home_screen.dart",
     "first_steps/lib/screens/main_screen.dart",
     "first_steps/lib/screens/milestones_screen.dart",
+    "first_steps/lib/screens/privacy_policy_screen.dart",
     "first_steps/lib/screens/profile_registration_screen.dart",
     "first_steps/lib/screens/record_screen.dart",
     "first_steps/lib/screens/settings_screen.dart",
+    "first_steps/lib/screens/terms_of_service_screen.dart",
     "first_steps/lib/screens/timeline_screen.dart",
     "first_steps/lib/services/ad_service.dart",
     "first_steps/lib/services/backup_service.dart",
@@ -8576,7 +8630,83 @@
       "FirstSteps/first_steps/lib",
       "FirstSteps/FirstSteps/first_steps/lib",
       "FirstSteps/first_steps/lib/services",
-      "FirstSteps/FirstSteps/first_steps/lib/services"
+      "FirstSteps/FirstSteps/first_steps/lib/services",
+      "FirstSteps/first_steps/android",
+      "FirstSteps/FirstSteps/first_steps/android",
+      "FirstSteps/first_steps/android/app",
+      "FirstSteps/FirstSteps/first_steps/android/app",
+      "FirstSteps/first_steps/android/app/src",
+      "FirstSteps/FirstSteps/first_steps/android/app/src",
+      "FirstSteps/first_steps/android/app/src/main",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main",
+      "FirstSteps/first_steps/android/app/src/main/res",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res",
+      "FirstSteps/first_steps/android/app/src/main/res/mipmap-hdpi",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res/mipmap-hdpi",
+      "FirstSteps/first_steps/android/app/src/main/res/mipmap-mdpi",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res/mipmap-mdpi",
+      "FirstSteps/first_steps/android/app/src/main/res/mipmap-xhdpi",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res/mipmap-xhdpi",
+      "FirstSteps/first_steps/android/app/src/main/res/mipmap-xxhdpi",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res/mipmap-xxhdpi",
+      "FirstSteps/first_steps/android/app/src/main/res/mipmap-xxxhdpi",
+      "FirstSteps/FirstSteps/first_steps/android/app/src/main/res/mipmap-xxxhdpi",
+      "FirstSteps/first_steps/ios/Runner",
+      "FirstSteps/FirstSteps/first_steps/ios/Runner",
+      "FirstSteps/first_steps/ios/Runner/Assets.xcassets",
+      "FirstSteps/FirstSteps/first_steps/ios/Runner/Assets.xcassets",
+      "FirstSteps/first_steps/ios/Runner/Assets.xcassets/AppIcon.appiconset",
+      "FirstSteps/FirstSteps/first_steps/ios/Runner/Assets.xcassets/AppIcon.appiconset",
+      "FirstSteps/first_steps/docs",
+      "FirstSteps/FirstSteps/first_steps/docs",
+      "FirstSteps/first_steps/docs/revenuecat_subscription_setup.md\tdocs",
+      "FirstSteps/FirstSteps/first_steps/docs/revenuecat_subscription_setup.md\tdocs",
+      "FirstSteps/first_steps/docs/storekit_local_test.md\tdocs",
+      "FirstSteps/FirstSteps/first_steps/docs/storekit_local_test.md\tdocs",
+      "FirstSteps/first_steps/docs/Bagfix",
+      "FirstSteps/FirstSteps/first_steps/docs/Bagfix",
+      "task-1768720556171-db90ee",
+      "FirstSteps/task-1768720556171-db90ee",
+      "task-1768720556171-db90ee/first_steps",
+      "FirstSteps/task-1768720556171-db90ee/first_steps",
+      "task-1768720555971-c56164",
+      "task-1768720556171-db90ee/task-1768720555971-c56164",
+      "task-1768720555971-c56164/first_steps",
+      "task-1768720556171-db90ee/task-1768720555971-c56164/first_steps",
+      "task-1768720555971-c56164/first_steps/lib",
+      "task-1768720556171-db90ee/task-1768720555971-c56164/first_steps/lib",
+      "task-1768720555971-c56164/first_steps/lib/constants",
+      "task-1768720556171-db90ee/task-1768720555971-c56164/first_steps/lib/constants",
+      "task-1768720555971-c56164/first_steps/lib/screens",
+      "task-1768720556171-db90ee/task-1768720555971-c56164/first_steps/lib/screens",
+      "task-1768720555971-c56164/task-1768720555971-c56164",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/lib",
+      "task-1768720555971-c56164/first_steps/lib/services",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/lib/services",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/lib/constants",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/lib/screens",
+      "task-1768720555971-c56164/first_steps/macos",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/macos",
+      "task-1768720555971-c56164/first_steps/macos/Flutter",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/macos/Flutter",
+      "task-1768720555971-c56164/first_steps/windows",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/windows",
+      "task-1768720555971-c56164/first_steps/windows/flutter",
+      "task-1768720555971-c56164/task-1768720555971-c56164/first_steps/windows/flutter",
+      "task-1768720555971-c56164/irst_steps",
+      "task-1768720555971-c56164/task-1768720555971-c56164/irst_steps",
+      "task-1768720555971-c56164/irst_steps/ios",
+      "task-1768720555971-c56164/task-1768720555971-c56164/irst_steps/ios",
+      "task-1768720555971-c56164/.kamui",
+      "task-1768720555971-c56164/task-1768720555971-c56164/.kamui",
+      "task-1768720555971-c56164/docs",
+      "task-1768720555971-c56164/task-1768720555971-c56164/docs",
+      "task-1768720559890-f5a568",
+      "FirstSteps/first_steps/lib/screens",
+      "FirstSteps/FirstSteps/first_steps/lib/screens",
+      "FirstSteps/docs",
+      "FirstSteps/FirstSteps/docs"
     ],
     "selectedPath": null
   },
@@ -8590,10 +8720,16 @@
     "mode": "full",
     "isPartial": false,
     "branchPulse": {
-      "generatedAt": 1768716460138,
+      "generatedAt": 1768756414073,
       "targets": [
         "main",
+        "task/task-1768720555971-c56164",
+        "task/task-1768720556171-db90ee",
+        "task/task-1768720556372-f7f6c5",
+        "task/task-1768720556591-188b3c",
+        "task/task-1768720559890-f5a568",
         "master",
+        "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
         "yuya-fujita-1201/claude/fix-iphone-crash-UJCpb",
         "yuya-fujita-1201/claude/redesign-app-icons-UVIHs",
         "task/task-1768622689798-2acbb1",
@@ -8603,10 +8739,10 @@
       "statsByBranch": {
         "main": {
           "branch": "main",
-          "head": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+          "head": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
           "baseRef": "origin/main",
-          "baseHead": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
-          "mergeBase": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
           "divergence": {
             "aheadCount": 0,
             "fileCount": 0
@@ -8618,20 +8754,88 @@
           },
           "upstream": null
         },
-        "task/task-1768622689798-2acbb1": {
-          "branch": "task/task-1768622689798-2acbb1",
-          "head": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
+        "task/task-1768720555971-c56164": {
+          "branch": "task/task-1768720555971-c56164",
+          "head": "dd71a28625664e563210a3af91e3ef4cb71f0858",
           "baseRef": "main",
-          "baseHead": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
-          "mergeBase": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "dd71a28625664e563210a3af91e3ef4cb71f0858",
           "divergence": {
             "aheadCount": 0,
             "fileCount": 0
           },
           "baseline": {
             "aheadCount": 0,
-            "behindCount": 16,
-            "fileCount": 57
+            "behindCount": 6,
+            "fileCount": 13
+          },
+          "upstream": null
+        },
+        "task/task-1768720556171-db90ee": {
+          "branch": "task/task-1768720556171-db90ee",
+          "head": "eebfecb01335048a78fa93736ec49b3e774687a2",
+          "baseRef": "main",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "divergence": {
+            "aheadCount": 3,
+            "fileCount": 9
+          },
+          "baseline": {
+            "aheadCount": 3,
+            "behindCount": 6,
+            "fileCount": 9
+          },
+          "upstream": null
+        },
+        "task/task-1768720556372-f7f6c5": {
+          "branch": "task/task-1768720556372-f7f6c5",
+          "head": "3a206e3b83403815c3f2209b0899cf4b0ad78a11",
+          "baseRef": "main",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "divergence": {
+            "aheadCount": 1,
+            "fileCount": 7
+          },
+          "baseline": {
+            "aheadCount": 1,
+            "behindCount": 6,
+            "fileCount": 13
+          },
+          "upstream": null
+        },
+        "task/task-1768720556591-188b3c": {
+          "branch": "task/task-1768720556591-188b3c",
+          "head": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+          "baseRef": "main",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+          "divergence": {
+            "aheadCount": 0,
+            "fileCount": 0
+          },
+          "baseline": {
+            "aheadCount": 0,
+            "behindCount": 4,
+            "fileCount": 4
+          },
+          "upstream": null
+        },
+        "task/task-1768720559890-f5a568": {
+          "branch": "task/task-1768720559890-f5a568",
+          "head": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "baseRef": "main",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "divergence": {
+            "aheadCount": 0,
+            "fileCount": 0
+          },
+          "baseline": {
+            "aheadCount": 0,
+            "behindCount": 6,
+            "fileCount": 13
           },
           "upstream": null
         },
@@ -8639,7 +8843,7 @@
           "branch": "task/task-1768577062500-f6e778",
           "head": "4ec77b4e5e7fefe2059a8dcfd807c499c4c66ba4",
           "baseRef": "main",
-          "baseHead": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
           "mergeBase": "4ec77b4e5e7fefe2059a8dcfd807c499c4c66ba4",
           "divergence": {
             "aheadCount": 0,
@@ -8647,8 +8851,25 @@
           },
           "baseline": {
             "aheadCount": 0,
-            "behindCount": 22,
-            "fileCount": 73
+            "behindCount": 34,
+            "fileCount": 98
+          },
+          "upstream": null
+        },
+        "task/task-1768622689798-2acbb1": {
+          "branch": "task/task-1768622689798-2acbb1",
+          "head": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
+          "baseRef": "main",
+          "baseHead": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "mergeBase": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
+          "divergence": {
+            "aheadCount": 0,
+            "fileCount": 0
+          },
+          "baseline": {
+            "aheadCount": 0,
+            "behindCount": 28,
+            "fileCount": 86
           },
           "upstream": null
         }
@@ -8657,24 +8878,907 @@
   },
   "gitHistoryState": {
     "selectedTimelineIndex": 1,
-    "activeCommitHash": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+    "activeCommitHash": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
     "entries": [
       {
         "type": "live",
         "label": "現在のコードベース",
         "files": [],
-        "branch": "main",
-        "targetCommitHash": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
-        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
-        "timestamp": 1768716460151,
+        "branch": "task/task-1768720559890-f5a568",
+        "targetCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
+        "timestamp": 1768756414086,
         "lane": 0,
-        "branchLabel": "main",
+        "branchLabel": "task/task-1768720559890-f5a568",
         "branchTags": [
-          "main"
+          "task/task-1768720559890-f5a568"
         ],
         "isDefaultWorktree": true,
         "branchColor": "#4f85e8",
         "index": 0
+      },
+      {
+        "type": "commit",
+        "label": "update iOS verification notes",
+        "commit": {
+          "hash": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+          "subject": "update iOS verification notes",
+          "author": "Yuya Fujita",
+          "timestamp": 1768724946,
+          "parents": [
+            "0cca698779e82bfb67cb89334514c269da11d537"
+          ],
+          "parent": "0cca698779e82bfb67cb89334514c269da11d537",
+          "refs": "origin/main, origin/HEAD, main",
+          "branches": [
+            "origin/main",
+            "origin/HEAD",
+            "main"
+          ]
+        },
+        "commitHash": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "0cca698779e82bfb67cb89334514c269da11d537",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [
+          "main"
+        ],
+        "worktrees": [
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
+            "head": "25498fdc0d6ca802e4757c48e286a4e15b2161e6",
+            "branch": "main",
+            "isMerged": true,
+            "mergeCommitHash": "0656af764dff5f47656e78ebd4568284b82985f0",
+            "status": {
+              "staged": [
+                {
+                  "path": "kamui/model-versions-cache.json",
+                  "originalPath": null,
+                  "status": "modified",
+                  "rawPath": "kamui/model-versions-cache.json",
+                  "timestamp": 1768756413748
+                }
+              ],
+              "unstaged": [],
+              "untracked": [],
+              "capturedAt": 1768756413748
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
+            "lane": 0
+          }
+        ],
+        "index": 1
+      },
+      {
+        "type": "commit",
+        "label": "docs: Update verification notes with verification results",
+        "commit": {
+          "hash": "0cca698779e82bfb67cb89334514c269da11d537",
+          "subject": "docs: Update verification notes with verification results",
+          "author": "Yuya Fujita",
+          "timestamp": 1768723698,
+          "parents": [
+            "f9f3b3bb3feb879568bd7d707817ae316a29efba"
+          ],
+          "parent": "f9f3b3bb3feb879568bd7d707817ae316a29efba",
+          "refs": "",
+          "branches": [
+            "main"
+          ]
+        },
+        "commitHash": "0cca698779e82bfb67cb89334514c269da11d537",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "f9f3b3bb3feb879568bd7d707817ae316a29efba",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [],
+        "index": 2
+      },
+      {
+        "type": "commit",
+        "label": "Merge branch 'task/task-1768720556591-188b3c'",
+        "commit": {
+          "hash": "f9f3b3bb3feb879568bd7d707817ae316a29efba",
+          "subject": "Merge branch 'task/task-1768720556591-188b3c'",
+          "author": "Yuya Fujita",
+          "timestamp": 1768723270,
+          "parents": [
+            "5a7aa0034816e8377404a62dc8eec8be965f4af7",
+            "494cc0f2b101eaf3f2e33e698054bd53b9a253d7"
+          ],
+          "parent": "5a7aa0034816e8377404a62dc8eec8be965f4af7",
+          "refs": "",
+          "branches": [
+            "main",
+            "task/task-1768720556591-188b3c"
+          ]
+        },
+        "commitHash": "f9f3b3bb3feb879568bd7d707817ae316a29efba",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "5a7aa0034816e8377404a62dc8eec8be965f4af7",
+            "lane": 0
+          },
+          {
+            "hash": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+            "lane": 1
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [
+          "task/task-1768720556591-188b3c"
+        ],
+        "index": 3
+      },
+      {
+        "type": "commit",
+        "label": "chore: Update task state and verification notes",
+        "commit": {
+          "hash": "5a7aa0034816e8377404a62dc8eec8be965f4af7",
+          "subject": "chore: Update task state and verification notes",
+          "author": "Yuya Fujita",
+          "timestamp": 1768723263,
+          "parents": [
+            "dd71a28625664e563210a3af91e3ef4cb71f0858"
+          ],
+          "parent": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "refs": "",
+          "branches": [
+            "main"
+          ]
+        },
+        "commitHash": "5a7aa0034816e8377404a62dc8eec8be965f4af7",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [],
+        "index": 4
+      },
+      {
+        "type": "commit",
+        "label": "chore: Update generated plugin registrants",
+        "commit": {
+          "hash": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+          "subject": "chore: Update generated plugin registrants",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722785,
+          "parents": [
+            "b861dae51d4a65d79bb2426b5b05a942041dc946"
+          ],
+          "parent": "b861dae51d4a65d79bb2426b5b05a942041dc946",
+          "refs": "task/task-1768720556591-188b3c",
+          "branches": [
+            "task/task-1768720556591-188b3c"
+          ]
+        },
+        "commitHash": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+        "lane": 1,
+        "parentLinks": [
+          {
+            "hash": "b861dae51d4a65d79bb2426b5b05a942041dc946",
+            "lane": 1
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556591-188b3c",
+        "branchColor": "#e8e84f",
+        "branchTags": [],
+        "worktrees": [
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556591-188b3c",
+            "head": "494cc0f2b101eaf3f2e33e698054bd53b9a253d7",
+            "branch": "task/task-1768720556591-188b3c",
+            "isMerged": true,
+            "mergeCommitHash": "f9f3b3bb3feb879568bd7d707817ae316a29efba",
+            "status": {
+              "staged": [],
+              "unstaged": [],
+              "untracked": [],
+              "capturedAt": 1768756413770
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556591-188b3c",
+            "lane": 1
+          }
+        ],
+        "index": 5
+      },
+      {
+        "type": "commit",
+        "label": "fix: デバイス検証フィードバックに対応",
+        "commit": {
+          "hash": "b861dae51d4a65d79bb2426b5b05a942041dc946",
+          "subject": "fix: デバイス検証フィードバックに対応",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722767,
+          "parents": [
+            "dd71a28625664e563210a3af91e3ef4cb71f0858"
+          ],
+          "parent": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "refs": "",
+          "branches": [
+            "task/task-1768720556591-188b3c"
+          ]
+        },
+        "commitHash": "b861dae51d4a65d79bb2426b5b05a942041dc946",
+        "lane": 1,
+        "parentLinks": [
+          {
+            "hash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556591-188b3c",
+        "branchColor": "#e8e84f",
+        "branchTags": [],
+        "index": 6
+      },
+      {
+        "type": "commit",
+        "label": "fix: Implement Base64 image backup/restore and add legal scr…",
+        "commit": {
+          "hash": "3a206e3b83403815c3f2209b0899cf4b0ad78a11",
+          "subject": "fix: Implement Base64 image backup/restore and add legal screens",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722669,
+          "parents": [
+            "dd71a28625664e563210a3af91e3ef4cb71f0858"
+          ],
+          "parent": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "refs": "task/task-1768720556372-f7f6c5",
+          "branches": [
+            "task/task-1768720556372-f7f6c5"
+          ]
+        },
+        "commitHash": "3a206e3b83403815c3f2209b0899cf4b0ad78a11",
+        "lane": 2,
+        "parentLinks": [
+          {
+            "hash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556372-f7f6c5",
+        "branchColor": "#b84fe8",
+        "branchTags": [],
+        "worktrees": [
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556372-f7f6c5",
+            "head": "3a206e3b83403815c3f2209b0899cf4b0ad78a11",
+            "branch": "task/task-1768720556372-f7f6c5",
+            "isMerged": false,
+            "mergeCommitHash": null,
+            "status": {
+              "staged": [],
+              "unstaged": [],
+              "untracked": [],
+              "capturedAt": 1768756413759
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556372-f7f6c5",
+            "lane": 2
+          }
+        ],
+        "index": 7
+      },
+      {
+        "type": "anchor",
+        "label": "[作業中] ClaudeCode2: # Device Verificati…",
+        "branch": "task/task-1768720556372-f7f6c5",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556372-f7f6c5",
+        "parentCommitHash": "3a206e3b83403815c3f2209b0899cf4b0ad78a11",
+        "lane": 2,
+        "isMerged": false,
+        "mergeCommitHash": null,
+        "statusChildren": [],
+        "isDefaultWorktree": false,
+        "renderMode": "node",
+        "shouldHide": false,
+        "tagLabel": "task/task-1768720556372-f7f6c5",
+        "taskId": "task-1768720556372-f7f6c5",
+        "taskStatus": "working",
+        "taskStatusLabel": "作業中",
+        "taskName": "ClaudeCode2: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.",
+        "tooltip": "タスク: ClaudeCode2: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.\nステータス: 作業中\nID: task-1768720556372-f7f6c5\nBranch: task/task-1768720556372-f7f6c5\nWorktree: Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556372-f7f6c5",
+        "branchColor": "#b84fe8",
+        "index": 8
+      },
+      {
+        "type": "staged",
+        "label": "ステージ済み [task/task-1768720556171-db90ee] (1)",
+        "files": [
+          "irst_steps/ios/Podfile.lock"
+        ],
+        "branch": "task/task-1768720556171-db90ee",
+        "targetCommitHash": "eebfecb01335048a78fa93736ec49b3e774687a2",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+        "timestamp": 1768756413759,
+        "sortOrder": 1,
+        "lane": 3,
+        "branchColor": "#e8a84f",
+        "index": 9
+      },
+      {
+        "type": "commit",
+        "label": "fix: remove print statements from backup_service",
+        "commit": {
+          "hash": "eebfecb01335048a78fa93736ec49b3e774687a2",
+          "subject": "fix: remove print statements from backup_service",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722574,
+          "parents": [
+            "167ec65cde113a8cc35b567a49e169bc1760ae52"
+          ],
+          "parent": "167ec65cde113a8cc35b567a49e169bc1760ae52",
+          "refs": "task/task-1768720556171-db90ee",
+          "branches": [
+            "task/task-1768720556171-db90ee"
+          ]
+        },
+        "commitHash": "eebfecb01335048a78fa93736ec49b3e774687a2",
+        "lane": 3,
+        "parentLinks": [
+          {
+            "hash": "167ec65cde113a8cc35b567a49e169bc1760ae52",
+            "lane": 3
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556171-db90ee",
+        "branchColor": "#e8a84f",
+        "branchTags": [],
+        "worktrees": [
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+            "head": "eebfecb01335048a78fa93736ec49b3e774687a2",
+            "branch": "task/task-1768720556171-db90ee",
+            "isMerged": false,
+            "mergeCommitHash": null,
+            "status": {
+              "staged": [
+                {
+                  "path": "irst_steps/ios/Podfile.lock",
+                  "originalPath": null,
+                  "status": "modified",
+                  "rawPath": "irst_steps/ios/Podfile.lock",
+                  "timestamp": 1768756413759
+                }
+              ],
+              "unstaged": [],
+              "untracked": [],
+              "capturedAt": 1768756413759
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+            "lane": 3
+          }
+        ],
+        "index": 10
+      },
+      {
+        "type": "anchor",
+        "label": "[作業中] ClaudeCode1: # Device Verificati…",
+        "branch": "task/task-1768720556171-db90ee",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+        "parentCommitHash": "eebfecb01335048a78fa93736ec49b3e774687a2",
+        "lane": 3,
+        "isMerged": false,
+        "mergeCommitHash": null,
+        "statusChildren": [
+          {
+            "type": "staged",
+            "label": "ステージ済み [task/task-1768720556171-db90ee] (1)",
+            "files": [
+              "irst_steps/ios/Podfile.lock"
+            ],
+            "branch": "task/task-1768720556171-db90ee",
+            "targetCommitHash": "eebfecb01335048a78fa93736ec49b3e774687a2",
+            "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+            "timestamp": 1768756413759,
+            "sortOrder": 1,
+            "lane": 3,
+            "branchColor": "#e8a84f",
+            "index": 9
+          }
+        ],
+        "isDefaultWorktree": false,
+        "renderMode": "node",
+        "shouldHide": false,
+        "tagLabel": "task/task-1768720556171-db90ee",
+        "taskId": "task-1768720556171-db90ee",
+        "taskStatus": "working",
+        "taskStatusLabel": "作業中",
+        "taskName": "ClaudeCode1: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.",
+        "tooltip": "タスク: ClaudeCode1: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.\nステータス: 作業中\nID: task-1768720556171-db90ee\nBranch: task/task-1768720556171-db90ee\nWorktree: Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720556171-db90ee",
+        "branchColor": "#e8a84f",
+        "index": 11
+      },
+      {
+        "type": "commit",
+        "label": "chore: 新規依存パッケージ用のプラグイン登録を更新",
+        "commit": {
+          "hash": "167ec65cde113a8cc35b567a49e169bc1760ae52",
+          "subject": "chore: 新規依存パッケージ用のプラグイン登録を更新",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722528,
+          "parents": [
+            "cd7feb6e2ce442f94f1df656074d2bf9874ab8b8"
+          ],
+          "parent": "cd7feb6e2ce442f94f1df656074d2bf9874ab8b8",
+          "refs": "",
+          "branches": [
+            "task/task-1768720556171-db90ee"
+          ]
+        },
+        "commitHash": "167ec65cde113a8cc35b567a49e169bc1760ae52",
+        "lane": 3,
+        "parentLinks": [
+          {
+            "hash": "cd7feb6e2ce442f94f1df656074d2bf9874ab8b8",
+            "lane": 3
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556171-db90ee",
+        "branchColor": "#e8a84f",
+        "branchTags": [],
+        "index": 12
+      },
+      {
+        "type": "commit",
+        "label": "feat: 本番リリース準備 - 画像バックアップ修正と法的文書追加",
+        "commit": {
+          "hash": "cd7feb6e2ce442f94f1df656074d2bf9874ab8b8",
+          "subject": "feat: 本番リリース準備 - 画像バックアップ修正と法的文書追加",
+          "author": "Yuya Fujita",
+          "timestamp": 1768722517,
+          "parents": [
+            "dd71a28625664e563210a3af91e3ef4cb71f0858"
+          ],
+          "parent": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "refs": "",
+          "branches": [
+            "task/task-1768720556171-db90ee"
+          ]
+        },
+        "commitHash": "cd7feb6e2ce442f94f1df656074d2bf9874ab8b8",
+        "lane": 3,
+        "parentLinks": [
+          {
+            "hash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "task/task-1768720556171-db90ee",
+        "branchColor": "#e8a84f",
+        "branchTags": [],
+        "index": 13
+      },
+      {
+        "type": "unstaged",
+        "label": "未ステージ [task/task-1768720555971-c56164] (4)",
+        "files": [
+          "first_steps/lib/services/backup_service.dart",
+          "first_steps/pubspec.yaml",
+          "first_steps/lib/constants/legal_texts.dart",
+          "first_steps/lib/screens/legal_document_screen.dart"
+        ],
+        "branch": "task/task-1768720555971-c56164",
+        "targetCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+        "timestamp": 1768756413747,
+        "sortOrder": 0,
+        "lane": 5,
+        "branchColor": "#4fe8b8",
+        "index": 14
+      },
+      {
+        "type": "staged",
+        "label": "ステージ済み [task/task-1768720555971-c56164] (1)",
+        "files": [
+          "irst_steps/lib/screens/settings_screen.dart"
+        ],
+        "branch": "task/task-1768720555971-c56164",
+        "targetCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+        "timestamp": 1768756413747,
+        "sortOrder": 1,
+        "lane": 5,
+        "branchColor": "#4fe8b8",
+        "index": 15
+      },
+      {
+        "type": "anchor",
+        "label": "[作業中] CodexCLI3: # Device Verification…",
+        "branch": "task/task-1768720555971-c56164",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+        "parentCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "lane": 5,
+        "isMerged": false,
+        "mergeCommitHash": null,
+        "statusChildren": [
+          {
+            "type": "unstaged",
+            "label": "未ステージ [task/task-1768720555971-c56164] (4)",
+            "files": [
+              "first_steps/lib/services/backup_service.dart",
+              "first_steps/pubspec.yaml",
+              "first_steps/lib/constants/legal_texts.dart",
+              "first_steps/lib/screens/legal_document_screen.dart"
+            ],
+            "branch": "task/task-1768720555971-c56164",
+            "targetCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+            "timestamp": 1768756413747,
+            "sortOrder": 0,
+            "lane": 5,
+            "branchColor": "#4fe8b8",
+            "index": 14
+          },
+          {
+            "type": "staged",
+            "label": "ステージ済み [task/task-1768720555971-c56164] (1)",
+            "files": [
+              "irst_steps/lib/screens/settings_screen.dart"
+            ],
+            "branch": "task/task-1768720555971-c56164",
+            "targetCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+            "timestamp": 1768756413747,
+            "sortOrder": 1,
+            "lane": 5,
+            "branchColor": "#4fe8b8",
+            "index": 15
+          }
+        ],
+        "isDefaultWorktree": false,
+        "renderMode": "node",
+        "shouldHide": false,
+        "tagLabel": "task/task-1768720555971-c56164",
+        "taskId": "task-1768720555971-c56164",
+        "taskStatus": "working",
+        "taskStatusLabel": "作業中",
+        "taskName": "CodexCLI3: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.",
+        "tooltip": "タスク: CodexCLI3: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.\nステータス: 作業中\nID: task-1768720555971-c56164\nBranch: task/task-1768720555971-c56164\nWorktree: Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+        "branchColor": "#4fe8b8",
+        "index": 16
+      },
+      {
+        "type": "anchor",
+        "label": "[作業中] 🔍Monitor: # Device Verification…",
+        "branch": "task/task-1768720559890-f5a568",
+        "worktreePath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
+        "parentCommitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "lane": 6,
+        "isMerged": false,
+        "mergeCommitHash": null,
+        "statusChildren": [],
+        "isDefaultWorktree": false,
+        "renderMode": "node",
+        "shouldHide": false,
+        "tagLabel": "task/task-1768720559890-f5a568",
+        "taskId": "task-1768720559890-f5a568",
+        "taskStatus": "working",
+        "taskStatusLabel": "作業中",
+        "taskName": "🔍Monitor: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.",
+        "tooltip": "タスク: 🔍Monitor: # Device Verification Feedback & ToDo List\n\n## Issues Identified\n- [ ] **Image Restoration Bug**: When restoring data (Firebase), images (profile, events) are not restored. Existing remote data might be getting overwritten with empty local data.\n- [ ] **Wording Change**: In the Pro version registration/info, change \"複数の子供登録\" to \"複数のお子様登録\" (or similar polite phrasing).\n- [ ] **Missing Legal Text**: Terms of Service (利用規約) and Privacy Policy (プライバシーポリシー) are currently empty. Need to fill with appropriate placeholder/template text.\n利用規約やプライバシーポリシーは日本語で記述すること\n- [ ] **Missing Contact Feature**: \"Contact Us\n\" (お問い合わせ) functionality is missing. Needs to launch the mail app (`mailto:`) with a specific address.\n利用するメールアドレスはmarumi.works@gmail.com\n\n## Notes\n- User requested this file to track these specific points.\n- Priority is to fix these issues to make the app production-ready.\nステータス: 作業中\nID: task-1768720559890-f5a568\nBranch: task/task-1768720559890-f5a568\nWorktree: Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
+        "branchColor": "#e84f7f",
+        "index": 17
+      },
+      {
+        "type": "commit",
+        "label": "merge docs into root docs",
+        "commit": {
+          "hash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+          "subject": "merge docs into root docs",
+          "author": "Yuya Fujita",
+          "timestamp": 1768720348,
+          "parents": [
+            "fbbe9613efa043e8f76a8d251f9b655ed257cdc3"
+          ],
+          "parent": "fbbe9613efa043e8f76a8d251f9b655ed257cdc3",
+          "refs": "HEAD -> task/task-1768720559890-f5a568, task/task-1768720555971-c56164, task/task-1768720555771-2e2489, task/task-1768720555570-c43e2f",
+          "branches": [
+            "HEAD -> task/task-1768720559890-f5a568",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720555771-2e2489",
+            "task/task-1768720555570-c43e2f",
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
+          ]
+        },
+        "commitHash": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "fbbe9613efa043e8f76a8d251f9b655ed257cdc3",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [
+          "task/task-1768720555570-c43e2f",
+          "task/task-1768720555771-2e2489"
+        ],
+        "worktrees": [
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+            "head": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "branch": "task/task-1768720555971-c56164",
+            "isMerged": false,
+            "mergeCommitHash": null,
+            "status": {
+              "staged": [
+                {
+                  "path": "irst_steps/lib/screens/settings_screen.dart",
+                  "originalPath": null,
+                  "status": "modified",
+                  "rawPath": "irst_steps/lib/screens/settings_screen.dart",
+                  "timestamp": 1768756413747
+                }
+              ],
+              "unstaged": [
+                {
+                  "path": "first_steps/lib/services/backup_service.dart",
+                  "originalPath": null,
+                  "status": "modified",
+                  "rawPath": "first_steps/lib/services/backup_service.dart",
+                  "timestamp": 1768756413747
+                },
+                {
+                  "path": "first_steps/pubspec.yaml",
+                  "originalPath": null,
+                  "status": "modified",
+                  "rawPath": "first_steps/pubspec.yaml",
+                  "timestamp": 1768756413747
+                }
+              ],
+              "untracked": [
+                {
+                  "path": "first_steps/lib/constants/legal_texts.dart",
+                  "status": "untracked",
+                  "rawPath": "first_steps/lib/constants/legal_texts.dart",
+                  "timestamp": 1768756413747
+                },
+                {
+                  "path": "first_steps/lib/screens/legal_document_screen.dart",
+                  "status": "untracked",
+                  "rawPath": "first_steps/lib/screens/legal_document_screen.dart",
+                  "timestamp": 1768756413747
+                }
+              ],
+              "capturedAt": 1768756413747
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720555971-c56164",
+            "lane": 5
+          },
+          {
+            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
+            "head": "dd71a28625664e563210a3af91e3ef4cb71f0858",
+            "branch": "task/task-1768720559890-f5a568",
+            "isMerged": false,
+            "mergeCommitHash": null,
+            "status": {
+              "staged": [],
+              "unstaged": [],
+              "untracked": [],
+              "capturedAt": 1768756413771
+            },
+            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps/.worktrees/task-1768720559890-f5a568",
+            "lane": 6
+          }
+        ],
+        "index": 18
+      },
+      {
+        "type": "commit",
+        "label": "Update project artifacts and add iOS debug checklist",
+        "commit": {
+          "hash": "fbbe9613efa043e8f76a8d251f9b655ed257cdc3",
+          "subject": "Update project artifacts and add iOS debug checklist",
+          "author": "Yuya Fujita",
+          "timestamp": 1768720024,
+          "parents": [
+            "b2cf98d2a166333b0d0551e9cb1514c81079dcc3"
+          ],
+          "parent": "b2cf98d2a166333b0d0551e9cb1514c81079dcc3",
+          "refs": "",
+          "branches": [
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
+          ]
+        },
+        "commitHash": "fbbe9613efa043e8f76a8d251f9b655ed257cdc3",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "b2cf98d2a166333b0d0551e9cb1514c81079dcc3",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [],
+        "index": 19
+      },
+      {
+        "type": "commit",
+        "label": "Merge pull request #5 from yuya-fujita-1201/claude/cute-icon…",
+        "commit": {
+          "hash": "b2cf98d2a166333b0d0551e9cb1514c81079dcc3",
+          "subject": "Merge pull request #5 from yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
+          "author": "yuya-fujita-1201",
+          "timestamp": 1768719838,
+          "parents": [
+            "225e25cebb1362360deff63e21195b1b331fb9ce",
+            "f5616b30e7ca60bb01190cce66d2e181bc5d5a1a"
+          ],
+          "parent": "225e25cebb1362360deff63e21195b1b331fb9ce",
+          "refs": "",
+          "branches": [
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
+            "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK"
+          ]
+        },
+        "commitHash": "b2cf98d2a166333b0d0551e9cb1514c81079dcc3",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "225e25cebb1362360deff63e21195b1b331fb9ce",
+            "lane": 0
+          },
+          {
+            "hash": "f5616b30e7ca60bb01190cce66d2e181bc5d5a1a",
+            "lane": 4
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [
+          "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK"
+        ],
+        "index": 20
+      },
+      {
+        "type": "commit",
+        "label": "style: アプリアイコンをテーマカラーのベビーブルーに変更",
+        "commit": {
+          "hash": "f5616b30e7ca60bb01190cce66d2e181bc5d5a1a",
+          "subject": "style: アプリアイコンをテーマカラーのベビーブルーに変更",
+          "author": "Claude",
+          "timestamp": 1768719527,
+          "parents": [
+            "eb5d926c7e038341f02fa30033af1831c346ff51"
+          ],
+          "parent": "eb5d926c7e038341f02fa30033af1831c346ff51",
+          "refs": "",
+          "branches": [
+            "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
+          ]
+        },
+        "commitHash": "f5616b30e7ca60bb01190cce66d2e181bc5d5a1a",
+        "lane": 4,
+        "parentLinks": [
+          {
+            "hash": "eb5d926c7e038341f02fa30033af1831c346ff51",
+            "lane": 4
+          }
+        ],
+        "primaryBranchName": "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
+        "branchColor": "#4fe84f",
+        "branchTags": [],
+        "index": 21
+      },
+      {
+        "type": "commit",
+        "label": "Merge pull request #4 from yuya-fujita-1201/claude/cute-icon…",
+        "commit": {
+          "hash": "225e25cebb1362360deff63e21195b1b331fb9ce",
+          "subject": "Merge pull request #4 from yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
+          "author": "yuya-fujita-1201",
+          "timestamp": 1768717122,
+          "parents": [
+            "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+            "eb5d926c7e038341f02fa30033af1831c346ff51"
+          ],
+          "parent": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+          "refs": "",
+          "branches": [
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
+            "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK"
+          ]
+        },
+        "commitHash": "225e25cebb1362360deff63e21195b1b331fb9ce",
+        "lane": 0,
+        "parentLinks": [
+          {
+            "hash": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+            "lane": 0
+          },
+          {
+            "hash": "eb5d926c7e038341f02fa30033af1831c346ff51",
+            "lane": 4
+          }
+        ],
+        "primaryBranchName": "main",
+        "branchColor": "#4f85e8",
+        "branchTags": [],
+        "index": 22
+      },
+      {
+        "type": "commit",
+        "label": "feat: アプリアイコンを可愛いデザインに変更し、表示名を「はじめてメモ」に更新",
+        "commit": {
+          "hash": "eb5d926c7e038341f02fa30033af1831c346ff51",
+          "subject": "feat: アプリアイコンを可愛いデザインに変更し、表示名を「はじめてメモ」に更新",
+          "author": "Claude",
+          "timestamp": 1768717065,
+          "parents": [
+            "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192"
+          ],
+          "parent": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+          "refs": "origin/claude/cute-icon-app-name-bZHlK",
+          "branches": [
+            "origin/claude/cute-icon-app-name-bZHlK",
+            "yuya-fujita-1201/claude/cute-icon-app-name-bZHlK",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
+          ]
+        },
+        "commitHash": "eb5d926c7e038341f02fa30033af1831c346ff51",
+        "lane": 7,
+        "parentLinks": [
+          {
+            "hash": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
+            "lane": 0
+          }
+        ],
+        "primaryBranchName": "claude/cute-icon-app-name-bZHlK",
+        "branchColor": "#e84f4f",
+        "branchTags": [
+          "claude/cute-icon-app-name-bZHlK"
+        ],
+        "index": 23
       },
       {
         "type": "commit",
@@ -8688,12 +9792,14 @@
             "d438a5630880f8276d3d0353611c2667d6feb424"
           ],
           "parent": "d438a5630880f8276d3d0353611c2667d6feb424",
-          "refs": "HEAD -> main, origin/main, origin/HEAD",
+          "refs": "",
           "branches": [
-            "HEAD -> main",
-            "origin/main",
-            "origin/HEAD",
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
@@ -8706,85 +9812,8 @@
         ],
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
-        "branchTags": [
-          "main"
-        ],
-        "worktrees": [
-          {
-            "path": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
-            "head": "a81abf189b5ba753c9c0fdc7f45d0a0ae2647192",
-            "branch": "main",
-            "isMerged": true,
-            "mergeCommitHash": "0656af764dff5f47656e78ebd4568284b82985f0",
-            "status": {
-              "staged": [
-                {
-                  "path": "kamui/model-versions-cache.json",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": "kamui/model-versions-cache.json",
-                  "timestamp": 1768716459867
-                }
-              ],
-              "unstaged": [
-                {
-                  "path": ".kamui/system-graph-state.json",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": ".kamui/system-graph-state.json",
-                  "timestamp": 1768716459867
-                },
-                {
-                  "path": ".kamui/tasks-state.json",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": ".kamui/tasks-state.json",
-                  "timestamp": 1768716459867
-                },
-                {
-                  "path": "first_steps/macos/Flutter/GeneratedPluginRegistrant.swift",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": "first_steps/macos/Flutter/GeneratedPluginRegistrant.swift",
-                  "timestamp": 1768716459867
-                },
-                {
-                  "path": "first_steps/pubspec.lock",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": "first_steps/pubspec.lock",
-                  "timestamp": 1768716459867
-                },
-                {
-                  "path": "first_steps/windows/flutter/generated_plugin_registrant.cc",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": "first_steps/windows/flutter/generated_plugin_registrant.cc",
-                  "timestamp": 1768716459867
-                },
-                {
-                  "path": "first_steps/windows/flutter/generated_plugins.cmake",
-                  "originalPath": null,
-                  "status": "modified",
-                  "rawPath": "first_steps/windows/flutter/generated_plugins.cmake",
-                  "timestamp": 1768716459867
-                }
-              ],
-              "untracked": [
-                {
-                  "path": "first_steps/ios/Podfile.lock",
-                  "status": "untracked",
-                  "rawPath": "first_steps/ios/Podfile.lock",
-                  "timestamp": 1768716459867
-                }
-              ],
-              "capturedAt": 1768716459867
-            },
-            "normalizedPath": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
-            "lane": 0
-          }
-        ],
-        "index": 1
+        "branchTags": [],
+        "index": 24
       },
       {
         "type": "commit",
@@ -8804,11 +9833,11 @@
           ]
         },
         "commitHash": "b84e45578176970e9ee6c3d5be131f3505d1ca99",
-        "lane": 1,
+        "lane": 8,
         "parentLinks": [
           {
             "hash": "1c85b444ea44f89d1a8df5d8192b54338c436222",
-            "lane": 1
+            "lane": 5
           }
         ],
         "primaryBranchName": "claude/fix-iphone-crash-UJCpb",
@@ -8816,7 +9845,7 @@
         "branchTags": [
           "claude/fix-iphone-crash-UJCpb"
         ],
-        "index": 2
+        "index": 25
       },
       {
         "type": "commit",
@@ -8841,6 +9870,11 @@
             "task/task-1768670892332-21c4db",
             "task/task-1768670892134-5e2229",
             "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
             "yuya-fujita-1201/claude/fix-iphone-crash-UJCpb"
           ]
         },
@@ -8853,7 +9887,7 @@
           },
           {
             "hash": "1c85b444ea44f89d1a8df5d8192b54338c436222",
-            "lane": 1
+            "lane": 5
           }
         ],
         "primaryBranchName": "main",
@@ -8868,7 +9902,7 @@
           "task/task-1768670903915-1e4dd0",
           "yuya-fujita-1201/claude/fix-iphone-crash-UJCpb"
         ],
-        "index": 3
+        "index": 26
       },
       {
         "type": "commit",
@@ -8885,28 +9919,25 @@
           "refs": "",
           "branches": [
             "yuya-fujita-1201/claude/fix-iphone-crash-UJCpb",
-            "main",
-            "task/task-1768670892134-5e2229",
-            "task/task-1768670892332-21c4db",
-            "task/task-1768670892536-b854db",
-            "task/task-1768670892733-355bdb",
-            "task/task-1768670892933-ce68c6",
-            "task/task-1768670893244-d4f772",
-            "task/task-1768670903915-1e4dd0"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "1c85b444ea44f89d1a8df5d8192b54338c436222",
-        "lane": 0,
+        "lane": 9,
         "parentLinks": [
           {
             "hash": "c83f6efa31d21a61192f68ef4f0db0ad2593a104",
             "lane": 0
           }
         ],
-        "primaryBranchName": "main",
-        "branchColor": "#4f85e8",
+        "primaryBranchName": "yuya-fujita-1201/claude/fix-iphone-crash-UJCpb",
+        "branchColor": "#e84f4f",
         "branchTags": [],
-        "index": 4
+        "index": 27
       },
       {
         "type": "commit",
@@ -8922,7 +9953,12 @@
           "parent": "5b30fe3058665bff4aa276ce3fc844b32c814034",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "c83f6efa31d21a61192f68ef4f0db0ad2593a104",
@@ -8936,7 +9972,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 5
+        "index": 28
       },
       {
         "type": "commit",
@@ -8954,6 +9990,11 @@
           "refs": "",
           "branches": [
             "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
             "yuya-fujita-1201/claude/redesign-app-icons-UVIHs"
           ]
         },
@@ -8966,7 +10007,7 @@
           },
           {
             "hash": "dc8a8ff3cbf919999f5665d3bd8df2b3d5a188e3",
-            "lane": 2
+            "lane": 6
           }
         ],
         "primaryBranchName": "main",
@@ -8974,7 +10015,7 @@
         "branchTags": [
           "yuya-fujita-1201/claude/redesign-app-icons-UVIHs"
         ],
-        "index": 6
+        "index": 29
       },
       {
         "type": "commit",
@@ -8991,28 +10032,25 @@
           "refs": "",
           "branches": [
             "yuya-fujita-1201/claude/redesign-app-icons-UVIHs",
-            "main",
-            "task/task-1768670892134-5e2229",
-            "task/task-1768670892332-21c4db",
-            "task/task-1768670892536-b854db",
-            "task/task-1768670892733-355bdb",
-            "task/task-1768670892933-ce68c6",
-            "task/task-1768670893244-d4f772",
-            "task/task-1768670903915-1e4dd0"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "dc8a8ff3cbf919999f5665d3bd8df2b3d5a188e3",
-        "lane": 0,
+        "lane": 10,
         "parentLinks": [
           {
             "hash": "3e0be5ac77d56de75691e9e0167491afcd0dfc9d",
-            "lane": 2
+            "lane": 6
           }
         ],
-        "primaryBranchName": "main",
+        "primaryBranchName": "yuya-fujita-1201/claude/redesign-app-icons-UVIHs",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 7
+        "index": 30
       },
       {
         "type": "commit",
@@ -9028,7 +10066,12 @@
           "parent": "d88ac181c2bb7ee6b57bab85d70ab10439844be7",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "bb358afeeb4078bec19d6704e1f31bcc4fcd24bf",
@@ -9042,7 +10085,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 8
+        "index": 31
       },
       {
         "type": "commit",
@@ -9058,7 +10101,12 @@
           "parent": "da876444300a1163af38446ebf1d46f5c5f58507",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "d88ac181c2bb7ee6b57bab85d70ab10439844be7",
@@ -9072,7 +10120,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 9
+        "index": 32
       },
       {
         "type": "commit",
@@ -9088,7 +10136,12 @@
           "parent": "1e9518bf2bdd04378fff34faf5077c4605044997",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "da876444300a1163af38446ebf1d46f5c5f58507",
@@ -9102,7 +10155,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 10
+        "index": 33
       },
       {
         "type": "commit",
@@ -9120,6 +10173,11 @@
           "refs": "",
           "branches": [
             "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
             "yuya-fujita-1201/claude/redesign-app-icons-UVIHs"
           ]
         },
@@ -9132,13 +10190,13 @@
           },
           {
             "hash": "3e0be5ac77d56de75691e9e0167491afcd0dfc9d",
-            "lane": 2
+            "lane": 6
           }
         ],
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 11
+        "index": 34
       },
       {
         "type": "commit",
@@ -9155,28 +10213,25 @@
           "refs": "",
           "branches": [
             "yuya-fujita-1201/claude/redesign-app-icons-UVIHs",
-            "main",
-            "task/task-1768670892134-5e2229",
-            "task/task-1768670892332-21c4db",
-            "task/task-1768670892536-b854db",
-            "task/task-1768670892733-355bdb",
-            "task/task-1768670892933-ce68c6",
-            "task/task-1768670893244-d4f772",
-            "task/task-1768670903915-1e4dd0"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "3e0be5ac77d56de75691e9e0167491afcd0dfc9d",
-        "lane": 0,
+        "lane": 10,
         "parentLinks": [
           {
             "hash": "671765e5210415dbd724703659542e9b999a8ad1",
             "lane": 0
           }
         ],
-        "primaryBranchName": "main",
+        "primaryBranchName": "yuya-fujita-1201/claude/redesign-app-icons-UVIHs",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 12
+        "index": 35
       },
       {
         "type": "commit",
@@ -9192,7 +10247,12 @@
           "parent": "4a11d485369e4b8052df973c7b1dc3e7117e4326",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "671765e5210415dbd724703659542e9b999a8ad1",
@@ -9206,7 +10266,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 13
+        "index": 36
       },
       {
         "type": "commit",
@@ -9222,7 +10282,12 @@
           "parent": "a0316f4fee9fffc6ec3e03e1c080921b2512c140",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "4a11d485369e4b8052df973c7b1dc3e7117e4326",
@@ -9236,7 +10301,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 14
+        "index": 37
       },
       {
         "type": "commit",
@@ -9252,7 +10317,12 @@
           "parent": "654bc96dd55efc1c2a4154210e56f0ae00d4cd16",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "a0316f4fee9fffc6ec3e03e1c080921b2512c140",
@@ -9266,7 +10336,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 15
+        "index": 38
       },
       {
         "type": "commit",
@@ -9284,6 +10354,11 @@
           "refs": "",
           "branches": [
             "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
             "task/task-1768622689798-2acbb1"
           ]
         },
@@ -9296,7 +10371,7 @@
           },
           {
             "hash": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
-            "lane": 3
+            "lane": 7
           }
         ],
         "primaryBranchName": "main",
@@ -9304,7 +10379,7 @@
         "branchTags": [
           "task/task-1768622689798-2acbb1"
         ],
-        "index": 16
+        "index": 39
       },
       {
         "type": "commit",
@@ -9320,7 +10395,12 @@
           "parent": "d5dcfa490ee1818bca0513ee929420a3455cad1b",
           "refs": "",
           "branches": [
-            "main"
+            "main",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "74d85f92208b2f81af5fb3795b295ed7e737fc97",
@@ -9334,7 +10414,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 17
+        "index": 40
       },
       {
         "type": "commit",
@@ -9350,11 +10430,16 @@
           "parent": "d5dcfa490ee1818bca0513ee929420a3455cad1b",
           "refs": "task/task-1768622689798-2acbb1",
           "branches": [
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "91ba4bb5754039d9e94c8ac09fd89927d5246568",
-        "lane": 2,
+        "lane": 11,
         "parentLinks": [
           {
             "hash": "d5dcfa490ee1818bca0513ee929420a3455cad1b",
@@ -9364,7 +10449,7 @@
         "primaryBranchName": "task/task-1768622689798-2acbb1",
         "branchColor": "#e84f7f",
         "branchTags": [],
-        "index": 18
+        "index": 41
       },
       {
         "type": "commit",
@@ -9387,7 +10472,12 @@
             "task/task-1768622689999-a460bd",
             "task/task-1768622689599-1506b0",
             "main",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "d5dcfa490ee1818bca0513ee929420a3455cad1b",
@@ -9408,7 +10498,7 @@
           "task/task-1768622690600-bb26ad",
           "task/task-1768622693549-7f4a8c"
         ],
-        "index": 19
+        "index": 42
       },
       {
         "type": "commit",
@@ -9425,7 +10515,12 @@
           "refs": "",
           "branches": [
             "main",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "9833afd9970f7f57303055ca440b3e2ae6dc1d73",
@@ -9439,7 +10534,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 20
+        "index": 43
       },
       {
         "type": "commit",
@@ -9456,7 +10551,12 @@
           "refs": "",
           "branches": [
             "main",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "ec29c2dac28c8564e8e9d822708ef0c929221408",
@@ -9470,7 +10570,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 21
+        "index": 44
       },
       {
         "type": "commit",
@@ -9488,7 +10588,12 @@
           "refs": "",
           "branches": [
             "main",
+            "task/task-1768720556591-188b3c",
             "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568",
             "task/task-1768577062500-f6e778"
           ]
         },
@@ -9501,7 +10606,7 @@
           },
           {
             "hash": "4ec77b4e5e7fefe2059a8dcfd807c499c4c66ba4",
-            "lane": 4
+            "lane": 8
           }
         ],
         "primaryBranchName": "main",
@@ -9509,7 +10614,7 @@
         "branchTags": [
           "task/task-1768577062500-f6e778"
         ],
-        "index": 22
+        "index": 45
       },
       {
         "type": "commit",
@@ -9526,7 +10631,12 @@
           "refs": "",
           "branches": [
             "main",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "4a1dba43c43e0a338037099240b589ad1fffc503",
@@ -9540,7 +10650,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 23
+        "index": 46
       },
       {
         "type": "commit",
@@ -9557,11 +10667,16 @@
           "refs": "task/task-1768577062500-f6e778",
           "branches": [
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720556591-188b3c",
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "4ec77b4e5e7fefe2059a8dcfd807c499c4c66ba4",
-        "lane": 3,
+        "lane": 12,
         "parentLinks": [
           {
             "hash": "558b154b5c9490989c3e5c25d6e39bf41ab816b0",
@@ -9571,7 +10686,7 @@
         "primaryBranchName": "task/task-1768577062500-f6e778",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 24
+        "index": 47
       },
       {
         "type": "commit",
@@ -9591,7 +10706,7 @@
           ]
         },
         "commitHash": "f256e40b1087b174b9bab5800cc7bcf696b95323",
-        "lane": 4,
+        "lane": 13,
         "parentLinks": [
           {
             "hash": "558b154b5c9490989c3e5c25d6e39bf41ab816b0",
@@ -9603,7 +10718,7 @@
         "branchTags": [
           "task/task-1768577063101-836b73"
         ],
-        "index": 25
+        "index": 48
       },
       {
         "type": "commit",
@@ -9623,7 +10738,7 @@
           ]
         },
         "commitHash": "a5ac5646e36efb7732091539f3b989bcb3676d9a",
-        "lane": 5,
+        "lane": 14,
         "parentLinks": [
           {
             "hash": "558b154b5c9490989c3e5c25d6e39bf41ab816b0",
@@ -9635,7 +10750,7 @@
         "branchTags": [
           "task/task-1768577062711-f7a135"
         ],
-        "index": 26
+        "index": 49
       },
       {
         "type": "commit",
@@ -9655,7 +10770,7 @@
           ]
         },
         "commitHash": "b6f03fcd6a6e1063e977b934ea049d9b78a71c65",
-        "lane": 6,
+        "lane": 15,
         "parentLinks": [
           {
             "hash": "558b154b5c9490989c3e5c25d6e39bf41ab816b0",
@@ -9667,7 +10782,7 @@
         "branchTags": [
           "task/task-1768577062900-f887eb"
         ],
-        "index": 27
+        "index": 50
       },
       {
         "type": "commit",
@@ -9688,7 +10803,12 @@
             "task/task-1768577062100-780c92",
             "main",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "558b154b5c9490989c3e5c25d6e39bf41ab816b0",
@@ -9706,7 +10826,7 @@
           "task/task-1768577062301-bb8b50",
           "task/task-1768577066267-464ac8"
         ],
-        "index": 28
+        "index": 51
       },
       {
         "type": "commit",
@@ -9725,7 +10845,12 @@
           "branches": [
             "main",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "0656af764dff5f47656e78ebd4568284b82985f0",
@@ -9737,13 +10862,13 @@
           },
           {
             "hash": "1309ee600a40b4f2c062ca6abdc597cea2ea2617",
-            "lane": 8
+            "lane": 12
           }
         ],
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 29
+        "index": 52
       },
       {
         "type": "commit",
@@ -9761,7 +10886,12 @@
           "branches": [
             "main",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "41d92da3d41f46da00f1ea99cfab1ca8ae0a8baa",
@@ -9775,7 +10905,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 30
+        "index": 53
       },
       {
         "type": "commit",
@@ -9793,7 +10923,12 @@
           "branches": [
             "main",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "1309ee600a40b4f2c062ca6abdc597cea2ea2617",
@@ -9801,13 +10936,13 @@
         "parentLinks": [
           {
             "hash": "81a4f5e232a43e9ba7936ef88b490d47a941b7ce",
-            "lane": 8
+            "lane": 12
           }
         ],
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 31
+        "index": 54
       },
       {
         "type": "commit",
@@ -9825,7 +10960,12 @@
           "branches": [
             "main",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "81a4f5e232a43e9ba7936ef88b490d47a941b7ce",
@@ -9839,7 +10979,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 32
+        "index": 55
       },
       {
         "type": "commit",
@@ -9859,6 +10999,11 @@
             "main",
             "task/task-1768577062500-f6e778",
             "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568",
             "task"
           ]
         },
@@ -9871,7 +11016,7 @@
           },
           {
             "hash": "efb795e528f6fae47e600914f715d324a1313fb7",
-            "lane": 9
+            "lane": 13
           }
         ],
         "primaryBranchName": "main",
@@ -9879,7 +11024,7 @@
         "branchTags": [
           "task"
         ],
-        "index": 33
+        "index": 56
       },
       {
         "type": "commit",
@@ -9896,8 +11041,13 @@
           "refs": "",
           "branches": [
             "main",
+            "task/task-1768622689798-2acbb1",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "8a44674506d4afb362670f6b865bf211b23c141f",
@@ -9911,7 +11061,7 @@
         "primaryBranchName": "main",
         "branchColor": "#4f85e8",
         "branchTags": [],
-        "index": 34
+        "index": 57
       },
       {
         "type": "commit",
@@ -9931,11 +11081,11 @@
           ]
         },
         "commitHash": "bff222b009ab51bc7e4c2514d7ca4de02f7abd45",
-        "lane": 7,
+        "lane": 16,
         "parentLinks": [
           {
             "hash": "223c1c4ca5112d4112f1f75d208ba279c6d5dff0",
-            "lane": 10
+            "lane": 14
           }
         ],
         "primaryBranchName": "task/task-1768493155880-e5a9fc",
@@ -9943,7 +11093,7 @@
         "branchTags": [
           "task/task-1768493155880-e5a9fc"
         ],
-        "index": 35
+        "index": 58
       },
       {
         "type": "commit",
@@ -9963,11 +11113,11 @@
           ]
         },
         "commitHash": "75277972eea255417d46f42bfdd5c257c4804731",
-        "lane": 8,
+        "lane": 17,
         "parentLinks": [
           {
             "hash": "90d5dbca8ec78cb5150cbd72f2b309eb073e4f41",
-            "lane": 11
+            "lane": 15
           }
         ],
         "primaryBranchName": "task/task-1768493156080-3220e6",
@@ -9975,7 +11125,7 @@
         "branchTags": [
           "task/task-1768493156080-3220e6"
         ],
-        "index": 36
+        "index": 59
       },
       {
         "type": "commit",
@@ -9991,26 +11141,31 @@
           "parent": "4f27018ffb5ed634ab722bbd920e7a9a986f3d4e",
           "refs": "task/task-1768493156281-be1ce0",
           "branches": [
-            "task/task-1768493156281-be1ce0",
             "task",
+            "task/task-1768493156281-be1ce0",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "efb795e528f6fae47e600914f715d324a1313fb7",
-        "lane": 9,
+        "lane": 18,
         "parentLinks": [
           {
             "hash": "4f27018ffb5ed634ab722bbd920e7a9a986f3d4e",
-            "lane": 9
+            "lane": 13
           }
         ],
-        "primaryBranchName": "task/task-1768493156281-be1ce0",
-        "branchColor": "#e84f7f",
+        "primaryBranchName": "task",
+        "branchColor": "#4fe84f",
         "branchTags": [
           "task/task-1768493156281-be1ce0"
         ],
-        "index": 37
+        "index": 60
       },
       {
         "type": "commit",
@@ -10030,11 +11185,11 @@
           ]
         },
         "commitHash": "3142c8f3490166a03d031010c5ddb8a2e4cd9be8",
-        "lane": 11,
+        "lane": 20,
         "parentLinks": [
           {
             "hash": "b0ba24e79db7458c1dea0c2114982697b63ded51",
-            "lane": 12
+            "lane": 16
           }
         ],
         "primaryBranchName": "task/task-1768493155279-5a3539",
@@ -10042,7 +11197,7 @@
         "branchTags": [
           "task/task-1768493155279-5a3539"
         ],
-        "index": 38
+        "index": 61
       },
       {
         "type": "commit",
@@ -10062,11 +11217,11 @@
           ]
         },
         "commitHash": "09eb3d45a0b91aa7f752de2f70c6616fe3d7fb61",
-        "lane": 12,
+        "lane": 21,
         "parentLinks": [
           {
             "hash": "bff5e03cab83f209a18f14c20ecdca34ee18d599",
-            "lane": 13
+            "lane": 17
           }
         ],
         "primaryBranchName": "task/task-1768493155481-5ff372",
@@ -10074,7 +11229,7 @@
         "branchTags": [
           "task/task-1768493155481-5ff372"
         ],
-        "index": 39
+        "index": 62
       },
       {
         "type": "commit",
@@ -10094,11 +11249,11 @@
           ]
         },
         "commitHash": "206584f7e8f5054aa248d625ecf2eee4b94b5370",
-        "lane": 13,
+        "lane": 22,
         "parentLinks": [
           {
             "hash": "b6db1fa59d672d6c815e24a6e3a4e0b0d3123896",
-            "lane": 14
+            "lane": 18
           }
         ],
         "primaryBranchName": "task/task-1768493155680-b823df",
@@ -10106,7 +11261,7 @@
         "branchTags": [
           "task/task-1768493155680-b823df"
         ],
-        "index": 40
+        "index": 63
       },
       {
         "type": "commit",
@@ -10124,11 +11279,16 @@
           "branches": [
             "task",
             "task/task-1768577062500-f6e778",
-            "task/task-1768622689798-2acbb1"
+            "task/task-1768622689798-2acbb1",
+            "task/task-1768720556171-db90ee",
+            "task/task-1768720556372-f7f6c5",
+            "task/task-1768720555971-c56164",
+            "task/task-1768720556591-188b3c",
+            "task/task-1768720559890-f5a568"
           ]
         },
         "commitHash": "4f27018ffb5ed634ab722bbd920e7a9a986f3d4e",
-        "lane": 10,
+        "lane": 18,
         "parentLinks": [
           {
             "hash": "7b1a7d280b04dc24c7fde5384f1c02f086e9e405",
@@ -10136,19 +11296,19 @@
           }
         ],
         "primaryBranchName": "task",
-        "branchColor": "#4f85e8",
+        "branchColor": "#4fe84f",
         "branchTags": [],
-        "index": 41
+        "index": 64
       },
       {
         "type": "empty",
         "label": "初期状態 (初回コミット以前)",
         "files": [],
         "marker": "pre-history",
-        "index": 42
+        "index": 65
       }
     ]
   },
   "projectRoot": "/Users/yuyafujita/Desktop/workspaces/FirstSteps",
-  "savedAt": 1768716463258
+  "savedAt": 1768756425646
 }

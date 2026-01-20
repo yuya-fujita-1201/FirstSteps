@@ -67,7 +67,7 @@ dependencies:
   google_mobile_ads: ^5.1.0
 
   # In-app purchases (RevenueCat)
-  purchases_flutter: ^6.30.0
+  purchases_flutter: ^9.10.6
 
   # Image processing
   image: ^4.1.7
