@@ -122,6 +122,7 @@ class SettingsScreen extends StatelessWidget {
     final purchaseProvider = context.watch<PurchaseProvider>();
     final isPro = purchaseProvider.isPro;
     final firebaseEnabled = FirebaseGuard.isConfigured;
+    final purchasesEnabled = purchaseProvider.purchasesEnabled;
 
     return Scaffold(
       appBar: AppBar(
@@ -137,7 +138,16 @@ class SettingsScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               children: [
-                  if (!isPro)
+                if (!purchasesEnabled)
+                  const ListTile(
+                    leading: Icon(
+                      Icons.workspace_premium,
+                      color: AppColors.textSecondary,
+                    ),
+                    title: Text('Pro版は現在準備中です'),
+                    subtitle: Text('今後のアップデートで提供予定です'),
+                  )
+                else if (!isPro)
                   ListTile(
                     leading: const Icon(
                       Icons.workspace_premium,
@@ -432,4 +442,3 @@ class SettingsScreen extends StatelessWidget {
   }
 
 }
-

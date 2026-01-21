@@ -1,4 +1,4 @@
-package com.example.first_steps
+package marumi.works.hajimetememo
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -5,7 +5,8 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 class PurchaseProvider extends ChangeNotifier {
   static const String _proEntitlementId = 'pro';
   static const String _revenueCatApiKey = 'test_azAFcRLtJBNJzDZfLyknYmiryWg';
-  static const bool _useMockPurchases = true;
+  static const bool _enablePurchases = false;
+  static const bool _useMockPurchases = false;
   static const List<String> _mockPlanIds = [
     'weekly',
     'monthly',
@@ -20,6 +21,7 @@ class PurchaseProvider extends ChangeNotifier {
   bool get isInitialized => _isInitialized;
   bool get isLoading => _isLoading;
   bool get isMockMode => _useMockPurchases;
+  bool get purchasesEnabled => _enablePurchases;
   List<String> get mockPlanIds => List.unmodifiable(_mockPlanIds);
 
   PurchaseProvider() {
@@ -29,6 +31,12 @@ class PurchaseProvider extends ChangeNotifier {
   Future<void> _initialize() async {
     if (_isInitialized) return;
     try {
+      if (!_enablePurchases) {
+        _isInitialized = true;
+        _isPro = false;
+        notifyListeners();
+        return;
+      }
       if (_useMockPurchases) {
         _isInitialized = true;
         notifyListeners();
@@ -67,6 +75,9 @@ class PurchaseProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
+      if (!_enablePurchases) {
+        return;
+      }
       if (_useMockPurchases) {
         await Future.delayed(const Duration(milliseconds: 300));
         _isPro = true;
@@ -96,6 +107,9 @@ class PurchaseProvider extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
+      if (!_enablePurchases) {
+        return;
+      }
       if (_useMockPurchases) {
         await Future.delayed(const Duration(milliseconds: 300));
         _isPro = true;
