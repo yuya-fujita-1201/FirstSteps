@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.firstSteps</string>
+	<string>marumi.works.hajimetememo</string>
 	<key>PROJECT_ID</key>
 	<string>first-steps-7d383</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:776057320321:ios:817b3b8cd8b3aa471c2e80</string>
+	<string>1:776057320321:ios:e4c82d81d21c68131c2e80</string>
 </dict>
 </plist>
