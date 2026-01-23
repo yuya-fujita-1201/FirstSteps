@@ -36,8 +36,8 @@
 - [ ] **Bundle ID / Application ID を決定**
   - 形式: `com.company.appname` または `works.company.appname`
   - **重要**: 一度公開したら変更不可
-  - iOS: `marumi.works.hajimetememo`
-  - Android: `marumi.works.hajimetememo`（同じにすると管理が楽）
+  - 例: iOS `works.yourcompany.appname` / Android `works.yourcompany.appname`
+  - iOS と Android で同じIDにすると管理が楽
 
 ### 企画・設計
 
@@ -408,12 +408,12 @@ sips -z 2796 1290 input.png --out output.png
 ```markdown
 ## iOS App Store 情報
 
-- **アプリ名**: はじめてメモ
-- **サブタイトル**: 赤ちゃんの成長の瞬間を記録（30文字以内）
+- **アプリ名**: Your App Name
+- **サブタイトル**: Your app subtitle（30文字以内）
 - **Bundle ID**: works.yourcompany.appname
 - **SKU**: appname（任意の一意な識別子）
 - **プライマリ言語**: 日本語
-- **カテゴリ**: ライフスタイル, ヘルスケア/フィットネス
+- **カテゴリ**: ライフスタイル, ヘルスケア/フィットネス（例）
 - **年齢制限**: 4+
 - **プライバシーポリシーURL**: https://...
 - **サポートURL**: https://...
@@ -680,8 +680,8 @@ cd android
 ### 問題1: Bundle ID / Application ID の変更が必要だった
 
 **状況**:
-- 開発時は `com.example.firstSteps` を使用
-- 公開時に `marumi.works.hajimetememo` に変更が必要
+- 開発時は `com.example.appname` を使用（Flutterのデフォルト）
+- 公開時に本番用のBundle ID（例: `works.yourcompany.appname`）に変更が必要
 
 **教訓**:
 - ✅ **最初から本番用のBundle ID/Application IDを設定する**
