@@ -17,6 +17,10 @@ class ChildProfile extends HiveObject {
   @HiveField(2)
   String? photoPath;
 
+  /// Optional name suffix (e.g., "くん", "ちゃん")
+  @HiveField(5)
+  String? nameSuffix;
+
   /// Created timestamp
   @HiveField(3)
   DateTime createdAt;
@@ -29,6 +33,7 @@ class ChildProfile extends HiveObject {
     required this.name,
     required this.birthDate,
     this.photoPath,
+    this.nameSuffix,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -62,11 +67,21 @@ class ChildProfile extends HiveObject {
     }
   }
 
+  /// Get display name with optional suffix
+  String get displayName {
+    final suffix = nameSuffix?.trim() ?? '';
+    if (suffix.isEmpty) {
+      return name;
+    }
+    return '$name $suffix';
+  }
+
   /// Copy with method for updating fields
   ChildProfile copyWith({
     String? name,
     DateTime? birthDate,
     String? photoPath,
+    String? nameSuffix,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -74,6 +89,7 @@ class ChildProfile extends HiveObject {
       name: name ?? this.name,
       birthDate: birthDate ?? this.birthDate,
       photoPath: photoPath ?? this.photoPath,
+      nameSuffix: nameSuffix ?? this.nameSuffix,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );

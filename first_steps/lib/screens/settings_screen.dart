@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../providers/purchase_provider.dart';
 import '../services/backup_service.dart';
-import '../services/firebase_guard.dart';
 import '../theme/app_theme.dart';
 import 'terms_of_service_screen.dart';
 import 'privacy_policy_screen.dart';
@@ -121,7 +120,6 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final purchaseProvider = context.watch<PurchaseProvider>();
     final isPro = purchaseProvider.isPro;
-    final firebaseEnabled = FirebaseGuard.isConfigured;
     final purchasesEnabled = purchaseProvider.purchasesEnabled;
 
     return Scaffold(
@@ -255,15 +253,11 @@ class SettingsScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                   title: const Text('バックアップ'),
-                  subtitle: Text(
-                    isPro
-                        ? (firebaseEnabled ? 'Firebaseに保存' : 'Firebase未設定')
-                        : 'Pro版で利用可能',
-                  ),
+                  subtitle: const Text('準備中'),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro && firebaseEnabled
-                      ? () => _handleBackup(context)
-                      : null,
+                  onTap: () {
+                    _showComingSoonDialog(context, 'バックアップ機能');
+                  },
                 ),
                 const Divider(height: 1, indent: 56),
                 ListTile(
@@ -272,15 +266,11 @@ class SettingsScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                   title: const Text('復元'),
-                  subtitle: Text(
-                    isPro
-                        ? (firebaseEnabled ? 'Firebaseから復元' : 'Firebase未設定')
-                        : 'Pro版で利用可能',
-                  ),
+                  subtitle: const Text('準備中'),
                   trailing: const Icon(Icons.chevron_right),
-                  onTap: isPro && firebaseEnabled
-                      ? () => _handleRestore(context)
-                      : null,
+                  onTap: () {
+                    _showComingSoonDialog(context, '復元機能');
+                  },
                 ),
                 const Divider(height: 1, indent: 56),
                 ListTile(
@@ -289,7 +279,7 @@ class SettingsScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                   title: const Text('PDF/画像書き出し'),
-                  subtitle: const Text('Pro版で利用可能'),
+                  subtitle: const Text('準備中'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     _showComingSoonDialog(context, 'PDF/画像書き出し機能');

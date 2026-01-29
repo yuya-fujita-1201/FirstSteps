@@ -32,6 +32,7 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
   final _nameController = TextEditingController();
   DateTime? _birthDate;
   String? _photoPath;
+  String? _nameSuffix;
   final _imagePicker = ImagePicker();
   bool _isLoading = false;
 
@@ -43,6 +44,7 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
       _nameController.text = widget.existingProfile!.name;
       _birthDate = widget.existingProfile!.birthDate;
       _photoPath = widget.existingProfile!.photoPath;
+      _nameSuffix = widget.existingProfile!.nameSuffix;
     }
   }
 
@@ -134,6 +136,10 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
           if (currentProfile.birthDate != _birthDate!) {
             await childProvider.updateBirthDate(_birthDate!);
           }
+          // Update name suffix if changed
+          if (currentProfile.nameSuffix != _nameSuffix) {
+            await childProvider.updateNameSuffix(_nameSuffix);
+          }
           // Update photo if changed
           if (currentProfile.photoPath != _photoPath) {
             if (_photoPath != null) {
@@ -147,6 +153,7 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
           name: _nameController.text.trim(),
           birthDate: _birthDate!,
           photoPath: _photoPath,
+          nameSuffix: _nameSuffix,
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
@@ -263,6 +270,25 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
                     return null;
                   },
                 ),
+                const SizedBox(height: 16),
+                const Text(
+                  '呼び方（任意）',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    _buildSuffixChip('くん', 'くん'),
+                    _buildSuffixChip('ちゃん', 'ちゃん'),
+                    _buildSuffixChip('さん', 'さん'),
+                    _buildSuffixChip('なし', null),
+                  ],
+                ),
                 const SizedBox(height: 24),
 
                 // Birth date field
@@ -311,6 +337,20 @@ class _ProfileRegistrationScreenState extends State<ProfileRegistrationScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSuffixChip(String label, String? value) {
+    final isSelected = _nameSuffix == value;
+    return ChoiceChip(
+      label: Text(label),
+      selected: isSelected,
+      onSelected: (_) {
+        setState(() {
+          _nameSuffix = value;
+        });
+      },
+      selectedColor: AppColors.accentColor.withValues(alpha: 0.2),
     );
   }
 }

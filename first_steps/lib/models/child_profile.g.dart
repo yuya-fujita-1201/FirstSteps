@@ -20,6 +20,7 @@ class ChildProfileAdapter extends TypeAdapter<ChildProfile> {
       name: fields[0] as String,
       birthDate: fields[1] as DateTime,
       photoPath: fields[2] as String?,
+      nameSuffix: fields[5] as String?,
       createdAt: fields[3] as DateTime,
       updatedAt: fields[4] as DateTime,
     );
@@ -28,13 +29,15 @@ class ChildProfileAdapter extends TypeAdapter<ChildProfile> {
   @override
   void write(BinaryWriter writer, ChildProfile obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.birthDate)
       ..writeByte(2)
       ..write(obj.photoPath)
+      ..writeByte(5)
+      ..write(obj.nameSuffix)
       ..writeByte(3)
       ..write(obj.createdAt)
       ..writeByte(4)

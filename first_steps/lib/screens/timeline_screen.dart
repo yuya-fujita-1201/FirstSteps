@@ -46,7 +46,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
       final milestoneProvider = context.read<MilestoneProvider>();
       final childProvider = context.read<ChildProvider>();
       final record = milestoneProvider.getRecordById(recordId);
-      final childName = childProvider.currentChild?.name ?? 'お子様';
+      final childName = childProvider.currentChild?.displayName ?? 'お子様';
 
       if (record == null) return;
 

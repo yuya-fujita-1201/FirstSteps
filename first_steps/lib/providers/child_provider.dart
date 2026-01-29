@@ -79,6 +79,22 @@ class ChildProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Update profile name suffix
+  Future<void> updateNameSuffix(String? nameSuffix) async {
+    if (_currentChildKey == null) return;
+    final currentProfile = _profilesByKey[_currentChildKey!];
+    if (currentProfile == null) return;
+
+    final updatedProfile = currentProfile.copyWith(
+      nameSuffix: nameSuffix,
+      updatedAt: DateTime.now(),
+    );
+
+    await DatabaseService.updateChildProfile(_currentChildKey!, updatedProfile);
+    _profilesByKey[_currentChildKey!] = updatedProfile;
+    notifyListeners();
+  }
+
   /// Update profile birth date
   Future<void> updateBirthDate(DateTime birthDate) async {
     if (_currentChildKey == null) return;
