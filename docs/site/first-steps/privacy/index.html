@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>プライバシーポリシー | はじめてメモ / First Steps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #2b2623;
+        --muted: #6b5f58;
+        --accent: #ff8f5e;
+        --accent-2: #ffcf95;
+        --card: #fffaf2;
+        --stroke: #eadfd2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+          "Yu Gothic", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 600px at 10% 0%, #ffe9d6 0%, transparent 60%),
+          radial-gradient(900px 500px at 90% 10%, #fff4c5 0%, transparent 55%),
+          linear-gradient(180deg, #fff6eb 0%, #faf2e7 100%);
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 56px 24px 72px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 28px;
+        animation: rise 0.7s ease-out both;
+      }
+
+      .kicker {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        color: var(--muted);
+      }
+
+      h1 {
+        font-size: clamp(24px, 4vw, 38px);
+        margin: 0;
+      }
+
+      .lead {
+        font-size: clamp(14px, 2vw, 18px);
+        color: var(--muted);
+        max-width: 700px;
+      }
+
+      .en {
+        display: block;
+        font-size: 0.95em;
+        color: var(--muted);
+      }
+
+      .jp {
+        display: block;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 12px 28px rgba(52, 43, 36, 0.08);
+        display: grid;
+        gap: 12px;
+        animation: rise 0.8s ease-out both;
+      }
+
+      .card h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .card h3 {
+        margin: 10px 0 4px;
+        font-size: 15px;
+      }
+
+      ul {
+        padding-left: 18px;
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .meta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .highlight {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #2a1a10;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .footer {
+        margin-top: 36px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          padding: 40px 18px 56px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="kicker">Privacy Policy</div>
+        <h1>プライバシーポリシー</h1>
+        <p class="lead">
+          <span class="jp"
+            >はじめてメモ / First Steps（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。本ポリシーは、本アプリにおける個人情報の取り扱いについて説明するものです。</span
+          >
+          <span class="en"
+            >Hajimete Memo / First Steps (the “App”) respects your privacy and strives to protect personal information. This policy explains how the App handles personal information.</span
+          >
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="card" style="animation-delay: 0.05s">
+          <h2>1. 収集する情報 / Information We Collect</h2>
+          <h3>無料版 / Free Version</h3>
+          <ul>
+            <li>
+              <span class="jp">広告配信のための匿名利用情報</span>
+              <span class="en">Anonymous usage data for ad delivery</span>
+            </li>
+            <li>
+              <span class="jp"
+                >お子様の名前、生年月日、マイルストーン記録（達成日、メモ、写真）などの入力情報は、無料版では本アプリ運営者に送信・収集されません（端末内のローカル保存のみ）</span
+              >
+              <span class="en"
+                >Input data such as child name, date of birth, milestones (dates, notes, photos) are not sent to or collected by us in the free version (stored locally on the device only).</span
+              >
+            </li>
+          </ul>
+          <h3>Pro版 / Pro Version</h3>
+          <ul>
+            <li>
+              <span class="jp">クラウドバックアップ用の匿名認証情報</span>
+              <span class="en">Anonymous authentication information for cloud backup</span>
+            </li>
+            <li>
+              <span class="jp"
+                >バックアップ機能の利用時に、端末内の入力情報（お子様の名前、生年月日、マイルストーン記録など）がクラウドに保存される場合があります</span
+              >
+              <span class="en"
+                >When using the backup feature, input data (child name, date of birth, milestones, etc.) may be stored in the cloud.</span
+              >
+            </li>
+            <li>
+              <span class="jp">購入情報（RevenueCatを通じた課金情報）</span>
+              <span class="en">Purchase information (billing data via RevenueCat)</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card" style="animation-delay: 0.1s">
+          <h2>2. 情報の利用目的 / Purposes of Use</h2>
+          <ul>
+            <li>
+              <span class="jp">本アプリのサービス提供</span>
+              <span class="en">Providing the App’s services</span>
+            </li>
+            <li>
+              <span class="jp">データのバックアップおよび復元（Pro版）</span>
+              <span class="en">Backup and restoration of data (Pro)</span>
+            </li>
+            <li>
+              <span class="jp">広告の配信（無料版）</span>
+              <span class="en">Ad delivery (Free)</span>
+            </li>
+            <li>
+              <span class="jp">アプリの改善および新機能の開発</span>
+              <span class="en">App improvement and new feature development</span>
+            </li>
+            <li>
+              <span class="jp">お問い合わせへの対応</span>
+              <span class="en">Responding to inquiries</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card" style="animation-delay: 0.15s">
+          <h2>3. データの保存場所 / Data Storage</h2>
+          <h3>ローカルストレージ / Local Storage</h3>
+          <p>
+            <span class="jp"
+              >お子様のプロフィールやマイルストーン記録は、デバイス内のローカルストレージに保存されます。</span
+            >
+            <span class="en"
+              >Child profiles and milestone records are stored locally on the device.</span
+            >
+          </p>
+          <h3>クラウドストレージ（Pro版のみ） / Cloud Storage (Pro only)</h3>
+          <p>
+            <span class="jp"
+              >バックアップ機能を利用する場合、データはFirebase（Google Cloud Platform）に保存されます。通信は暗号化され、安全に管理されます。</span
+            >
+            <span class="en"
+              >When using the backup feature, data is stored on Firebase (Google Cloud Platform). Communications are encrypted and securely managed.</span
+            >
+          </p>
+        </section>
+
+        <section class="card" style="animation-delay: 0.2s">
+          <h2>4. 第三者への提供 / Sharing with Third Parties</h2>
+          <ul>
+            <li>
+              <span class="jp">ユーザーの同意がある場合</span>
+              <span class="en">With user consent</span>
+            </li>
+            <li>
+              <span class="jp">法令に基づく場合</span>
+              <span class="en">When required by law</span>
+            </li>
+            <li>
+              <span class="jp">人の生命、身体または財産の保護のために必要がある場合</span>
+              <span class="en">To protect life, body, or property</span>
+            </li>
+          </ul>
+          <p>
+            <span class="jp">上記の場合を除き、ユーザーの個人情報を第三者に提供することはありません。</span>
+            <span class="en">We do not provide personal information to third parties except in the cases above.</span>
+          </p>
+        </section>
+
+        <section class="card" style="animation-delay: 0.25s">
+          <h2>5. 第三者サービスの利用 / Third-Party Services</h2>
+          <h3>無料版 / Free Version</h3>
+          <ul>
+            <li>
+              <span class="jp">Google AdMob（広告配信）</span>
+              <span class="en">Google AdMob (ad delivery)</span>
+            </li>
+          </ul>
+          <h3>Pro版 / Pro Version</h3>
+          <ul>
+            <li>
+              <span class="jp">Firebase Authentication（匿名認証）</span>
+              <span class="en">Firebase Authentication (anonymous auth)</span>
+            </li>
+            <li>
+              <span class="jp">Cloud Firestore（データ保存）</span>
+              <span class="en">Cloud Firestore (data storage)</span>
+            </li>
+            <li>
+              <span class="jp">RevenueCat（課金管理）</span>
+              <span class="en">RevenueCat (billing management)</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card" style="animation-delay: 0.3s">
+          <h2>6. データの削除 / Data Deletion</h2>
+          <p>
+            <span class="jp"
+              >ユーザーは、アプリをアンインストールすることで、ローカルに保存されたすべてのデータを削除できます。クラウドに保存されたデータについては、お問い合わせいただければ削除いたします。</span
+            >
+            <span class="en"
+              >You can delete locally stored data by uninstalling the App. For data stored in the cloud, please contact us and we will delete it.</span
+            >
+          </p>
+        </section>
+
+        <section class="card" style="animation-delay: 0.35s">
+          <h2>7. 子どものプライバシー / Children’s Privacy</h2>
+          <p>
+            <span class="jp"
+              >本アプリは、13歳未満の子どもから直接個人情報を収集することを意図していません。保護者の方が、お子様の情報を記録する形でご利用ください。</span
+            >
+            <span class="en"
+              >The App is not intended to collect personal information directly from children under 13. Please use the App as a guardian to record information about your child.</span
+            >
+          </p>
+        </section>
+
+        <section class="card" style="animation-delay: 0.4s">
+          <h2>8. プライバシーポリシーの変更 / Changes to This Policy</h2>
+          <p>
+            <span class="jp"
+              >本プライバシーポリシーは、必要に応じて変更されることがあります。変更後のプライバシーポリシーは、本アプリ内に掲示された時点より効力を生じます。</span
+            >
+            <span class="en"
+              >This policy may be updated as needed. The revised policy becomes effective when posted in the App.</span
+            >
+          </p>
+        </section>
+
+        <section class="card" style="animation-delay: 0.45s">
+          <h2>9. お問い合わせ / Contact</h2>
+          <p>
+            <span class="jp"
+              >本プライバシーポリシーに関するお問い合わせは、アプリ内の「お問い合わせ」またはサポートメールにてご連絡ください。</span
+            >
+            <span class="en"
+              >If you have questions about this privacy policy, please contact us from within the App or via the support email.</span
+            >
+          </p>
+          <a class="highlight" href="mailto:marumi.works@gmail.com">
+            marumi.works@gmail.com
+          </a>
+        </section>
+      </main>
+
+      <div class="footer">
+        <span>制定日: 2026年1月18日 / Effective date: January 18, 2026</span>
+        <a href="../support/">サポートページへ / Support</a>
+        <a href="../">トップへ戻る / Home</a>
+      </div>
+    </div>
+  </body>
+</html>
